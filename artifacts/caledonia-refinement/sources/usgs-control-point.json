@@ -1,0 +1,29 @@
+{
+  "samples": [
+    {
+      "location": {
+        "x": -121.91907,
+        "y": 36.625,
+        "spatialReference": {
+          "wkid": 4326,
+          "latestWkid": 4326
+        }
+      },
+      "locationId": 0,
+      "value": "17.857004166",
+      "rasterId": 24075,
+      "resolution": 1,
+      "attributes": {
+        "Name": "CA_AZ_FEMA_R9_Lidar_2017_D18",
+        "VerticalDatum": "North American Vertical Datum of 1988 (NAVD 88)",
+        "StartDate": 20180106,
+        "EndDate": "20190224",
+        "URL": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_AZ_FEMA_R9_Lidar_2017_D18/TIFF/USGS_1M_10_x59y406_CA_AZ_FEMA_R9_Lidar_2017_D18.tif",
+        "Source": "USGS",
+        "pubdate": 20210619
+      }
+    }
+  ],
+  "requestUrl": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer/getSamples?f=json&geometry=%7B%22x%22%3A-121.91907%2C%22y%22%3A36.625%2C%22spatialReference%22%3A%7B%22wkid%22%3A4326%7D%7D&geometryType=esriGeometryPoint&returnFirstValueOnly=true&outFields=Name%2CVerticalDatum%2CStartDate%2CEndDate%2CURL%2CSource%2Cpubdate",
+  "retrieved": "2026-10-26T18:10:02.142Z"
+}

@@ -1,0 +1,174 @@
+{
+  "samples": [
+    {
+      "location": {
+        "x": -121.91685,
+        "y": 36.6256,
+        "spatialReference": {
+          "wkid": 4326,
+          "latestWkid": 4326
+        }
+      },
+      "locationId": 0,
+      "value": "9.588479996",
+      "rasterId": 24075,
+      "resolution": 1,
+      "attributes": {
+        "Name": "CA_AZ_FEMA_R9_Lidar_2017_D18",
+        "VerticalDatum": "North American Vertical Datum of 1988 (NAVD 88)",
+        "StartDate": 20180106,
+        "EndDate": "20190224"
+      }
+    },
+    {
+      "location": {
+        "x": -121.91656985569621,
+        "y": 36.6259147621273,
+        "spatialReference": {
+          "wkid": 4326,
+          "latestWkid": 4326
+        }
+      },
+      "locationId": 1,
+      "value": "8.555990219",
+      "rasterId": 24075,
+      "resolution": 1,
+      "attributes": {
+        "Name": "CA_AZ_FEMA_R9_Lidar_2017_D18",
+        "VerticalDatum": "North American Vertical Datum of 1988 (NAVD 88)",
+        "StartDate": 20180106,
+        "EndDate": "20190224"
+      }
+    },
+    {
+      "location": {
+        "x": -121.9164577979747,
+        "y": 36.62506040778177,
+        "spatialReference": {
+          "wkid": 4326,
+          "latestWkid": 4326
+        }
+      },
+      "locationId": 2,
+      "value": "1.425515890",
+      "rasterId": 24075,
+      "resolution": 1,
+      "attributes": {
+        "Name": "CA_AZ_FEMA_R9_Lidar_2017_D18",
+        "VerticalDatum": "North American Vertical Datum of 1988 (NAVD 88)",
+        "StartDate": 20180106,
+        "EndDate": "20190224"
+      }
+    },
+    {
+      "location": {
+        "x": -121.91600956708865,
+        "y": 36.62604966018186,
+        "spatialReference": {
+          "wkid": 4326,
+          "latestWkid": 4326
+        }
+      },
+      "locationId": 3,
+      "value": "1.577994108",
+      "rasterId": 24075,
+      "resolution": 1,
+      "attributes": {
+        "Name": "CA_AZ_FEMA_R9_Lidar_2017_D18",
+        "VerticalDatum": "North American Vertical Datum of 1988 (NAVD 88)",
+        "StartDate": 20180106,
+        "EndDate": "20190224"
+      }
+    },
+    {
+      "location": {
+        "x": -121.91544927848108,
+        "y": 36.62676911647284,
+        "spatialReference": {
+          "wkid": 4326,
+          "latestWkid": 4326
+        }
+      },
+      "locationId": 4,
+      "value": "10.240975380",
+      "rasterId": 24075,
+      "resolution": 1,
+      "attributes": {
+        "Name": "CA_AZ_FEMA_R9_Lidar_2017_D18",
+        "VerticalDatum": "North American Vertical Datum of 1988 (NAVD 88)",
+        "StartDate": 20180106,
+        "EndDate": "20190224"
+      }
+    },
+    {
+      "location": {
+        "x": -121.91702929235441,
+        "y": 36.62525825826178,
+        "spatialReference": {
+          "wkid": 4326,
+          "latestWkid": 4326
+        }
+      },
+      "locationId": 5,
+      "value": "8.100728989",
+      "rasterId": 24075,
+      "resolution": 1,
+      "attributes": {
+        "Name": "CA_AZ_FEMA_R9_Lidar_2017_D18",
+        "VerticalDatum": "North American Vertical Datum of 1988 (NAVD 88)",
+        "StartDate": 20180106,
+        "EndDate": "20190224"
+      }
+    },
+    {
+      "location": {
+        "x": -121.9169620577215,
+        "y": 36.62506040778177,
+        "spatialReference": {
+          "wkid": 4326,
+          "latestWkid": 4326
+        }
+      },
+      "locationId": 6,
+      "value": "8.031275749",
+      "rasterId": 24075,
+      "resolution": 1,
+      "attributes": {
+        "Name": "CA_AZ_FEMA_R9_Lidar_2017_D18",
+        "VerticalDatum": "North American Vertical Datum of 1988 (NAVD 88)",
+        "StartDate": 20180106,
+        "EndDate": "20190224"
+      }
+    }
+  ],
+  "localPoints": [
+    [
+      0,
+      0
+    ],
+    [
+      25,
+      -35
+    ],
+    [
+      35,
+      60
+    ],
+    [
+      75,
+      -50
+    ],
+    [
+      125,
+      -130
+    ],
+    [
+      -16,
+      38
+    ],
+    [
+      -10,
+      60
+    ]
+  ]
+}

@@ -1,0 +1,30 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { BoxGeometry, Group, Mesh, MeshBasicMaterial, Vector3 } from 'three';
+import { createModelAssembly, disposeModelResources } from '../src/models/shared/assembly';
+
+test('Shared batching preserves nested transforms, UVs and material boundaries', () => {
+  const assembly = createModelAssembly('fixture');
+  assembly.visual.position.set(1, 2, 3);
+  assembly.visual.rotation.y = .3;
+  const part = assembly.addPart('part', [2, .5, -1]);
+  part.rotation.z = .5;
+  const nested = new Group(); nested.position.y = .4; part.add(nested);
+  const material = new MeshBasicMaterial();
+  const original = assembly.addMesh(nested, new BoxGeometry(), material);
+  original.scale.set(1, .5, 2);
+  const other = assembly.addMesh(assembly.addPart('other'), new BoxGeometry(), new MeshBasicMaterial());
+  other.position.x = -2;
+  assembly.root.updateMatrixWorld(true);
+  const worldPoint = original.localToWorld(new Vector3().fromBufferAttribute(original.geometry.attributes.position, 0));
+  assembly.batchParts(['part', 'other'], 'batch');
+  assembly.root.updateMatrixWorld(true);
+  assert.equal(assembly.parts.size, 1);
+  const meshes = assembly.parts.get('batch')!.children as Mesh[];
+  assert.equal(meshes.length, 2);
+  const merged = meshes.find(mesh => mesh.material === material)!;
+  assert.ok(merged.geometry.attributes.uv, 'UVs survive unless explicitly discarded');
+  const point = merged.localToWorld(new Vector3().fromBufferAttribute(merged.geometry.attributes.position, 0));
+  assert.ok(point.distanceTo(worldPoint) < 1e-6);
+  disposeModelResources(assembly.root);
+});

@@ -1,0 +1,20 @@
+{
+  "downloaded": "2026-10-26",
+  "recorded": "2026-10-26T18:11:26.111898+00:00",
+  "buildingUrl": "https://api.openstreetmap.org/api/0.6/way/559348745/full.json",
+  "mapUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=-121.91965,36.62465,-121.91836,36.62556",
+  "terrainUrl": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer",
+  "mapBoundsWGS84": [
+    -121.91965,
+    36.62465,
+    -121.91836,
+    36.62556
+  ],
+  "requestedCropMetres": [
+    -240,
+    15,
+    -145,
+    90
+  ],
+  "notes": "Primary OSM building full JSON retained by building agent; area XML, USGS export TIFF and control-point metadata fetched independently on this date. Earlier OSM Node fetches returned429; curl primary requests succeeded. No Overpass response used."
+}

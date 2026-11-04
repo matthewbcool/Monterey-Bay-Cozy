@@ -1,0 +1,18 @@
+{
+  "href": "https://elevation.nationalmap.gov/arcgis/rest/directories/elevation_output/3DEPElevation_ImageServer/_ags_56325d00_df67_410f_b6fc_37ab84a6bfed.tif",
+  "width": 24,
+  "height": 21,
+  "extent": {
+    "xmin": -121.91965144303785,
+    "ymin": 36.62454158338859,
+    "xmax": -121.91836277924044,
+    "ymax": 36.625669164211324,
+    "spatialReference": {
+      "wkid": 4326,
+      "latestWkid": 4326
+    }
+  },
+  "scale": 0,
+  "requestUrl": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer/exportImage?f=json&bbox=-121.91965144303784%2C36.62465571361809%2C-121.91836277924043%2C36.62555503398181&bboxSR=4326&imageSR=4326&size=24%2C21&format=tiff&pixelType=F32&interpolation=RSP_BilinearInterpolation",
+  "retrieved": "2026-10-26T18:08:00.996Z"
+}

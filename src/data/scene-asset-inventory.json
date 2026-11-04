@@ -1,0 +1,406 @@
+{
+  "date": "2026-10-26",
+  "scope": "Semantic asset families in current procedural source. Family records are not counts of mesh parts or placed instances. Catalog-only assets are enumerated by propCollection.",
+  "entries": [
+    {
+      "id": "park-furniture",
+      "name": "Cypress bench and green litter bin",
+      "category": "Furniture",
+      "status": "library-shared",
+      "sources": [
+        "src/viewer/testingGym/parkFurniture.ts"
+      ],
+      "libraryIds": [
+        "park-bench",
+        "park-litter-bin"
+      ],
+      "notes": "Shared model source; world placement, collisions and batch remain scene-owned."
+    },
+    {
+      "id": "cafe-furniture",
+      "name": "Caf\u00e9 chairs, round tables and parasols",
+      "category": "Furniture",
+      "status": "library-shared",
+      "sources": [
+        "src/viewer/testingGym/cafeTerrace.ts"
+      ],
+      "libraryIds": [
+        "cafe-chair",
+        "cafe-table",
+        "cafe-parasol"
+      ],
+      "notes": "Shared source; four table arrangements and pink parasol variation remain scene-owned."
+    },
+    {
+      "id": "trail-furniture",
+      "name": "Backed/backless trail benches, concrete bins, bicycle racks, interpretation boards",
+      "category": "Furniture",
+      "status": "scene-only",
+      "sources": [
+        "src/viewer/mapStudy/waterfrontTrail.ts"
+      ],
+      "libraryIds": [],
+      "notes": "Distinct designs from the cypress bench. Extract raw builders before catalog registration; preserve OSM seats, authored infill and shared batching."
+    },
+    {
+      "id": "jewell-furniture",
+      "name": "Jewell benches, litter/recycling containers and lantern",
+      "category": "Furniture",
+      "status": "scene-only",
+      "sources": [
+        "src/viewer/mapStudy/jewellPark.ts"
+      ],
+      "libraryIds": [],
+      "notes": "Bench is a distinct design; boxes used as bin proxies are not finished product models."
+    },
+    {
+      "id": "caledonia-equipment",
+      "name": "Caledonia benches, picnic tables, basketball hoops and city-photo playground equipment",
+      "category": "Recreation",
+      "status": "scene-only",
+      "sources": [
+        "src/viewer/mapStudy/caledonia.ts",
+        "src/viewer/mapStudy/caledoniaPlaygrounds.ts"
+      ],
+      "libraryIds": [],
+      "notes": "Keep two court hoops and playground compositions distinct from their court surfaces. Extract and budget before registering."
+    },
+    {
+      "id": "pool-gate",
+      "name": "Opening pool gate",
+      "category": "Recreation",
+      "status": "scene-only",
+      "sources": [
+        "src/viewer/testingGym/poolGate.ts"
+      ],
+      "libraryIds": [],
+      "notes": "Already one batched rigid object. Separate the model from scene collision/toggle logic before exposing an inspection factory."
+    },
+    {
+      "id": "court-pool",
+      "name": "Volleyball posts/net, pool basin/deck/coping and court markings",
+      "category": "Recreation",
+      "status": "scene-only",
+      "sources": [
+        "src/viewer/testingGym/landmarks.ts"
+      ],
+      "libraryIds": [],
+      "notes": "Net assembly is a reusable candidate; mapped pool/court ground is a location surface."
+    },
+    {
+      "id": "park-boundaries",
+      "name": "Picket fences, parking bollards/rails and pavement arrows",
+      "category": "Infrastructure",
+      "status": "scene-only",
+      "sources": [
+        "src/viewer/testingGym/parkFurniture.ts"
+      ],
+      "libraryIds": [],
+      "notes": "Parametric fence/rail candidates; terrain-following placement and paint remain site-specific."
+    },
+    {
+      "id": "district-boundaries",
+      "name": "Chain-link court fences, gates, retaining boundaries and trail rails",
+      "category": "Infrastructure",
+      "status": "scene-only",
+      "sources": [
+        "src/viewer/mapStudy/caledoniaFence.ts",
+        "src/viewer/mapStudy/caledonia.ts",
+        "src/viewer/mapStudy/waterfrontTrail.ts",
+        "src/viewer/mapStudy/jewellPark.ts"
+      ],
+      "libraryIds": [],
+      "notes": "Several fence designs; do not merge them into a single invented generic asset."
+    },
+    {
+      "id": "park-buildings",
+      "name": "Beach House, Grill and park building details",
+      "category": "Buildings",
+      "status": "scene-only",
+      "sources": [
+        "src/viewer/testingGym/buildings.ts"
+      ],
+      "libraryIds": [],
+      "notes": "Mapped shells, roofs, awnings and windows; location study rather than stand-alone interchangeable furniture."
+    },
+    {
+      "id": "jewell-buildings",
+      "name": "Gazebo and Little House",
+      "category": "Buildings",
+      "status": "scene-only",
+      "sources": [
+        "src/viewer/mapStudy/jewellPark.ts"
+      ],
+      "libraryIds": [],
+      "notes": "Candidate landmark factories; illustrative dimensions and supported terrain foundations."
+    },
+    {
+      "id": "caledonia-buildings",
+      "name": "Meals on Wheels / Sally Griffin frontage and residential massing",
+      "category": "Buildings",
+      "status": "scene-only",
+      "sources": [
+        "src/viewer/mapStudy/caledoniaMeals.ts",
+        "src/viewer/mapStudy/caledonia.ts",
+        "src/viewer/mapStudy/caledoniaAnnex.ts"
+      ],
+      "libraryIds": [],
+      "notes": "Site-specific frontage and contextual buildings, not verified complete architectural models."
+    },
+    {
+      "id": "waterfront-buildings",
+      "name": "Waterfront and neighbourhood shells, windows, signs and roofs",
+      "category": "Buildings",
+      "status": "scene-only",
+      "sources": [
+        "src/viewer/mapStudy/waterfront.ts",
+        "src/viewer/testingGym/neighbourhood.ts"
+      ],
+      "libraryIds": [],
+      "notes": "Mapped massing and facade components; category recorded without claiming individual complete buildings."
+    },
+    {
+      "id": "museum",
+      "name": "Natural History Museum, whale sculpture, planters, rails and stairs",
+      "category": "Landmarks",
+      "status": "other-workbench",
+      "sources": [
+        "src/models/locations/pacificGroveMuseum/index.ts",
+        "src/viewer/mapStudy/museum.ts"
+      ],
+      "libraryIds": [],
+      "notes": "Museum is inspectable in Map Study. Attached detail remains part of that location, not an Objects entry."
+    },
+    {
+      "id": "aquarium",
+      "name": "Aquarium exterior, interior rooms, exhibits and building components",
+      "category": "Landmarks",
+      "status": "other-workbench",
+      "sources": [
+        "src/models/aquarium/createAquarium.ts",
+        "src/viewer/aquariumInterior/view.ts"
+      ],
+      "libraryIds": [],
+      "notes": "Area/Map inspection; audit individual fixture reuse separately from the full building."
+    },
+    {
+      "id": "rock-shrub",
+      "name": "Park rocks, low plants and scene-specific trees",
+      "category": "Habitat",
+      "status": "scene-only",
+      "sources": [
+        "src/viewer/testingGym/nature.ts",
+        "src/viewer/mapStudy/waterfrontTrail.ts",
+        "src/viewer/mapStudy/jewellPark.ts",
+        "src/viewer/mapStudy/caledonia.ts"
+      ],
+      "libraryIds": [],
+      "notes": "Seven tree species are already cataloged. These extra rock/shrub/proxy tree geometries are not the same library models."
+    },
+    {
+      "id": "reef-habitat",
+      "name": "Reef boulders and attached habitat colonies",
+      "category": "Habitat",
+      "status": "mixed",
+      "sources": [
+        "src/viewer/testingGym/reef.ts",
+        "src/viewer/seabed.ts"
+      ],
+      "libraryIds": [
+        "giant-kelp",
+        "bat-star",
+        "purple-sea-urchin",
+        "giant-green-anemone",
+        "aggregating-anemone"
+      ],
+      "notes": "Rocks remain scene-only; kelp, stars, urchins and both anemones have library representatives. Colony instances are composition variants."
+    },
+    {
+      "id": "coastal-kelp",
+      "name": "Coastal kelp patches and holdfast rocks",
+      "category": "Habitat",
+      "status": "mixed",
+      "sources": [
+        "src/viewer/testingGym/coastalLife.ts"
+      ],
+      "libraryIds": [
+        "giant-kelp"
+      ],
+      "notes": "Library kelp with local batching/placement and simplified rock bases."
+    },
+    {
+      "id": "wildlife",
+      "name": "Gym butterflies, gulls, deer, fish, turtles, jellyfish and whales",
+      "category": "Wildlife",
+      "status": "other-workbench",
+      "sources": [
+        "src/viewer/testingGym/butterflies.ts",
+        "src/viewer/testingGym/gulls.ts",
+        "src/viewer/testingGym/deer.ts",
+        "src/viewer/testingGym/coastalLife.ts",
+        "src/viewer/testingGym/whalePod.ts"
+      ],
+      "libraryIds": [],
+      "notes": "Land animals are in Objects; fish/turtle/jelly/octopus/whale are in Tank. Schools, herd/pod behavior and routes are scene compositions, not missing species assets."
+    },
+    {
+      "id": "equipment",
+      "name": "Rods, tackle box, boats, dock, dive rack, Otter Man and two statues",
+      "category": "Equipment",
+      "status": "library-shared",
+      "sources": [
+        "src/viewer/testingGym.ts",
+        "src/viewer/harbor.ts",
+        "src/viewer/testingGym/statues.ts"
+      ],
+      "libraryIds": [
+        "spinning-rod",
+        "bamboo-rod",
+        "rowboat",
+        "cabin-boat",
+        "dock",
+        "tackle-box",
+        "scuba-rack",
+        "otter-man-suit",
+        "sailing-boy-statue",
+        "butterfly-statue"
+      ],
+      "notes": "Already cataloged. Oars, boat benches, scuba pieces and suit jets are components of their owning assets."
+    },
+    {
+      "id": "access",
+      "name": "Concrete pier, beach stairs, platforms, seawalls and rails",
+      "category": "Infrastructure",
+      "status": "scene-only",
+      "sources": [
+        "src/viewer/testingGym/access.ts",
+        "src/viewer/testingGym/shore.ts"
+      ],
+      "libraryIds": [],
+      "notes": "Location-scale terrain/access assemblies; maintain geometry/collision agreement when extracting reusable sections."
+    },
+    {
+      "id": "gallery",
+      "name": "Tank gallery enclosure and visitor silhouettes",
+      "category": "Presentation",
+      "status": "other-workbench",
+      "sources": [
+        "src/viewer/openSea/scenery.ts",
+        "src/models/visitors/createGalleryVisitors.ts"
+      ],
+      "libraryIds": [],
+      "notes": "Visible in Tank. Visitors are separate from configurable avatars; neither belongs to the prop selector by default."
+    },
+    {
+      "id": "museum-garden-furniture",
+      "name": "Garden benches, drinking fountain, interpretation panels, fossil pit and seasonal wheel",
+      "category": "Furniture",
+      "status": "scene-only",
+      "sources": [
+        "src/models/locations/pacificGroveMuseum/garden.ts"
+      ],
+      "libraryIds": [],
+      "notes": "Existing garden props; provisional site designs. The whale sculpture is part of the same garden module."
+    },
+    {
+      "id": "harbor-detail",
+      "name": "Rod holder, submerged pilings and coastal grass",
+      "category": "Dockside",
+      "status": "scene-only",
+      "sources": [
+        "src/viewer/harbor.ts"
+      ],
+      "libraryIds": [],
+      "notes": "Small attached/supporting components, currently batched into the harbor."
+    },
+    {
+      "id": "retired-museum-exhibits",
+      "name": "Museum cases, microscope, classroom tables/stools and dioramas",
+      "category": "Historical",
+      "status": "retired",
+      "sources": [
+        "src/models/locations/pacificGroveMuseum/exhibits.ts"
+      ],
+      "libraryIds": [],
+      "notes": "Retained source, not imported by the current museum factory. Do not restore exhibits as part of catalog maintenance."
+    }
+  ],
+  "nonAssetSources": [
+    {
+      "source": "src/viewer/mapStudy.ts",
+      "reason": "Map overlays, route surfaces and inspection helpers"
+    },
+    {
+      "source": "src/viewer/objects.ts",
+      "reason": "Pedestal, ruler and comparison grid"
+    },
+    {
+      "source": "src/viewer/gymWeatherSky.ts",
+      "reason": "Sky, rain, stars and atmospheric rendering"
+    },
+    {
+      "source": "src/viewer/sky.ts",
+      "reason": "Inspection sky"
+    },
+    {
+      "source": "src/viewer/avatarWorkbench.ts",
+      "reason": "Avatar plinth, contact shadow and viewport composition"
+    },
+    {
+      "source": "src/viewer/water.ts",
+      "reason": "Animated water surface"
+    },
+    {
+      "source": "src/viewer/mapStudy/bayRegion.ts",
+      "reason": "Regional terrain, seafloor and major routes"
+    },
+    {
+      "source": "src/viewer/mapStudy/loversPoint.ts",
+      "reason": "Park adapter and source transforms"
+    },
+    {
+      "source": "src/viewer/testingGym/groundSurface.ts",
+      "reason": "Partitioned ground surface builder"
+    },
+    {
+      "source": "src/viewer/testingGym/geometry.ts",
+      "reason": "Low-level geometry helper, not a reusable named asset"
+    },
+    {
+      "source": "src/viewer/testingGym/shoreFoam.ts",
+      "reason": "Water-edge visual effect"
+    },
+    {
+      "source": "src/viewer/testingGym/spatialBatches.ts",
+      "reason": "Batch/instance infrastructure"
+    },
+    {
+      "source": "src/viewer/testingGym/otterDiveEffects.ts",
+      "reason": "Suit bubbles and headlamp effect"
+    },
+    {
+      "source": "src/viewer/testingGym/elevation.ts",
+      "reason": "Terrain seating and mesh helpers"
+    },
+    {
+      "source": "src/viewer/testingGym/seafloor.ts",
+      "reason": "Bathymetric terrain"
+    },
+    {
+      "source": "src/viewer/testingGym/oceanGeometry.ts",
+      "reason": "Ocean surface clipping"
+    },
+    {
+      "source": "src/viewer/openSea/waterLook.ts",
+      "reason": "Tank water optical volume"
+    },
+    {
+      "source": "src/viewer/enhancedWater/caustics.ts",
+      "reason": "Opt-in GPU light-focusing atlas grid; rendering infrastructure, not a reusable world asset"
+    },
+    {
+      "source": "src/viewer/enhancedWater/surfaceGeometry.ts",
+      "reason": "Opt-in camera-local water tessellation; rendering detail with unchanged physical wave and asset scale"
+    }
+  ]
+}

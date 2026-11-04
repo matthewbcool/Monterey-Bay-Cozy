@@ -1,0 +1,4 @@
+{
+  "url": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer/exportImage?f=json&bbox=-122.12%2C36.55%2C-121.70%2C37.03&bboxSR=4326&imageSR=4326&size=256%2C320&format=tiff&pixelType=F32&interpolation=%2BRSP_BilinearInterpolation&adjustAspectRatio=false",
+  "retrievedUTC": "2026-10-25T16:46:09Z"
+}

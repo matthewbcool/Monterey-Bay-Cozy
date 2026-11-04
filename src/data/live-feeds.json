@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 1,
+  "researchedOn": "2026-10-20",
+  "timezone": "America/Los_Angeles",
+  "purpose": "Candidate real-world windows at geographically anchored game locations; not approved integrations.",
+  "coordinateReference": "WGS84 longitude/latitude; approximate venue/area anchors, not surveyed camera mounts.",
+  "locations": [
+    {
+      "id": "aquarium",
+      "name": "Monterey Bay Aquarium",
+      "longitude": -121.901918,
+      "latitude": 36.618084,
+      "positionKind": "venue",
+      "uncertaintyMeters": 150,
+      "basis": "Shared Aquarium campus anchor from the existing OSM-based map/interior study. Individual camera mounts and exhibit camera positions have not been surveyed. All Aquarium feeds share this pin; no invented per-camera offsets.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/relation/7037898",
+        "https://www.montereybayaquarium.org/cams-videos/live-cams/monterey-bay-cam"
+      ],
+      "gamePlace": "Aquarium ocean-view decks and exhibit galleries"
+    },
+    {
+      "id": "surfline-monterey-bay",
+      "name": "Monterey Bay surf spot",
+      "longitude": -121.89109,
+      "latitude": 36.606635,
+      "positionKind": "area-estimate",
+      "uncertaintyMeters": 750,
+      "basis": "Centre in the provider View Map link associated with this report. This is an approximate spot-area anchor, not verified camera-mount coordinates. Surfline identifies Adventures By The Sea as camera host.",
+      "sourceUrls": [
+        "https://www.surfline.com/surf-report/monterey-bay/584204214e65fad6a7709d05",
+        "https://www.surfline.com/surf-reports-forecasts-cams-map/buoys/@36.606635,-121.89109,8z"
+      ],
+      "gamePlace": "Monterey waterfront surf lookout"
+    },
+    {
+      "id": "domenicos-wharf",
+      "name": "Domenico’s on the Wharf",
+      "longitude": -121.89246,
+      "latitude": 36.6045547,
+      "positionKind": "venue",
+      "uncertaintyMeters": 75,
+      "basis": "Venue point from the Google Maps address link on the official Live Feed page, 50 Fishermans Wharf #1. Camera mount, elevation and viewing direction remain unverified.",
+      "sourceUrls": [
+        "https://domenicosmonterey.com/live-feed/",
+        "https://goo.gl/maps/HhhN4iohJzmoR3Bi7"
+      ],
+      "gamePlace": "Old Fisherman’s Wharf"
+    },
+    {
+      "id": "portola-hotel",
+      "name": "Portola Hotel & Spa",
+      "longitude": -121.8943365,
+      "latitude": 36.6019676,
+      "positionKind": "venue",
+      "uncertaintyMeters": 150,
+      "basis": "Representative hotel-campus point from the official site’s map entry for Jacks Monterey at Two Portola Plaza. The webcam page places the camera atop the hotel; the exact roof mount and elevation are unknown.",
+      "sourceUrls": [
+        "https://www.portolahotel.com/",
+        "https://www.portolahotel.com/maps-and-directions",
+        "https://www.portolahotel.com/our-hotel/webcam"
+      ],
+      "gamePlace": "Custom House Plaza / Monterey waterfront"
+    }
+  ],
+  "feeds": [
+    {
+      "id": "aquarium-bay",
+      "name": "Monterey Bay Cam",
+      "locationId": "aquarium",
+      "provider": "Monterey Bay Aquarium",
+      "pageUrl": "https://www.montereybayaquarium.org/cams-videos/live-cams/monterey-bay-cam",
+      "environment": "wild-outdoor",
+      "subject": "Wild coastal water, birds and marine mammals from the Aquarium decks.",
+      "availability": {
+        "status": "provider-listing-confirmed",
+        "schedule": "Live hours not confirmed; the provider also has an off-hours recording state.",
+        "playbackVerified": false,
+        "notes": "A listed live cam is not proof of current live playback. Off-hours video may be prerecorded."
+      },
+      "embedding": {
+        "status": "permission-unconfirmed",
+        "candidatePlayerUrl": null,
+        "technicalStatus": "stable-player-not-recorded",
+        "nextStep": "Confirm third-party game embedding permission and a stable official player; preserve branding and clearly identify replay versus live video."
+      },
+      "evidenceUrls": [
+        "https://www.montereybayaquarium.org/cams-videos/live-cams/monterey-bay-cam",
+        "https://www.montereybayaquarium.org/cams-videos/live-cams"
+      ],
+      "checkedOn": "2026-10-20"
+    },
+    {
+      "id": "aquarium-kelp",
+      "name": "Kelp Forest Cam",
+      "locationId": "aquarium",
+      "provider": "Monterey Bay Aquarium",
+      "pageUrl": "https://www.montereybayaquarium.org/cams-videos/live-cams/kelp-forest-cam",
+      "environment": "managed-exhibit",
+      "subject": "The Aquarium’s managed Kelp Forest exhibit.",
+      "availability": {
+        "status": "provider-listing-confirmed",
+        "schedule": "Provider lists 7 a.m.–7 p.m. Pacific; recheck before playback.",
+        "playbackVerified": false,
+        "notes": "A listed live cam is not proof of current live playback. Off-hours video may be prerecorded."
+      },
+      "embedding": {
+        "status": "permission-unconfirmed",
+        "candidatePlayerUrl": null,
+        "technicalStatus": "stable-player-not-recorded",
+        "nextStep": "Confirm third-party game embedding permission and a stable official player; preserve branding and clearly identify replay versus live video."
+      },
+      "evidenceUrls": [
+        "https://www.montereybayaquarium.org/cams-videos/live-cams/kelp-forest-cam",
+        "https://www.montereybayaquarium.org/cams-videos/live-cams"
+      ],
+      "checkedOn": "2026-10-20"
+    },
+    {
+      "id": "aquarium-open-sea",
+      "name": "Open Sea Cam",
+      "locationId": "aquarium",
+      "provider": "Monterey Bay Aquarium",
+      "pageUrl": "https://www.montereybayaquarium.org/cams-videos/live-cams/open-sea-cam",
+      "environment": "managed-exhibit",
+      "subject": "The Aquarium’s managed Open Sea exhibit: tuna, sardines, sharks and turtles.",
+      "availability": {
+        "status": "provider-listing-confirmed",
+        "schedule": "Provider lists 7 a.m.–7 p.m. Pacific; recheck before playback.",
+        "playbackVerified": false,
+        "notes": "A listed live cam is not proof of current live playback. Off-hours video may be prerecorded."
+      },
+      "embedding": {
+        "status": "permission-unconfirmed",
+        "candidatePlayerUrl": null,
+        "technicalStatus": "stable-player-not-recorded",
+        "nextStep": "Confirm third-party game embedding permission and a stable official player; preserve branding and clearly identify replay versus live video."
+      },
+      "evidenceUrls": [
+        "https://www.montereybayaquarium.org/cams-videos/live-cams/open-sea-cam",
+        "https://www.montereybayaquarium.org/cams-videos/live-cams"
+      ],
+      "checkedOn": "2026-10-20"
+    },
+    {
+      "id": "aquarium-sea-otter",
+      "name": "Sea Otter Cam",
+      "locationId": "aquarium",
+      "provider": "Monterey Bay Aquarium",
+      "pageUrl": "https://www.montereybayaquarium.org/cams-videos/live-cams/sea-otter-cam",
+      "environment": "managed-exhibit",
+      "subject": "The Aquarium’s managed sea otter exhibit.",
+      "availability": {
+        "status": "provider-listing-confirmed",
+        "schedule": "Provider lists 7 a.m.–7 p.m. Pacific; recheck before playback.",
+        "playbackVerified": false,
+        "notes": "A listed live cam is not proof of current live playback. Off-hours video may be prerecorded."
+      },
+      "embedding": {
+        "status": "permission-unconfirmed",
+        "candidatePlayerUrl": null,
+        "technicalStatus": "stable-player-not-recorded",
+        "nextStep": "Confirm third-party game embedding permission and a stable official player; preserve branding and clearly identify replay versus live video."
+      },
+      "evidenceUrls": [
+        "https://www.montereybayaquarium.org/cams-videos/live-cams/sea-otter-cam",
+        "https://www.montereybayaquarium.org/cams-videos/live-cams"
+      ],
+      "checkedOn": "2026-10-20"
+    },
+    {
+      "id": "aquarium-moon-jelly",
+      "name": "Moon Jelly Cam",
+      "locationId": "aquarium",
+      "provider": "Monterey Bay Aquarium",
+      "pageUrl": "https://www.montereybayaquarium.org/cams-videos/live-cams/moon-jelly-cam",
+      "environment": "managed-exhibit",
+      "subject": "The Aquarium’s managed moon jelly exhibit.",
+      "availability": {
+        "status": "provider-listing-confirmed",
+        "schedule": "Provider lists 7 a.m.–7 p.m. Pacific; recheck before playback.",
+        "playbackVerified": false,
+        "notes": "A listed live cam is not proof of current live playback. Off-hours video may be prerecorded."
+      },
+      "embedding": {
+        "status": "permission-unconfirmed",
+        "candidatePlayerUrl": null,
+        "technicalStatus": "stable-player-not-recorded",
+        "nextStep": "Confirm third-party game embedding permission and a stable official player; preserve branding and clearly identify replay versus live video."
+      },
+      "evidenceUrls": [
+        "https://www.montereybayaquarium.org/cams-videos/live-cams/moon-jelly-cam",
+        "https://www.montereybayaquarium.org/cams-videos/live-cams"
+      ],
+      "checkedOn": "2026-10-20"
+    },
+    {
+      "id": "aquarium-aviary",
+      "name": "Aviary Cam",
+      "locationId": "aquarium",
+      "provider": "Monterey Bay Aquarium",
+      "pageUrl": "https://www.montereybayaquarium.org/cams-videos/live-cams/aviary-cam",
+      "environment": "managed-exhibit",
+      "subject": "The Aquarium’s managed coastal-bird habitat.",
+      "availability": {
+        "status": "provider-listing-confirmed",
+        "schedule": "Provider lists 7 a.m.–7 p.m. Pacific; recheck before playback.",
+        "playbackVerified": false,
+        "notes": "A listed live cam is not proof of current live playback. Off-hours video may be prerecorded."
+      },
+      "embedding": {
+        "status": "permission-unconfirmed",
+        "candidatePlayerUrl": null,
+        "technicalStatus": "stable-player-not-recorded",
+        "nextStep": "Confirm third-party game embedding permission and a stable official player; preserve branding and clearly identify replay versus live video."
+      },
+      "evidenceUrls": [
+        "https://www.montereybayaquarium.org/cams-videos/live-cams/aviary-cam",
+        "https://www.montereybayaquarium.org/cams-videos/live-cams"
+      ],
+      "checkedOn": "2026-10-20"
+    },
+    {
+      "id": "surfline-monterey-bay",
+      "name": "Monterey Bay Surf Cam",
+      "locationId": "surfline-monterey-bay",
+      "provider": "Surfline / Adventures By The Sea (host)",
+      "pageUrl": "https://www.surfline.com/surf-report/monterey-bay/584204214e65fad6a7709d05",
+      "environment": "wild-outdoor",
+      "subject": "Surf and waterfront conditions at Surfline’s Monterey Bay spot.",
+      "availability": {
+        "status": "provider-listing-confirmed",
+        "schedule": "Not verified; provider account or subscription requirements may apply.",
+        "playbackVerified": false,
+        "notes": "The report identifies a camera host. No gated stream was extracted or replayed."
+      },
+      "embedding": {
+        "status": "commercial-agreement-required",
+        "candidatePlayerUrl": null,
+        "technicalStatus": "provider-link-only",
+        "nextStep": "Contact support@surfline.com for commercial streaming terms. The public report URL is not an iframe permission or a direct media URL."
+      },
+      "evidenceUrls": [
+        "https://www.surfline.com/surf-report/monterey-bay/584204214e65fad6a7709d05",
+        "https://support.surfline.com/hc/en-us/articles/13883563949979-Can-we-embed-a-forecast-or-a-cam-to-our-website"
+      ],
+      "checkedOn": "2026-10-20"
+    },
+    {
+      "id": "domenicos-harbor",
+      "name": "Domenico’s Wharf Feed",
+      "locationId": "domenicos-wharf",
+      "provider": "Domenico’s on the Wharf",
+      "pageUrl": "https://domenicosmonterey.com/live-feed/",
+      "environment": "wild-outdoor",
+      "subject": "A candidate waterfront viewpoint on Old Fisherman’s Wharf.",
+      "availability": {
+        "status": "listing-only-player-unresolved",
+        "schedule": "Unknown.",
+        "playbackVerified": false,
+        "notes": "The official Live Feed page and venue address exist, but no player was found in the fetched page. Confirm that a live camera still operates and verify its field of view."
+      },
+      "embedding": {
+        "status": "permission-unconfirmed",
+        "candidatePlayerUrl": null,
+        "technicalStatus": "player-unresolved",
+        "nextStep": "Ask the venue to confirm operation, view and game embedding terms before selecting a player."
+      },
+      "evidenceUrls": [
+        "https://domenicosmonterey.com/live-feed/"
+      ],
+      "checkedOn": "2026-10-20"
+    },
+    {
+      "id": "portola-rooftop",
+      "name": "Portola Rooftop Webcam",
+      "locationId": "portola-hotel",
+      "provider": "Portola Hotel & Spa / HDOnTap",
+      "pageUrl": "https://www.portolahotel.com/our-hotel/webcam",
+      "environment": "wild-outdoor",
+      "subject": "Hotel rooftop views toward Monterey Bay, Fisherman’s Wharf and Custom House Plaza.",
+      "availability": {
+        "status": "provider-player-found",
+        "schedule": "Not verified.",
+        "playbackVerified": false,
+        "notes": "The official HTML publishes an HDOnTap iframe. Its page also retains obsolete Flash instructions; current media playback was not tested."
+      },
+      "embedding": {
+        "status": "permission-unconfirmed",
+        "candidatePlayerUrl": "https://portal.hdontap.com/s/embed/?stream=portola_ttv-DMS&ratio=16:9",
+        "technicalStatus": "official-iframe-observed",
+        "nextStep": "Confirm Portola/HDOnTap permission and allowed embed domains, then test the player in target browsers. A published iframe on their own site does not establish permission for ours."
+      },
+      "evidenceUrls": [
+        "https://www.portolahotel.com/our-hotel/webcam",
+        "https://www.portolahotel.com/maps-and-directions"
+      ],
+      "checkedOn": "2026-10-20"
+    }
+  ]
+}

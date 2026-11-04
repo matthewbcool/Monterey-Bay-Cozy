@@ -1,0 +1,32 @@
+import {chromium} from 'playwright';
+import fs from 'node:fs/promises';
+const out=process.env.ARTIFACT_DIR??'artifacts/gym-diagnostics';await fs.mkdir(out,{recursive:true});
+const checks=[],errors=[],samples=[];let failure;const check=(ok,msg)=>{if(!ok)throw Error(msg);checks.push(msg);console.log('PASS',msg);};
+const browser=await chromium.launch({channel:'chrome',headless:true,args:['--enable-unsafe-webgpu']});
+const read=(p,fn,arg)=>p.evaluate(async({fn,arg})=>{const{viewer}=await import(document.querySelector('script[type="module"][src*="/src/main.ts"]').src);return new Function('w','arg',`return (${fn})(w,arg)`)(viewer.avatarWorkbench,arg);},{fn:fn.toString(),arg});
+const ready=async p=>{await p.waitForFunction(()=>document.querySelector('#panel-gym')?.dataset.gymLoad==='ready'&&!document.querySelector('#panel-gym .gym-loading'),undefined,{timeout:120000});};
+async function setup(options={}){const c=await browser.newContext({viewport:{width:1280,height:900},...options});await c.route('https://api.weather.gov/**',r=>r.abort());await c.routeWebSocket(u=>u.hostname==='127.0.0.1'&&u.searchParams.has('token'),s=>s.send(JSON.stringify({type:'connected'})));const p=await c.newPage();p.on('pageerror',e=>errors.push(String(e)));await p.clock.setFixedTime(new Date('2026-10-25T20:00:00Z'));return {c,p};}
+try{
+ for(const backend of ['webgpu','webgl']){
+  const {c,p}=await setup();let releaseModule,releaseWorld;
+  const moduleGate=new Promise(r=>releaseModule=r),worldGate=new Promise(r=>releaseWorld=r);
+  await c.route('**/src/viewer/avatarWorkbench.ts*',async route=>{await moduleGate;await route.continue();});
+  await c.route('**/src/viewer/testingGym.ts*',async route=>{await worldGate;await route.continue();});
+  await p.goto('http://127.0.0.1:5191/?tab=gym&whales=hide'+(backend==='webgl'?'&webgl':''),{waitUntil:'domcontentloaded'});
+  await p.locator('.gym-loading').waitFor({state:'visible',timeout:60000});check((await p.locator('.gym-loading-message').textContent()).includes('workbench'),backend+' loader precedes lazy workbench import');await p.screenshot({path:`${out}/${backend}-bootstrap.png`});releaseModule();
+  await p.waitForFunction(()=>document.querySelector('#panel-gym .gym-layout')?.inert===true);check(await p.locator('#panel-gym').getAttribute('aria-busy')==='true',backend+' loading is announced and scene controls are inert');await p.screenshot({path:`${out}/${backend}-loading.png`});
+  // Switching away and back must reuse the pending build and keep Avatars usable.
+  await p.locator('#tab-avatars').click();check(await p.locator('#avatar-name').isVisible(),backend+' can leave loading view');releaseWorld();await p.waitForTimeout(100);await p.locator('#tab-gym').click();await ready(p);
+  check(await p.locator('.gym-loading').count()===0,backend+' loading screen leaves after first scene frame');check(await p.locator('#panel-gym').getAttribute('aria-busy')==='false',backend+' busy state clears');check(await p.evaluate(()=>!document.querySelector('#panel-gym .gym-layout').inert),backend+' controls enabled');
+  await p.waitForFunction(()=>document.querySelector('[data-perf=fps]')?.textContent?.includes('FPS'),undefined,{timeout:20000});const s=await read(p,w=>w.getSnapshot());samples.push(s.performance);
+  check(s.backend===(backend==='webgpu'?'WebGPU':'WebGL 2'),backend+' actual backend confirmed');check(s.performance.fps>0&&Number.isFinite(s.performance.deviationMs)&&s.performance.drawCalls>0&&s.performance.triangles>0,backend+' live finite frame and draw statistics');check(s.performance.passes>0&&s.performance.geometries>0&&s.performance.textures>0,backend+' pass/resource counts');
+  const last=await read(p,w=>{const s=w.getSnapshot();return {fps:s.performance.fps,draws:w.renderer.info.render.drawCalls,auto:w.renderer.info.autoReset};});check(last.auto===false&&last.draws>0&&last.draws<10000,backend+' renderer counts are explicitly reset each frame');await p.screenshot({path:`${out}/${backend}-panel.png`});
+  const summary=p.locator('.gym-diagnostics summary');await summary.focus();await p.keyboard.press('Enter');check(!await p.locator('.gym-diagnostics').evaluate(e=>e.open),backend+' panel collapses with keyboard');await p.keyboard.press('Enter');
+  await p.locator('#tab-avatars').click();await p.waitForTimeout(400);const idle=await read(p,w=>w.getSnapshot().performance);check(idle===null,backend+' statistics reset while leaving Gym');await p.locator('#tab-gym').click();await ready(p);check(await p.locator('.gym-loading').count()===0,backend+' warm return has no loading screen');
+  await p.waitForTimeout(1200);check((await read(p,w=>w.getSnapshot().performance))?.worstMs<1000,backend+' inactive time is excluded');await c.close();
+ }
+ const {c,p}=await setup({viewport:{width:390,height:844},isMobile:true,hasTouch:true,reducedMotion:'reduce'});await p.goto('http://127.0.0.1:5191/?tab=gym&webgl&quality=base&whales=hide');await ready(p);check(!await p.locator('.gym-diagnostics').evaluate(e=>e.open),'phone panel starts collapsed');await p.locator('.gym-diagnostics summary').tap();await p.waitForTimeout(1200);check(await p.locator('.gym-diagnostics').evaluate(e=>e.open),'touch expands panel');
+ check(await p.evaluate(()=>{const panel=document.querySelector('.gym-diagnostics').getBoundingClientRect(),jump=document.querySelector('#gym-jump').getBoundingClientRect();return panel.right<=innerWidth&&panel.left>=0&&panel.bottom<=jump.top&&panel.bottom<=document.querySelector('#gym-interact').getBoundingClientRect().top;}),'phone panel fits above movement and interaction controls');await p.screenshot({path:`${out}/phone-panel.png`});await c.close();
+ const broken=await setup();await broken.c.route('**/src/viewer/testingGym.ts*',r=>r.abort());await broken.p.goto('http://127.0.0.1:5191/?tab=gym&webgl');await broken.p.locator('.gym-loading[data-state=error]').waitFor({timeout:90000});check(await broken.p.locator('.gym-loading button').isVisible(),'failed asset request offers reload');check(!await broken.p.locator('.gym-loading progress').isVisible(),'failure does not leave endless progress');await broken.p.screenshot({path:`${out}/loading-error.png`});await broken.c.close();
+ check(errors.length===0,'no uncaught browser errors');
+}catch(e){failure=String(e);throw e;}finally{await fs.writeFile(`${out}/browser-checks.json`,JSON.stringify({passed:!failure,failure,checks,errors,samples},null,2));await browser.close();}

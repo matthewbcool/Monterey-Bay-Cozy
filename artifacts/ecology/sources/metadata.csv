@@ -1,0 +1,186 @@
+Row Type,Variable Name,Attribute Name,Data Type,Value
+attribute,NC_GLOBAL,acknowledgment,String,Fisheries Ecology Division/SWFSC/NOAA
+attribute,NC_GLOBAL,cdm_data_type,String,Point
+attribute,NC_GLOBAL,Conventions,String,"CF-1.6, ACDD-1.3, COARDS, NCCSV-1.2"
+attribute,NC_GLOBAL,creator_email,String,lynn.dewitt@noaa.gov
+attribute,NC_GLOBAL,date_issued,String,2024-11-12
+attribute,NC_GLOBAL,date_modified,String,2024-11-12
+attribute,NC_GLOBAL,defaultGraphQuery,String,"longitude,latitude,catch&time>=2015-05-01T00:00:00Z&time<=2015-07-01T00:00:00Z&common_name=""NORTH PACIFIC HAKE""&maturity=""Y""&catch>0&.draw=markers&.marker=5|4&.color=0x000000&.colorBar=||Log|||"
+attribute,NC_GLOBAL,Easternmost_Easting,double,-117.3265
+attribute,NC_GLOBAL,featureType,String,Point
+attribute,NC_GLOBAL,geospatial_lat_max,double,41.51
+attribute,NC_GLOBAL,geospatial_lat_min,double,32.702
+attribute,NC_GLOBAL,geospatial_lat_units,String,degrees_north
+attribute,NC_GLOBAL,geospatial_lon_max,double,-117.3265
+attribute,NC_GLOBAL,geospatial_lon_min,double,-125.1552
+attribute,NC_GLOBAL,geospatial_lon_units,String,degrees_east
+attribute,NC_GLOBAL,infoUrl,String,http://calcofi.org/publications/calcofireports/v57/Vol57-Sakuma_pages.163-183.pdf
+attribute,NC_GLOBAL,institution,String,NOAA NMFS SWFSC FED
+attribute,NC_GLOBAL,license,String,"The data may be used and redistributed for free but is not intended\nfor legal use, since it may contain inaccuracies. Neither the data\nContributor, ERD, NOAA, nor the United States Government, nor any\nof their employees or contractors, makes any warranty, express or\nimplied, including warranties of merchantability and fitness for a\nparticular purpose, or assumes any legal liability for the accuracy,\ncompleteness, or usefulness, of this information."
+attribute,NC_GLOBAL,Northernmost_Northing,double,41.51
+attribute,NC_GLOBAL,publisher_email,String,John.Field@noaa.gov
+attribute,NC_GLOBAL,publisher_name,String,John Field
+attribute,NC_GLOBAL,sourceUrl,String,(local files)
+attribute,NC_GLOBAL,Southernmost_Northing,double,32.702
+attribute,NC_GLOBAL,standard_name_vocabulary,String,CF Standard Name Table v70
+attribute,NC_GLOBAL,subsetVariables,String,"cruise,haul_no,station,species_code,common_name,sci_name,species_group,maturity,aphiaid,area,strata,station_active,vessel,depth_strata"
+attribute,NC_GLOBAL,summary,String,"The Fisheries Ecology Division (FED, https://www.fisheries.noaa.gov/west-coast/science-data/molecular-ecology-and-genetic-analysis-california-salmon-and-groundfish) of the Southwest Fisheries Science Center (SWFSC) has conducted a midwater trawl survey off central California since 1983 with the primary goal of developing pre-recruit indices for young-of-the-year (YOY) rockfish (Sebastes spp.). The survey also samples numerous other components of the epipelagic micronekton, including other YOY groundfish (such as Pacific hake, Merluccius productus, and sanddab, Citharichthys spp ), coastal pelagic fishes (such as Pacific sardine, Sardinops sagax, and northern anchovy, Engraulis mordax) and other forage species.  Additional details regarding the survey methods and results are described in Ralston et al. (2015) and Sakuma et al. (http://calcofi.org/publications/calcofireports/v57/Vol57-Sakuma_pages.163-183.pdf). Ralston, S., J.C. Field and K.S. Sakuma. 2015. Longterm variation in a central California pelagic forage assemblage. Journal of Marine Systems 146: 26-37. https://dx.doi.org/10.1016/j.jmarsys.2014.06.013. Sakuma, K.M., J.C. Field, B.B. Marinovic, C.N. Carrion, N.J. Mantua and S. Ralston. In revision. Anomalous epipelagic micronekton assemblage patterns in the neritic waters of the California Current in spring 2015 during a period of extreme ocean conditions. CalCOFI Reports."
+attribute,NC_GLOBAL,time_coverage_end,String,2025-06-19T02:44:32Z
+attribute,NC_GLOBAL,time_coverage_start,String,1990-05-13T20:52:00Z
+attribute,NC_GLOBAL,title,String,"Rockfish Recruitment and Ecosystem Assessment Survey, Catch Data"
+attribute,NC_GLOBAL,Westernmost_Easting,double,-125.1552
+variable,time,,double,
+attribute,time,_CoordinateAxisType,String,Time
+attribute,time,actual_range,double,"6.4263192E8, 1.750301072E9"
+attribute,time,axis,String,T
+attribute,time,description,String,"The date and time the trawl net first enters the water.  Where Net-in time is missing, the fishing start time is used"
+attribute,time,ioos_category,String,Time
+attribute,time,long_name,String,Net-in time
+attribute,time,standard_name,String,time
+attribute,time,time_origin,String,01-JAN-1970 00:00:00
+attribute,time,units,String,seconds since 1970-01-01T00:00:00Z
+variable,latitude,,float,
+attribute,latitude,_CoordinateAxisType,String,Lat
+attribute,latitude,actual_range,float,"32.702, 41.51"
+attribute,latitude,axis,String,Y
+attribute,latitude,description,String,GPS North latitude  when the trawl net first enters the water.
+attribute,latitude,ioos_category,String,Location
+attribute,latitude,long_name,String,Net-in Latitude
+attribute,latitude,standard_name,String,latitude
+attribute,latitude,units,String,degrees_north
+variable,longitude,,float,
+attribute,longitude,_CoordinateAxisType,String,Lon
+attribute,longitude,actual_range,float,"-125.1552, -117.3265"
+attribute,longitude,axis,String,X
+attribute,longitude,description,String,GPS East longitude when the trawl net first enters the water.
+attribute,longitude,ioos_category,String,Location
+attribute,longitude,long_name,String,Net-in Longitude
+attribute,longitude,standard_name,String,longitude
+attribute,longitude,units,String,degrees_east
+variable,cruise,,String,
+attribute,cruise,definition,String,A four character cruise identifier.  The first two digits are the year and the last two are sequential order in which the cruise occurred.  Example:  0504 is the fourth David Starr Jordan cruise in 2005.
+attribute,cruise,ioos_category,String,Identifier
+attribute,cruise,long_name,String,Cruise
+variable,haul_no,,int,
+attribute,haul_no,_FillValue,int,2147483647
+attribute,haul_no,actual_range,int,"1, 241"
+attribute,haul_no,definition,String,"Unique number for each trawl conducted within a cruise.  Together with cruise, it creates a primary key."
+attribute,haul_no,ioos_category,String,Identifier
+attribute,haul_no,long_name,String,Haul Number
+variable,vessel,,String,
+attribute,vessel,definition,String,"Unique identifier for the vessel used for a particular cruise.  Abbreviation of the vessel names: DSJ=David Starr Jordan, MF=Miller Freeman, FR=Frosti, EX=Excalibur, SH=Bell M. Shimada, OS=Ocean Starr"
+attribute,vessel,ioos_category,String,Identifier
+attribute,vessel,long_name,String,Vessel
+variable,station,,int,
+attribute,station,_FillValue,int,2147483647
+attribute,station,actual_range,int,"101, 627"
+attribute,station,definition,String,Station number based on a fixed position.  Station can be blank if the trawl was conducted at a location that does not correspond to one of the fixed position stations in the STANDARD_STATIONS table.
+attribute,station,ioos_category,String,Identifier
+attribute,station,long_name,String,Station Number
+variable,catch,,int,
+attribute,catch,_FillValue,int,2147483647
+attribute,catch,actual_range,int,"0, 3584007"
+attribute,catch,definition,String,Number of specimens caught for a given specie/taxonomic group.
+attribute,catch,ioos_category,String,Fish Abundance
+attribute,catch,long_name,String,Catch
+variable,species_code,,int,
+attribute,species_code,_FillValue,int,2147483647
+attribute,species_code,actual_range,int,"5, 2858"
+attribute,species_code,definition,String,Numeric code denoting species or other taxonomic group.
+attribute,species_code,ioos_category,String,Identifier
+attribute,species_code,long_name,String,Species code
+variable,common_name,,String,
+attribute,common_name,definition,String,Common name of the species or taxonomic group.
+attribute,common_name,ioos_category,String,Fish Species
+attribute,common_name,long_name,String,Common name
+variable,sci_name,,String,
+attribute,sci_name,definition,String,Scientific name of the species or taxonomic group.
+attribute,sci_name,ioos_category,String,Fish Species
+attribute,sci_name,long_name,String,Scientific name
+variable,species_group,,String,
+attribute,species_group,definition,String,General categories for grouping select species or taxonomic groups.
+attribute,species_group,ioos_category,String,Fish Species
+attribute,species_group,long_name,String,Species Group
+variable,maturity,,String,
+attribute,maturity,definition,String,Possible choices for the life history stage of the given species or taxonomic group: Y=young-of-the-year (YOY)/pelagic stage   A=older than YOY/post-settlement   U=unknown.  These do not refer to reproductive maturity stages.
+attribute,maturity,ioos_category,String,Other
+attribute,maturity,long_name,String,Maturity
+variable,species_notes,,String,
+attribute,species_notes,definition,String,"Notes on when species were added to list, years enumerated, etc."
+attribute,species_notes,ioos_category,String,Other
+attribute,species_notes,long_name,String,Species Notes
+variable,aphiaid,,int,
+attribute,aphiaid,_FillValue,int,2147483647
+attribute,aphiaid,actual_range,int,"1128, 1653294"
+attribute,aphiaid,definition,String,WoRMS taxon id
+attribute,aphiaid,ioos_category,String,Fish Species
+attribute,aphiaid,long_name,String,AphiaID
+variable,match_type,,String,
+attribute,match_type,definition,String,WoRMS taxon id match type
+attribute,match_type,ioos_category,String,Fish Species
+attribute,match_type,long_name,String,Match type
+variable,lsid,,String,
+attribute,lsid,definition,String,"persistent, location-independent, resource identifier"
+attribute,lsid,ioos_category,String,Fish Species
+attribute,lsid,long_name,String,Life Science Identifier
+variable,station_latitude,,float,
+attribute,station_latitude,actual_range,float,"32.70833, 41.5"
+attribute,station_latitude,definition,String,GPS North latitude of the station.
+attribute,station_latitude,ioos_category,String,Location
+attribute,station_latitude,long_name,String,Station Latitude
+attribute,station_latitude,units,String,degrees_north
+variable,station_longitude,,float,
+attribute,station_longitude,actual_range,float,"-125.17, -117.3333"
+attribute,station_longitude,definition,String,GPS East longitude of the station.
+attribute,station_longitude,ioos_category,String,Location
+attribute,station_longitude,long_name,String,Station Longitude
+attribute,station_longitude,units,String,degrees_east
+variable,ctd_index,,int,
+attribute,ctd_index,_FillValue,int,2147483647
+attribute,ctd_index,actual_range,int,"1, 386"
+attribute,ctd_index,definition,String,Unique number for each CTD conducted within a cruise.
+attribute,ctd_index,ioos_category,String,Identifier
+attribute,ctd_index,long_name,String,CTD Index
+variable,station_bottom_depth,,int,
+attribute,station_bottom_depth,_FillValue,int,2147483647
+attribute,station_bottom_depth,actual_range,int,"53, 3292"
+attribute,station_bottom_depth,definition,String,Charted bottom depth of the station.
+attribute,station_bottom_depth,ioos_category,String,Pressure
+attribute,station_bottom_depth,long_name,String,Station Bottom Depth
+attribute,station_bottom_depth,units,String,meters
+variable,area,,String,
+attribute,area,definition,String,General geographic area the station occupies.
+attribute,area,ioos_category,String,Location
+attribute,area,long_name,String,General Area
+variable,strata,,String,
+attribute,strata,definition,String,"Abbreviation of survey region (N=North, NC=North Central, C=Core, SC=South Central, S=South)."
+attribute,strata,ioos_category,String,Location
+attribute,strata,long_name,String,Survey Region
+variable,tdr_depth,,int,
+attribute,tdr_depth,_FillValue,int,2147483647
+attribute,tdr_depth,actual_range,int,"3, 58"
+attribute,tdr_depth,definition,String,Water depth of the headrope bridle recorded by Temperature Depth Recorder (TDR).
+attribute,tdr_depth,ioos_category,String,Pressure
+attribute,tdr_depth,long_name,String,TDR Depth
+attribute,tdr_depth,units,String,meters
+variable,depth_strata,,int,
+attribute,depth_strata,_FillValue,int,2147483647
+attribute,depth_strata,actual_range,int,"1, 2"
+attribute,depth_strata,definition,String,"Single digit reference number for the target headrop depth where 1=10m, 2=30m, 3=90m, 4=other"
+attribute,depth_strata,ioos_category,String,Pressure
+attribute,depth_strata,long_name,String,Target Headrop Depth
+variable,bottom_depth,,int,
+attribute,bottom_depth,_FillValue,int,2147483647
+attribute,bottom_depth,actual_range,int,"12, 3600"
+attribute,bottom_depth,definition,String,Bottom depth where the trawl was conducted.  The depth either comes from an acoustic sensor or from a chart.
+attribute,bottom_depth,ioos_category,String,Pressure
+attribute,bottom_depth,long_name,String,Bottom Depth
+attribute,bottom_depth,units,String,meters
+variable,station_active,,String,
+attribute,station_active,definition,String,Designates currently sampled stations (Y) versus historic stations no longer sampled (N).
+attribute,station_active,ioos_category,String,Other
+attribute,station_active,long_name,String,Station Active
+variable,station_notes,,String,
+attribute,station_notes,definition,String,Mostly used to denote when new stations were added.
+attribute,station_notes,ioos_category,String,Other
+attribute,station_notes,long_name,String,Station notes

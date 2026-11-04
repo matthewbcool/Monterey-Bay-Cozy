@@ -1,0 +1,4 @@
+{
+  "url": "https://services3.arcgis.com/uknczv4rpevve42E/ArcGIS/rest/services/California_Cartographic_Coastal_Polygons/FeatureServer/31/query?f=json&where=1%3D1&geometry=-122.12%2C36.55%2C-121.70%2C37.03&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&outFields=%2A&returnGeometry=true&maxAllowableOffset=8e-05&geometryPrecision=6&resultRecordCount=1000",
+  "retrievedUTC": "2026-10-25T16:47:34Z"
+}

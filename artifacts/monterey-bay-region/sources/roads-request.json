@@ -1,0 +1,4 @@
+{
+  "url": "https://carto.nationalmap.gov/arcgis/rest/services/transportation/MapServer/9/query?f=json&where=1%3D1&geometry=-122.12%2C36.55%2C-121.70%2C37.03&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&outFields=%2A&returnGeometry=true&maxAllowableOffset=0.0001&geometryPrecision=6&resultRecordCount=2000",
+  "retrievedUTC": "2026-10-25T16:48:25Z"
+}

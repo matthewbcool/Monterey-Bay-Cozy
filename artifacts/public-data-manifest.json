@@ -1,0 +1,186 @@
+[
+  {
+    "path": "artifacts/bathymetry/source.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/bathymetry/usgs-metadata.txt",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/bathymetry/usgs-monterey-crop.tif",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/caledonia-park/caledonia.osm",
+    "license": "ODbL-1.0 (OpenStreetMap)"
+  },
+  {
+    "path": "artifacts/caledonia-park/usgs-dem.tif",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/caledonia-park/usgs-export.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/caledonia-refinement/sources/meals-annex-map.osm",
+    "license": "ODbL-1.0 (OpenStreetMap)"
+  },
+  {
+    "path": "artifacts/caledonia-refinement/sources/meals-building.json",
+    "license": "ODbL-1.0 (OpenStreetMap)"
+  },
+  {
+    "path": "artifacts/caledonia-refinement/sources/source-requests.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/caledonia-refinement/sources/usgs-control-point.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/caledonia-refinement/sources/usgs-dem.tif",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/caledonia-refinement/sources/usgs-export.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/deer-reference/sources/del-monte-course.json",
+    "license": "ODbL-1.0 (OpenStreetMap)"
+  },
+  {
+    "path": "artifacts/deer-reference/sources/del-monte-grass-map.osm",
+    "license": "ODbL-1.0 (OpenStreetMap)"
+  },
+  {
+    "path": "artifacts/deer-reference/sources/source-requests.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/ecology/sources/catches.csv",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/ecology/sources/hauls.csv",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/ecology/sources/manifest.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/ecology/sources/metadata.csv",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/monterey-bay-region/sources/dem-export.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/monterey-bay-region/sources/dem-request.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/monterey-bay-region/sources/dem-service.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/monterey-bay-region/sources/dem.tiff",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/monterey-bay-region/sources/etopo-request.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/monterey-bay-region/sources/etopo.csv",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/monterey-bay-region/sources/land-layer.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/monterey-bay-region/sources/land-request.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/monterey-bay-region/sources/land-service.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/monterey-bay-region/sources/land.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/monterey-bay-region/sources/places-1-request.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/monterey-bay-region/sources/places-1.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/monterey-bay-region/sources/places-2-request.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/monterey-bay-region/sources/places-2.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/monterey-bay-region/sources/places-3-request.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/monterey-bay-region/sources/places-3.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/monterey-bay-region/sources/places-service.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/monterey-bay-region/sources/roads-request.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/monterey-bay-region/sources/roads.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/monterey-bay-region/sources/transport-service.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/pacific-grove-waterfront/usgs-dem.tif",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/pacific-grove-waterfront/usgs-export.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/pacific-grove-waterfront/waterfront.osm",
+    "license": "ODbL-1.0 (OpenStreetMap)"
+  },
+  {
+    "path": "artifacts/testing-gym-elevation/usgs-control-points.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/testing-gym-elevation/usgs-dem.tif",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/testing-gym-elevation/usgs-export.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  },
+  {
+    "path": "artifacts/testing-gym-elevation/usgs-source-metadata.json",
+    "license": "See THIRD_PARTY_NOTICES.md and retained provider metadata"
+  }
+]

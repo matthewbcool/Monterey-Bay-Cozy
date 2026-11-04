@@ -1,0 +1,18 @@
+# Monterey Bay Cozy asset work
+
+Read the root README and the relevant `src/models/` guidance before changing assets. For code navigation and ownership, start with `docs/README.md`, `docs/codebase.md` and `src/viewer/README.md`; `tests/README.md` maps changes to verification and `scripts/README.md` documents authoring tools.
+
+- Use this Git checkout as the source of truth. Coordinate overlapping edits and preserve unrelated work. Historical private authoring copies are not required for this public release.
+- Coordinate shared-file edits and let one chat own staging, commit and push while publishing; do not change shared files during its final validation. See `CONTRIBUTING.md`.
+- Work directly on the single `main` branch. Create another branch or worktree only when the user explicitly requests it.
+- Run the preview from this checkout at `http://127.0.0.1:5191/`. If another checkout owns that port, stop or coordinate with its owner before starting another preview.
+- Procedural TypeScript factories are the source of truth. GLBs are optional generated exports, not required runtime models. Do not add manually modeled mesh dependencies unless explicitly requested.
+- Use as few triangles and draws as the silhouette needs. Enforce and report category budgets; batch static geometry, preserve actual animation groups, and distinguish model draws from shadow/scene overhead.
+- One public scene unit is one metre. Factory roots remain unscaled. Geometry, colliders, attachment points and placements must agree. Record size references and mark unverified dimensions provisional.
+- Frame assets with the camera rather than resizing geometry. Keep a common-scale comparison and readable dimensions.
+- Keep model generation independent from rendering. The viewer runs on `WebGPURenderer` (native WebGPU or its WebGL 2 backend); all custom shading is TSL/node materials, and raw GLSL `ShaderMaterial` / `onBeforeCompile` will not render. Validate both backends (`?webgl` forces WebGL 2).
+- Render every asset with the shared toon style (`src/models/shared/style.ts`): `createToonMaterial()` / `finishStaticAsset()` and `STYLE` tokens, no new `MeshStandardMaterial` for rendering and no `onBeforeCompile`. Base/Standard remain the device settings (`src/viewer/quality.ts`); never change palette or ramp per setting. Balanced water is the default on every device. The separately opted-in native-WebGPU Enhanced water path is allowed; follow `docs/graphics-quality.md` for cost ceilings and fallback isolation. Do not restore the historical High style tier, silhouette hulls or bloom. Viewer style layers live in `src/viewer/nodeStyle.ts`; factories keep emitting `MeshToonMaterial` (custom node materials publish `userData.styleBase`), and terrain sets `rim: false`. Call `applyNodeStyle()` on anything added to the scene.
+- Schooling species use `createSchooling()` with species traits; natural assets are seeded procedural factories (random when unseeded, seed in `userData.seed`) with budgets tested across many seeds. Document every asset in the README's asset register, separating verified facts (with sources) from artistic choices.
+- Verify build, model budget/scale tests and relevant browser behavior. Preserve unrelated work and source reference files. Update generated exports and evidence when geometry or scale changes.
+
+- Register every world/library mesh with the shared `src/models/shared/lod/` controller; inspect Near/Mid/Far and automatic distance changes. Preserve identity, placement, skin/morph data and physics at every level. Follow `docs/lod.md`; record per-level triangles/draws and geometry storage, and check both backends.

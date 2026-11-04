@@ -1,0 +1,540 @@
+{
+  "source": "City of Pacific Grove public tree inventory",
+  "sourceUrl": "https://gis-web.cityofpacificgrove.org/arcgis/rest/services/Open_Data/Trees/MapServer/0",
+  "downloaded": "2026-10-24",
+  "origin": [
+    -121.91685,
+    36.6256
+  ],
+  "queryBounds": [
+    -121.9185,
+    36.6245,
+    -121.914,
+    36.6275
+  ],
+  "queryCount": 87,
+  "selection": "Point inside the OSM park outer ring; no automatic relocation or thinning",
+  "limitations": "Inventory observation dates and positional accuracy unknown. Not a current site survey. Heights, crown widths, orientation and condition are authored. DBH retained in source units, which the service does not identify; never treated as a measured height. Ilex identified only to genus. Service certificate was expired at retrieval; one unauthenticated public GET used a scoped verification exception, not a runtime setting.",
+  "trees": [
+    {
+      "sourceId": 4405,
+      "botanical": "Phoenix canariensis",
+      "species": "canary-island-date-palm",
+      "dbhSourceValue": 36.0,
+      "longitude": -121.91736120707174,
+      "latitude": 36.62457208443114,
+      "x": -45.62,
+      "z": 114.299
+    },
+    {
+      "sourceId": 4406,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 6.0,
+      "longitude": -121.91738326554253,
+      "latitude": 36.6247050264461,
+      "x": -47.588,
+      "z": 99.517
+    },
+    {
+      "sourceId": 4408,
+      "botanical": "Cordyline australis",
+      "species": "cabbage-tree",
+      "dbhSourceValue": 6.0,
+      "longitude": -121.91730864210795,
+      "latitude": 36.6246636679915,
+      "x": -40.929,
+      "z": 104.116
+    },
+    {
+      "sourceId": 4409,
+      "botanical": "Ilex spp.",
+      "species": "inventory-holly",
+      "dbhSourceValue": 8.0,
+      "longitude": -121.91719421951382,
+      "latitude": 36.624599733301935,
+      "x": -30.718,
+      "z": 111.225
+    },
+    {
+      "sourceId": 4824,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 42.0,
+      "longitude": -121.9172604081944,
+      "latitude": 36.624980827137605,
+      "x": -36.625,
+      "z": 68.849
+    },
+    {
+      "sourceId": 4825,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 47.0,
+      "longitude": -121.91722750255751,
+      "latitude": 36.62507466103176,
+      "x": -33.688,
+      "z": 58.415
+    },
+    {
+      "sourceId": 4826,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 37.0,
+      "longitude": -121.91717638247799,
+      "latitude": 36.625168950017176,
+      "x": -29.126,
+      "z": 47.931
+    },
+    {
+      "sourceId": 4827,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 22.0,
+      "longitude": -121.91712636625182,
+      "latitude": 36.6252925854508,
+      "x": -24.663,
+      "z": 34.183
+    },
+    {
+      "sourceId": 4828,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 44.0,
+      "longitude": -121.91698570191487,
+      "latitude": 36.625589819444905,
+      "x": -12.11,
+      "z": 1.132
+    },
+    {
+      "sourceId": 4829,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 63.0,
+      "longitude": -121.91691215105286,
+      "latitude": 36.625733624860246,
+      "x": -5.546,
+      "z": -14.858
+    },
+    {
+      "sourceId": 4830,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 11.0,
+      "longitude": -121.91689579022365,
+      "latitude": 36.625782991868284,
+      "x": -4.086,
+      "z": -20.348
+    },
+    {
+      "sourceId": 4831,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 2.0,
+      "longitude": -121.91686654385187,
+      "latitude": 36.62581308156051,
+      "x": -1.476,
+      "z": -23.694
+    },
+    {
+      "sourceId": 4832,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 51.0,
+      "longitude": -121.91686213519134,
+      "latitude": 36.6258572610446,
+      "x": -1.083,
+      "z": -28.606
+    },
+    {
+      "sourceId": 4833,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 2.0,
+      "longitude": -121.91685221129495,
+      "latitude": 36.62591626188504,
+      "x": -0.197,
+      "z": -35.167
+    },
+    {
+      "sourceId": 4834,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 11.0,
+      "longitude": -121.91682941451363,
+      "latitude": 36.62595599501486,
+      "x": 1.837,
+      "z": -39.585
+    },
+    {
+      "sourceId": 4835,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 53.0,
+      "longitude": -121.91679649564678,
+      "latitude": 36.62604982907564,
+      "x": 4.775,
+      "z": -50.019
+    },
+    {
+      "sourceId": 4836,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 4.0,
+      "longitude": -121.91675125722,
+      "latitude": 36.62613907807493,
+      "x": 8.812,
+      "z": -59.943
+    },
+    {
+      "sourceId": 4837,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 41.0,
+      "longitude": -121.91674022674945,
+      "latitude": 36.62616872257882,
+      "x": 9.796,
+      "z": -63.239
+    },
+    {
+      "sourceId": 4838,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 52.0,
+      "longitude": -121.9167119145907,
+      "latitude": 36.62622327793588,
+      "x": 12.323,
+      "z": -69.305
+    },
+    {
+      "sourceId": 4839,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 2.0,
+      "longitude": -121.91668744472055,
+      "latitude": 36.62621898048121,
+      "x": 14.506,
+      "z": -68.828
+    },
+    {
+      "sourceId": 4840,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 24.0,
+      "longitude": -121.91669499936383,
+      "latitude": 36.62625797128129,
+      "x": 13.832,
+      "z": -73.163
+    },
+    {
+      "sourceId": 4841,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 28.0,
+      "longitude": -121.91668358898139,
+      "latitude": 36.626277833614054,
+      "x": 14.85,
+      "z": -75.372
+    },
+    {
+      "sourceId": 4842,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 49.0,
+      "longitude": -121.91665031339991,
+      "latitude": 36.62636188488957,
+      "x": 17.82,
+      "z": -84.718
+    },
+    {
+      "sourceId": 4843,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 51.0,
+      "longitude": -121.91662291088066,
+      "latitude": 36.626440905629465,
+      "x": 20.265,
+      "z": -93.505
+    },
+    {
+      "sourceId": 4844,
+      "botanical": "Metrosideros excelsus",
+      "species": "pohutukawa",
+      "dbhSourceValue": 13.0,
+      "longitude": -121.91656746725673,
+      "latitude": 36.62646714668299,
+      "x": 25.213,
+      "z": -96.422
+    },
+    {
+      "sourceId": 4845,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 2.0,
+      "longitude": -121.91651618604142,
+      "latitude": 36.62647116212948,
+      "x": 29.789,
+      "z": -96.869
+    },
+    {
+      "sourceId": 4846,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 4.0,
+      "longitude": -121.91645817065834,
+      "latitude": 36.626478108569806,
+      "x": 34.967,
+      "z": -97.641
+    },
+    {
+      "sourceId": 4847,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 2.0,
+      "longitude": -121.91634480305929,
+      "latitude": 36.626381401694175,
+      "x": 45.084,
+      "z": -86.888
+    },
+    {
+      "sourceId": 4848,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 35.0,
+      "longitude": -121.91637917391363,
+      "latitude": 36.62647451677053,
+      "x": 42.016,
+      "z": -97.242
+    },
+    {
+      "sourceId": 4849,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 32.0,
+      "longitude": -121.91629986629879,
+      "latitude": 36.62646264584871,
+      "x": 49.094,
+      "z": -95.922
+    },
+    {
+      "sourceId": 4850,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 2.0,
+      "longitude": -121.91625471866253,
+      "latitude": 36.62644716971393,
+      "x": 53.123,
+      "z": -94.201
+    },
+    {
+      "sourceId": 4851,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 41.0,
+      "longitude": -121.916195442537,
+      "latitude": 36.62642098664405,
+      "x": 58.413,
+      "z": -91.29
+    },
+    {
+      "sourceId": 4852,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 84.0,
+      "longitude": -121.91629992102514,
+      "latitude": 36.625918235395936,
+      "x": 49.089,
+      "z": -35.386
+    },
+    {
+      "sourceId": 4853,
+      "botanical": "Phoenix canariensis",
+      "species": "canary-island-date-palm",
+      "dbhSourceValue": 29.0,
+      "longitude": -121.91631869152387,
+      "latitude": 36.62564280331808,
+      "x": 47.414,
+      "z": -4.76
+    },
+    {
+      "sourceId": 4854,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 21.0,
+      "longitude": -121.91646794365454,
+      "latitude": 36.625509263308444,
+      "x": 34.095,
+      "z": 10.089
+    },
+    {
+      "sourceId": 4855,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 21.0,
+      "longitude": -121.91653022264599,
+      "latitude": 36.6255243189865,
+      "x": 28.537,
+      "z": 8.415
+    },
+    {
+      "sourceId": 4856,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 40.0,
+      "longitude": -121.91659354215564,
+      "latitude": 36.62556698255234,
+      "x": 22.886,
+      "z": 3.671
+    },
+    {
+      "sourceId": 4857,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 34.0,
+      "longitude": -121.916501783016,
+      "latitude": 36.625588578729555,
+      "x": 31.075,
+      "z": 1.27
+    },
+    {
+      "sourceId": 4858,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 35.0,
+      "longitude": -121.9164501002233,
+      "latitude": 36.625672747064904,
+      "x": 35.687,
+      "z": -8.089
+    },
+    {
+      "sourceId": 4859,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 30.0,
+      "longitude": -121.91649661543411,
+      "latitude": 36.62581531461445,
+      "x": 31.536,
+      "z": -23.942
+    },
+    {
+      "sourceId": 4860,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 38.0,
+      "longitude": -121.91650367004189,
+      "latitude": 36.62572947195408,
+      "x": 30.906,
+      "z": -14.397
+    },
+    {
+      "sourceId": 4861,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 20.0,
+      "longitude": -121.91659666681005,
+      "latitude": 36.62574100663405,
+      "x": 22.607,
+      "z": -15.679
+    },
+    {
+      "sourceId": 4862,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 12.0,
+      "longitude": -121.91666079875046,
+      "latitude": 36.625532174543224,
+      "x": 16.884,
+      "z": 7.542
+    },
+    {
+      "sourceId": 4863,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 10.0,
+      "longitude": -121.91667668200974,
+      "latitude": 36.62549862536032,
+      "x": 15.467,
+      "z": 11.272
+    },
+    {
+      "sourceId": 4864,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 22.0,
+      "longitude": -121.91676230499391,
+      "latitude": 36.625405340036,
+      "x": 7.826,
+      "z": 21.645
+    },
+    {
+      "sourceId": 4865,
+      "botanical": "Metrosideros excelsus",
+      "species": "pohutukawa",
+      "dbhSourceValue": 10.0,
+      "longitude": -121.91677633869337,
+      "latitude": 36.62568686625873,
+      "x": 6.574,
+      "z": -9.659
+    },
+    {
+      "sourceId": 4866,
+      "botanical": "Metrosideros excelsus",
+      "species": "pohutukawa",
+      "dbhSourceValue": 10.0,
+      "longitude": -121.9168671615121,
+      "latitude": 36.625640427338595,
+      "x": -1.531,
+      "z": -4.495
+    },
+    {
+      "sourceId": 4867,
+      "botanical": "Metrosideros excelsus",
+      "species": "pohutukawa",
+      "dbhSourceValue": 15.0,
+      "longitude": -121.91682169105316,
+      "latitude": 36.62561667354847,
+      "x": 2.526,
+      "z": -1.854
+    },
+    {
+      "sourceId": 4868,
+      "botanical": "Metrosideros excelsus",
+      "species": "pohutukawa",
+      "dbhSourceValue": 17.0,
+      "longitude": -121.9167789229555,
+      "latitude": 36.62557350685261,
+      "x": 6.343,
+      "z": 2.946
+    },
+    {
+      "sourceId": 4869,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 43.0,
+      "longitude": -121.91693174454413,
+      "latitude": 36.6248070307217,
+      "x": -7.295,
+      "z": 88.174
+    },
+    {
+      "sourceId": 4870,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 33.0,
+      "longitude": -121.91703576139591,
+      "latitude": 36.62483764458964,
+      "x": -16.577,
+      "z": 84.77
+    },
+    {
+      "sourceId": 4871,
+      "botanical": "Cupressus macrocarpa",
+      "species": "monterey-cypress",
+      "dbhSourceValue": 48.0,
+      "longitude": -121.91718501825581,
+      "latitude": 36.62488649892889,
+      "x": -29.897,
+      "z": 79.338
+    }
+  ]
+}

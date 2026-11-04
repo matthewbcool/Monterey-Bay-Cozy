@@ -1,0 +1,35 @@
+{
+  "name": "monterey-bay-cozy",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "test:browser": "node tests/browser-qa.mjs",
+    "typecheck": "tsc --noEmit",
+    "check:docs": "node scripts/check-docs.mjs",
+    "check:release": "node scripts/check-public-release.mjs"
+  },
+  "dependencies": {
+    "meshoptimizer": "1.0.1",
+    "polygon-clipping": "0.15.7",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.7.2",
+    "@types/three": "^0.180.0",
+    "playwright": "1.63.0-beta-1788477194000",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.9",
+    "vitexec": "0.9.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "license": "MIT",
+  "description": "A cozy Monterey Bay community world for local discovery, nature and relationships."
+}

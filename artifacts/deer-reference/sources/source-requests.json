@@ -1,0 +1,16 @@
+[
+  {
+    "file": "del-monte-course.json",
+    "url": "https://api.openstreetmap.org/api/0.6/way/27830670/full.json",
+    "retrievedUtcFromSavedFileMtime": "2026-10-26T18:32:52.252122+00:00",
+    "sha256": "4621aec7274076737ab143f5c97cee0be94725888e0357a0af6381d194a72a23",
+    "bytes": 16104
+  },
+  {
+    "file": "del-monte-grass-map.osm",
+    "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-121.877,36.588,-121.872,36.593",
+    "retrievedUtcFromSavedFileMtime": "2026-10-26T18:33:05.204521+00:00",
+    "sha256": "4232f5e8a868ad09a1dcee28ec8612c6497e8959ac0a38ac45789aa62d2b7c27",
+    "bytes": 823772
+  }
+]

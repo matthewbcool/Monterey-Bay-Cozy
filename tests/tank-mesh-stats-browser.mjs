@@ -1,0 +1,18 @@
+import {chromium} from 'playwright';
+import fs from 'node:fs/promises';
+const out='artifacts/tank-mesh-stats';await fs.mkdir(out,{recursive:true});
+const url=process.env.PREVIEW_URL??'http://127.0.0.1:5191/';
+const browser=await chromium.launch({channel:'chrome',headless:true});const errors=[],checks=[],counts={};
+function check(ok,label){if(!ok)throw Error(label);checks.push(label);}
+try{
+ for(const suffix of ['','&webgl']){
+  const page=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'});page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});await page.goto(url+'?quality=standard&lod=near'+suffix,{waitUntil:'networkidle'});
+  await page.evaluate(async()=>{await(await import(document.querySelector('script[type="module"][src*="/src/main.ts"]').src)).viewer.started;});
+  const ids=await page.locator('#creature-select option').evaluateAll(options=>options.map(o=>o.value));
+  for(const id of ids){await page.selectOption('#creature-select',id);for(const state of ['alive','caught']){await page.selectOption('#life-state',state);const text=await page.locator('#fish-mesh-stats').textContent();check(/\d.*draw calls? · [\d,]+ triangles/.test(text)&&!text.includes('NaN'),`${suffix||'webgpu'} ${id} ${state} shows counts`);counts[id+'-'+state]=text;}}
+  await page.selectOption('#creature-select','tuna');await page.selectOption('#life-state','alive');check((await page.locator('#fish-mesh-stats').textContent()).includes('2 draw calls · 3,368 triangles'),'Known tuna baseline');
+  await page.getByRole('tab',{name:'Objects',exact:true}).click();await page.selectOption('#quality-select','standard');await page.getByRole('tab',{name:'Tank',exact:true}).click();check((await page.locator('#fish-mesh-stats').textContent()).includes('2 draw calls · 3,368 triangles'),'Returning to Tank after hidden quality change preserves stats');await page.selectOption('#creature-select','pacific-sardine');await page.selectOption('#school-count','16');check((await page.locator('#fish-mesh-stats').textContent())==='16 fish · 1 draw call · 23,488 triangles','Instanced school total at 16');await page.selectOption('#school-count','48');check((await page.locator('#fish-mesh-stats').textContent())==='48 fish · 1 draw call · 70,464 triangles','Instanced school total at 48');await page.selectOption('#school-count','0');check(!(await page.locator('#fish-mesh-stats').textContent()).includes('fish ·'),'Single sardine removes school prefix');await page.close();
+ }
+ for(const width of [390,320]){const p=await browser.newPage({viewport:{width,height:844},isMobile:true,hasTouch:true,reducedMotion:'reduce'});await p.goto(url+'?webgl&quality=base&lod=near',{waitUntil:'networkidle'});await p.selectOption('#creature-select','pacific-sardine');await p.selectOption('#school-count','256');check(await p.evaluate(()=>{const a=document.querySelector('.creature-control').getBoundingClientRect(),b=document.querySelector('.camera-controls').getBoundingClientRect();return a.left<=b.left&&a.top<=b.top&&b.right<=a.right&&b.bottom<=a.bottom;}),`${width}: camera buttons stay inside creature panel`);check(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`${width}: no page overflow`);await p.screenshot({path:out+'/mobile-'+width+'.png'});await p.close();}
+ check(!errors.length,'No browser/shader errors: '+errors.join(';'));await fs.writeFile(out+'/browser-qa.json',JSON.stringify({checks,counts,errors,date:new Date().toISOString()},null,2)+'\n');console.log(JSON.stringify({checks:checks.length,counts,errors},null,2));
+}finally{await browser.close();}

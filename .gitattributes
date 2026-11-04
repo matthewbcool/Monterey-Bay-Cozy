@@ -1,0 +1,6 @@
+# Keep downloaded provider evidence byte-for-byte, including original line endings.
+artifacts/bathymetry/usgs-metadata.txt -text -whitespace
+artifacts/monterey-bay-region/sources/land-layer.json -text -whitespace
+
+# Preserve captured stdout/stderr without treating generated spacing as authored style.
+artifacts/**/*.log -text -whitespace

@@ -1,0 +1,30 @@
+# Archived rendering experiment
+
+Superseded October 22, 2026. The historical High style tier, silhouette hulls and bloom were removed from the product. The later October 26 opt-in [Enhanced water](graphics-quality.md) is a separate path; these old High measurements do not describe it. The following dated measurements are historical evidence, not implementation guidance. See [current LOD policy](lod.md).
+
+## WebGPU viewer, style tiers and Chinook salmon — October 13, 2026
+
+**Experiments:** (1) Can the whole viewer move to `WebGPURenderer` with no raw GLSL left and no visible change? (2) Can the planned rim light, selective outlines and bloom ship as measured quality tiers? (3) Add a seventh, fishing-relevant Monterey Bay species.
+
+- **Renderer:** yes. `src/main.ts` creates one `WebGPURenderer` (native WebGPU, or its WebGL 2 backend; `?webgl` forces the latter) and waits for `renderer.init()` before the first frame. Every former `ShaderMaterial` is now TSL: the tuna (`TunaCelMaterial`: the same wave in `positionNode` and the same two bands, with per-fish swim uniforms shared by all its materials), the water, seabed caustics, tank backdrop and tank caustics. `applyNodeStyle()` runs whenever assets join the scene. The sardine school flags the material its meshes actually render, so its one/many morph variant still recompiles after the swap.
+- **Water refraction:** the water now draws after opaque objects and reads `viewportSharedTexture` / `viewportDepthTexture`: one color/depth copy per frame instead of re-rendering the scene at half resolution. The look and the rejection of samples above the surface are unchanged. `water.setRefraction(false)` (Base tier) rebuilds the surface without the copy. The 3,456-triangle surface is still one draw.
+- **Rim light** is on in the main viewer at Standard and High: every toon prop/fish via `emissiveNode`, and the tuna body via `userData.styleBase`. Terrain, sand and the tuna's matte fins opt out.
+- **Outlines (High):** `addOutline()` makes a back-face twin of each chosen mesh sharing its geometry (and skeleton for skinned fish), pushed out along the post-deformation normal by about 1.5 px (0.0014 m per metre of camera distance, capped at 1% of fish length or 2 cm for props). Cost: **+1 draw per outlined mesh** and no new vertex buffers. Tuna originally added +7 draws / 2,256 triangles; the October 15 fish pass reduces that to +1 draw with the same 2,256 triangles (face batches skipped). Each shared-rig fish +1 (body). Props +2 (matte and metal batches). Schools, terrain and eyes are skipped. Faceted props show small gaps at hard normal seams, a known inverted-hull limit.
+- **Bloom (High):** TSL `BloomNode` through `PostProcessing`, half-resolution bright pass, threshold 0.62 / strength 0.35 / radius 0.35, MSAA 4× scene pass. The scene's linear values rarely pass 1.0, so the threshold sits just above lit matte surfaces: glints, the metal glint band, the warm horizon and sunlit cream panels glow softly. About 12 extra post draws per frame.
+- **Measured** (`node tests/style-tiers-browser.mjs` → `artifacts/style-tiers/browser-qa.json`): this Mac, headless Chrome, 1280×820 at DPR 1. Each value is the median wall time from render submit to GPU completion over 60 static frames (WebGPU queue drained; WebGL 2 one-pixel readback).
+
+| Backend | View | Base | Standard | High |
+| --- | --- | ---: | ---: | ---: |
+| WebGPU | Tank, follow tuna | 3.2 ms | 4.0 ms | 3.5 ms |
+| WebGPU | Harbor overview | 3.5 ms | 5.3 ms | 5.0 ms |
+| WebGPU | Water detail | 5.0 ms | 5.4 ms | 5.8 ms |
+| WebGL 2 | Tank, follow tuna | 5.4 ms | 4.0 ms | 4.9 ms |
+| WebGL 2 | Harbor overview | 4.6 ms | 5.4 ms | 5.8 ms |
+| WebGL 2 | Water detail | 6.9 ms | 6.3 ms | 7.0 ms |
+
+- **Reading the numbers:** repeated runs vary by ±1–2 ms, about as much as the tier differences, so the honest reading is: on this machine every tier fits well within a 16.7 ms frame, and the extras do not stand out from noise. Draws per frame (WebGPU tank, tuna): 19 at Base/Standard, 38 at High (+7 outline, +12 post). These are desktop numbers; profile a mid-range phone and a Chromebook before treating Base as safe. Earlier timestamp-query attempts were discarded. Post-processing issues several `render()` calls, each resetting the counter, and the internal node frame only advances on `requestAnimationFrame`. The suite now waits a frame per sample and times to GPU completion.
+- **Chinook salmon:** see [Chinook salmon](../README.md#chinook-salmon). It is the seventh catalogue entry; the arrow-key wrap and selector counts in the browser suites were updated.
+- **Verified:** `npm test` 80/80; `npm run build`; browser suites all passing: tank, coastal, water-depth, toon-style, new-fish, local-fish (three backends, wrap now ends at the salmon), sardine-school, ocean-sunfish, schooling, rim review, backend fixture and the new style-tiers suite (71 checks, both backends, every tier). No browser, shader or renderer errors or warnings.
+- **Test changes:** tuna/lifecycle tests check `TunaCelMaterial` instead of `ShaderMaterial`. The tank budget reads WebGPU `drawCalls`: ≤ 18 caught, the former 17 plus the node renderer's color-output pass. Water tests read `water.uniforms` / `seabed.uniforms`, and `water.refraction` replaces the removed capture-pass counters. The fish-review `?compare` page uses the node renderer, because the classic renderer cannot draw the TSL tuna.
+- **Rough edges:** kelp still does not sway. Above-water aerial perspective is not implemented; underwater visibility fog already follows the camera. At this experiment stage High was opt-in; it now starts by default with a frame-time fallback. Bloom and outlines have browser checks at phone viewport sizes, but physical-phone performance remains unmeasured; the selector is hidden below 700 px. The bundle is larger (see browser support).
+- **Next experiment:** kelp sway as a height-weighted `positionNode`, then a phone/Chromebook profiling pass to set the Base/Standard boundary from data.

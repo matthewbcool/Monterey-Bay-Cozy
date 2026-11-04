@@ -1,0 +1,10 @@
+{
+  "originalTiffSha256": "255a33041ae48e114a30f41654d1937001644d2b8fa2333bce212a87615c869f",
+  "cropWindow": [
+    6561,
+    3639,
+    869,
+    613
+  ],
+  "crop": "Unmodified native 2 m pixels; no reprojection or interpolation."
+}

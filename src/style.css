@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap');
+:root{font-family:'DM Sans',sans-serif;color:#e3e9d9;background:#0e2a33;font-synthesis:none;font-weight:400;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;overflow:hidden}button,select{-webkit-tap-highlight-color:transparent;font:inherit;color:inherit;cursor:pointer}button{border:0}button:focus-visible,select:focus-visible,canvas:focus-visible{outline:2px solid #e7d7a6;outline-offset:4px}[hidden]{display:none!important}
+#app,#stage,.interface{position:fixed;inset:0}#stage canvas{display:block;width:100%;height:100%;touch-action:none}.interface{pointer-events:none}button,select{pointer-events:auto}
+.creature-control{position:absolute;top:18px;display:flex;align-items:center;gap:8px;padding:5px;border:1px solid #bdd4be35;border-radius:12px;background:#15363ce8;backdrop-filter:blur(12px)}.creature-control{left:18px;padding:5px 10px}.creature-control label{font-size:11px;color:#b2c5ba}.creature-control select{min-width:100px;min-height:38px;padding:7px 10px;border:0;border-radius:7px;background:#203e40;font-size:12px}.camera-controls{display:flex;gap:3px}.camera-controls button{min-height:38px;padding:9px 14px;background:transparent;border-radius:8px;font-size:11px;color:#adc5bd}.camera-controls button.active{background:#cfdac718;color:#e3e9d9}
+footer{position:absolute;bottom:max(18px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:max-content;max-width:calc(100% - 24px)}.playback{display:flex;align-items:center;gap:5px;padding:7px;border:1px solid #bdd4be35;border-radius:14px;background:#15363ce8;box-shadow:0 14px 36px #051f2745;backdrop-filter:blur(12px)}.playback button{background:transparent;display:flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:13px 18px;border-radius:9px;font-size:12px;white-space:nowrap;color:#b2c5ba;transition:background .18s,color .18s}.playback button:hover{background:#a4bca917}.playback button.active{background:#e0e4c8;color:#203e40}.speed-symbol{font-size:20px;line-height:16px}.divider{height:23px;width:1px;background:#9fb8ad33;margin:0 3px}.demo-motion-label{padding:0 8px;color:#b2c5ba;font-size:11px;white-space:nowrap}.playback button.pause{padding:12px;width:44px}.pause svg{width:19px;height:19px}.error{position:fixed;inset:45% 20% auto;z-index:10;padding:20px;background:#183e47;color:#fff;border:1px solid #bad3c7;border-radius:12px}
+@media(max-width:700px){.creature-control{top:12px}.creature-control{left:12px;gap:5px;padding:4px 7px}.creature-control label{font-size:10px}.creature-control select{min-width:70px;padding:6px;font-size:11px}.camera-controls{gap:1px}.camera-controls button{padding:9px 10px;font-size:10px}.playback{gap:1px;padding:5px}.playback button{padding:12px 10px;font-size:11px;gap:5px}.playback .speed-symbol{font-size:17px}.playback button.pause{padding:8px}.divider{margin:0 2px}}
+@media(max-width:360px){.creature-control label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.playback button{padding:12px 7px;gap:3px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Asset categories share the viewer's compact, muted controls. */
+.asset-tabs{position:fixed;z-index:2;top:18px;left:18px;right:18px;display:flex;gap:3px;width:max-content;max-width:calc(100% - 36px);padding:5px;border:1px solid #bdd4be35;border-radius:12px;background:#15363ce8;backdrop-filter:blur(12px)}
+.asset-tabs button{min-height:44px;padding:9px 16px;border-radius:8px;background:transparent;color:#adc5bd;font-size:12px;white-space:nowrap}
+.asset-tabs button[aria-selected="true"]{background:#e0e4c8;color:#203e40}
+.creature-control{top:84px}
+.asset-placeholder{position:fixed;inset:84px 18px 18px;display:grid;place-items:center;overflow:auto;text-align:center;padding:24px}
+.asset-placeholder>div{max-width:460px}.asset-placeholder h1{font-size:24px;font-weight:500;line-height:1.3}.asset-placeholder p{color:#b2c5ba;line-height:1.6}.asset-placeholder .placeholder-status{font-size:12px;color:#91aca2}
+@media(max-width:700px){.asset-tabs{top:12px;left:12px;right:12px;max-width:calc(100% - 24px);width:calc(100% - 24px);gap:1px;padding:4px}.asset-tabs button{flex:1;padding:8px 5px;font-size:11px}.creature-control{top:76px}.asset-placeholder{inset:76px 12px 12px}.asset-placeholder h1{font-size:21px}}
+@media(max-width:360px){.asset-tabs button{font-size:10px;padding:8px 3px}}
+
+/* Tank inspection and camera controls share one responsive panel. */
+.creature-control{display:grid;grid-template-columns:auto minmax(170px,220px) minmax(200px,1fr);gap:6px 10px;width:min(760px,calc(100vw - 36px));padding:10px 14px}.creature-control .view-state-controls{grid-column:3;grid-row:1 / span 2;align-self:start;justify-self:end;width:210px;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:6px 8px}.creature-control .camera-controls{grid-column:1 / -1}.view-state-controls select{width:100%;min-width:0}
+.playback button:disabled{opacity:.35;cursor:default;background:transparent;color:#b2c5ba}
+@media(max-width:360px){
+  .creature-control label{position:static;width:auto;height:auto;overflow:visible;clip-path:none}
+}
+
+/* Inspection panels share one WebGL canvas and the existing compact controls. */
+.scene-interface{position:fixed;inset:0;pointer-events:none}
+.scene-interface button,.scene-interface select,.scene-interface input{pointer-events:auto}
+.scene-toolbar{position:absolute;top:84px;left:18px;right:18px;display:flex;align-items:start;justify-content:space-between;gap:16px}
+.scene-toolbar>div:first-child,.scene-toolbar>button,.object-actions,.water-controls,.object-details{border:1px solid #bdd4be35;border-radius:12px;background:#15363cee;backdrop-filter:blur(12px)}
+.scene-toolbar>div:first-child{padding:13px 16px}.scene-toolbar strong{display:block;font-size:17px;font-weight:500;margin-top:5px}
+.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:#aac3b5}
+.scene-interface button{min-height:44px;background:#315151;color:#e3e9d9;border-radius:8px;padding:9px 15px;font-size:12px}
+.scene-interface button:hover{background:#42625e}.scene-interface button[aria-pressed="true"]{background:#e0e4c8;color:#203e40}
+.object-actions{display:flex;gap:5px;padding:5px}
+.object-picker label{display:flex;justify-content:space-between;gap:28px;font-size:11px;color:#b2c5ba;margin-bottom:7px}.object-picker label span{opacity:.7}
+.object-picker select{width:240px;border:0;border-radius:7px;padding:9px;min-height:44px;font-size:13px;background:#294b4b}
+.object-details{position:absolute;bottom:24px;left:24px;width:350px;padding:19px 22px}
+.object-details h1{margin:7px 0 8px;font-weight:500;font-size:23px;line-height:1.15}
+.object-details p{font-size:12px;line-height:1.6;color:#b6cabd;margin:0 0 14px}
+.object-navigation{display:flex;gap:8px;align-items:center}.object-navigation button{padding:8px 14px}.object-navigation span{font-size:11px;min-width:36px;text-align:center;color:#b6cabd}.object-navigation button:last-child{margin-left:auto}
+#export-status{font-size:11px;display:block;margin-top:8px;color:#e1d7ad}#export-status:empty{display:none}
+.water-controls{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:grid;grid-template-columns:230px auto;gap:0 24px;padding:12px 14px;align-items:center}
+.water-controls label{display:flex;justify-content:space-between;grid-column:1;font-size:12px;color:#e3e9d9}.water-controls label span{color:#adc5bd;font-size:11px}
+.water-controls input{grid-column:1;width:100%;min-height:30px;accent-color:#c5d7b3;cursor:pointer}.water-controls button{grid-column:2;grid-row:1/3;min-width:68px}
+.scene-caption{position:absolute;bottom:115px;left:0;right:0;text-align:center;font-size:11px;letter-spacing:.03em;color:#abc4bd}
+@media(max-width:700px){
+  .scene-toolbar{top:76px;left:12px;right:12px;gap:8px}.scene-toolbar>div:first-child{padding:9px 11px}.scene-toolbar strong{font-size:15px}
+  .scene-interface button{font-size:11px;padding:8px 11px}.object-actions{flex-direction:column;gap:3px;padding:3px}
+  .object-picker select{width:min(215px,52vw);font-size:12px}.object-picker label{font-size:10px;gap:14px}
+  .object-details{left:12px;right:12px;bottom:12px;width:auto;padding:12px 15px}.object-details h1{font-size:19px;margin:5px 0}.object-details p{font-size:11px;margin:0 0 9px}
+  .object-navigation{gap:5px}.water-controls{bottom:16px;max-width:calc(100% - 24px);grid-template-columns:minmax(0,220px) auto;gap:0 16px;width:355px}
+  .scene-caption{bottom:104px;font-size:10px}.eyebrow{font-size:9px}
+}
+@media(max-height:550px){.object-details{bottom:10px;padding:10px 14px;width:300px}.object-details p{display:none}.object-details h1{font-size:16px}.scene-caption{display:none}}
+
+.object-details .asset-measure{font-size:11px;margin:0 0 6px;color:#e0d6b2}.object-details #scale-key{font-size:11px;color:#dce1cb}.object-details #object-stats{color:#aac3b5}
+@media(max-width:700px){.object-details .asset-measure{font-size:10px;margin:0 0 4px}.object-details p#object-description{display:none}}
+
+.fish-size{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 16px;border-top:1px solid #bdd4be35;font-size:11px;color:#bdd1ce;padding-top:8px;line-height:1.5}.fish-size #fish-size{grid-column:1;grid-row:1}.fish-size #demo-population{grid-column:1;grid-row:2 / 4}.fish-size #fish-mesh-stats{grid-column:2;grid-row:1}.fish-size .fish-mesh-scope{grid-column:2;grid-row:2}.fish-size #fish-mesh-details{grid-column:2;grid-row:3}.fish-size #fish-size-details{grid-column:1;grid-row:3}
+.fish-size output{display:block}.fish-size details{pointer-events:auto}.fish-size summary{cursor:pointer;width:max-content;color:#e0d6b2;min-height:24px;padding-top:3px}
+.fish-size summary:focus-visible,.size-notes a:focus-visible{outline:2px solid #e7d7a6;outline-offset:3px}
+.size-notes{position:absolute;z-index:3;top:calc(100% + 6px);left:0;width:310px;max-width:calc(100vw - 24px);max-height:min(320px,calc(100dvh - 280px));overflow:auto;padding:12px 14px;border:1px solid #bdd4be55;border-radius:10px;background:#15363c;box-shadow:0 8px 24px #051f2766}
+.size-notes p{margin:0 0 8px}.size-notes a{display:block;color:#e0d6b2;padding:4px 0}
+
+
+/* Underwater inspection keeps depth and visibility near the scene, separate from playback. */
+.dive-controls{position:absolute;left:18px;top:174px;width:208px;padding:12px 14px;display:grid;gap:6px;border:1px solid #bdd4be35;border-radius:12px;background:#15363cee;backdrop-filter:blur(12px)}
+.dive-controls label{display:flex;justify-content:space-between;font-size:12px}.dive-controls output{color:#d5e4c5}.dive-controls input{width:100%;min-height:30px;accent-color:#c5d7b3;cursor:pointer}
+@media(max-width:700px){.dive-controls{top:159px;left:12px;width:min(185px,53vw);padding:10px 12px;gap:3px}.dive-controls label{font-size:11px}}
+@media(max-height:550px){.dive-controls{top:151px;width:190px;padding:7px 10px;gap:0}.dive-controls input{min-height:22px}}
+
+
+/* Quality tier: a compact corner control; phones start at Base and keep `?quality=` for overrides. */
+.quality-control{position:fixed;z-index:2;right:18px;bottom:max(18px,env(safe-area-inset-bottom));display:flex;align-items:center;gap:6px;padding:4px 6px 4px 10px;border:1px solid #bdd4be35;border-radius:10px;background:#15363ce8;backdrop-filter:blur(12px);font-size:11px;color:#b2c5ba}
+.quality-control select{min-height:32px;padding:4px 6px;border:0;border-radius:7px;background:#315151;color:#e3e9d9;font-size:11px}
+@media(max-width:1000px){.quality-control{bottom:auto;top:18px;right:18px}}
+@media(max-width:700px){.quality-control{display:none}}
+
+/* Geographically grounded layout study; a separate on-demand viewport. */
+#panel-map{position:fixed;inset:78px 0 0}.map-canvas{position:absolute;inset:0}.map-canvas canvas{display:block;width:100%;height:100%;touch-action:none}
+.map-tools{position:absolute;top:12px;left:18px;width:300px;max-height:calc(100% - 110px);overflow:auto;padding:16px;background:#15363cee;border:1px solid #bdd4be35;border-radius:12px;font-size:12px}.map-tools h1{font-size:17px;font-weight:500;margin:0 0 8px}.map-status{white-space:pre-line;color:#c9d6bf;line-height:1.6}.map-tools label{display:flex;align-items:center;gap:7px;margin:10px 0}.map-tools input{accent-color:#e0d6b2}.map-tools select{min-height:36px;background:#315151;border:0;border-radius:7px;padding:7px}.map-buttons{display:flex;gap:4px;flex-wrap:wrap}.map-buttons button{min-height:44px;font-size:11px;border-radius:7px;background:#315151;padding:8px;color:inherit}.map-buttons button[aria-pressed=true]{background:#e0e4c8;color:#203e40}.map-tools details{line-height:1.6;margin-top:12px}.map-tools summary{cursor:pointer}.map-credit{font-size:10px;line-height:1.5}.map-credit a{color:#e0d6b2}.map-legend{position:absolute;bottom:16px;left:18px;right:18px;font-size:11px;line-height:1.6;color:#c3d2c6;pointer-events:none;text-shadow:0 1px 3px #163c43}
+@media(max-width:700px){.asset-tabs button{padding:8px 3px;font-size:10px}.map-tools{top:4px;left:12px;width:240px;padding:10px;max-height:42%}.map-tools h1{font-size:14px}.map-tools label{margin:5px 0;font-size:11px}.map-status{margin:5px 0;font-size:10px}.map-legend{left:12px;right:12px;font-size:10px}.map-tools details{margin-top:7px}}
+
+/* Model-only rendering counts follow the selected creature and life state. */
+.fish-mesh-stats{color:#e0d6b2}.fish-mesh-scope{display:block;font-size:10px;color:#a9c1b6}
+
+.visitor-scale{position:absolute;left:18px;bottom:19px;margin:0;font-size:11px;line-height:1.5;color:#bdcbd0;pointer-events:none}
+@media(max-width:1000px){.visitor-scale{bottom:78px}}
+@media(max-width:700px){.visitor-scale{left:12px;font-size:10px}}
+
+/* A native checkbox beneath the creature picker enables the mixed exhibit. */
+.creature-control .demo-toggle{grid-column:1 / 3;display:flex;align-items:center;gap:8px;min-height:36px;color:#e3e9d9;cursor:pointer;pointer-events:auto}
+.demo-toggle input{width:17px;height:17px;margin:0;accent-color:#d5dfbd;cursor:pointer;pointer-events:auto}
+.demo-key{margin-left:auto;min-width:20px;padding:2px 5px;border:1px solid #bdd4be70;border-radius:4px;text-align:center;font:inherit;font-size:10px;color:#dce6d1}
+.demo-toggle input:focus-visible{outline:2px solid #e7d7a6;outline-offset:4px}
+.creature-control select:disabled,.camera-controls button:disabled{opacity:.5;cursor:default}
+#demo-population{display:block;font-size:10px;color:#b2c5ba}
+@media(max-width:700px){
+  .creature-control .demo-toggle{min-height:44px}
+  .creature-control{left:12px;width:calc(100vw - 24px);grid-template-columns:auto minmax(0,1fr);gap:5px 8px;padding:8px 10px}
+  .creature-control .view-state-controls{grid-column:1 / -1;grid-row:auto;justify-self:stretch;width:100%;border-top:1px solid #bdd4be35;padding-top:6px}
+  .creature-control .camera-controls{grid-column:1 / -1;grid-row:auto;justify-self:stretch}
+  .creature-control .camera-controls button{flex:1}
+  .fish-size{display:block;padding-top:6px}
+}
+
+/* The asset libraries expose the same geometry levels used by the world renderer. */
+.lod-control{position:relative;grid-column:1 / -1;width:100%;padding:8px 0 0;border-top:1px solid #ffffff20;color:#d7e4d8;font-size:11px;pointer-events:auto}
+.lod-control label{margin-right:8px}.lod-control select{min-height:32px!important;min-width:120px!important;max-width:190px;background:#203e40;color:inherit;border:1px solid #ffffff25;border-radius:6px;padding:5px!important;font-size:11px!important}
+.lod-control details{display:inline-block;vertical-align:top;margin:8px 0 0 12px}.lod-control details[open]{display:block;margin:8px 0 0}.lod-control summary{cursor:pointer;color:#c5d9ce}.lod-control p{line-height:1.5;margin:8px 0;font-size:11px}.lod-control table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}.lod-control th,.lod-control td{padding:4px;border-bottom:1px solid #ffffff1a;text-align:right}.lod-control th:first-child{text-align:left}.lod-control output{display:block;padding-top:7px;font-size:10px;line-height:1.5;color:#b8d1c8}
+@media(max-width:700px){.lod-control details{margin-left:8px}.lod-control select{max-width:145px}.lod-control label{position:static!important;width:auto!important;height:auto!important;clip-path:none!important}.water-controls .lod-control{margin-top:6px}}
+
+/* Six library tabs remain reachable on narrow screens. */
+.asset-tabs{overflow-x:auto;scrollbar-width:none}.asset-tabs::-webkit-scrollbar{display:none}
+@media(max-width:620px){.asset-tabs button{flex:0 0 auto;padding:8px 10px}}
+
+.map-lod-status{font-size:11px;line-height:1.6;color:#c9d6bf;overflow-wrap:anywhere}
+.map-tools select{max-width:100%;min-width:0}
+
+/* Optional asset poses use the same compact inspector controls. */
+#object-pose-control,#object-group-control{display:grid;grid-template-columns:45px minmax(0,1fr);align-items:center;gap:8px;margin:8px 0;font-size:12px;color:#b6cabd}
+#object-pose,#object-group{min-width:0;width:100%;min-height:44px;border:0;border-radius:7px;padding:9px;font-size:12px;background:#294b4b;color:#e3e9d9}
+
+/* Regional place labels follow the map's demand rendering and yield to controls. */
+.bay-place-labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}.bay-place-label{position:absolute;transform:translate(-50%,-100%);pointer-events:auto;white-space:nowrap;padding:5px 9px;border:1px solid #d4d9b270;border-radius:18px;background:#173b3fe8;color:#f5ead0;font-size:11px;box-shadow:0 2px 8px #102a3433;min-height:30px}.bay-place-label[hidden],.bay-place-labels[hidden]{display:none}.bay-place-label:hover,.bay-place-label:focus-visible{background:#ece7cd;color:#1e4547;outline:2px solid #eacb88;outline-offset:2px}.map-tools{z-index:3}.map-legend{z-index:2}#map-bay-place{flex:1;min-width:0}

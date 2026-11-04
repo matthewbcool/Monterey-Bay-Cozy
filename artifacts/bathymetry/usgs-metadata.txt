@@ -1,0 +1,452 @@
+Identification_Information:
+  Citation:
+    Citation_Information:
+      Originator: Peter Dartnell
+      Originator: Rikk G. Kvitek
+      Publication_Date: 2016
+      Title: Bathymetry [2m]--Offshore of Monterey, California
+      Edition: 1.0
+      Geospatial_Data_Presentation_Form: GeoTiff
+      Series_Information:
+        Series_Name: Data Series
+        Issue_Identification: DS 781
+      Publication_Information:
+        Publication_Place: Reston, VA
+        Publisher: U.S. Geological Survey
+      Online_Linkage: https://doi.org/10.5066/F70Z71C8
+      Online_Linkage: https://cmgds.marine.usgs.gov/data/csmp/OffshoreMonterey/data_catalog_OffshoreMonterey.html
+      Larger_Work_Citation:
+        Citation_Information:
+          Originator: Nadine E. Golden
+          Publication_Date: 2015
+          Title: California State Waters Map Series Data Catalog
+          Geospatial_Data_Presentation_Form: database
+          Series_Information:
+            Series_Name: Data Series
+            Issue_Identification: DS 781
+          Publication_Information:
+            Publication_Place: Reston, VA
+            Publisher: U.S. Geological Survey
+          Online_Linkage: https://doi.org/10.3133/ds781
+  Description:
+    Abstract:
+      This part of DS 781 presents data for the bathymetry map of the Offshore of Monterey map area, California. Bathymetry data are provided as separate grids depending on resolution. This metadata file refers to the data included in "Bathymetry_2m_OffshoreMonterey.zip," which is accessible from https://doi.org/10.5066/F70Z71C8. These data accompany the pamphlet and map sheets of Johnson, S.Y., Dartnell, P., Hartwell, S.R., Cochrane, G.R., Golden, N.E., Watt, J.T., Davenport, C.W., Kvitek, R.G., Erdey, M.D., Krigsman, L.M., Sliter, R.W., and Maier, K.L. (S.Y. Johnson and S.A. Cochran, eds.), 2016, California State Waters Map Series—Offshore of Monterey, California: U.S. Geological Survey Open-File Report 2016–1110, pamphlet 44 p., 10 sheets, scale 1:24,000, https://doi.org/10.3133/ofr20161110. 
+
+      The 2-m and 5-m bathymetry and shaded-relief bathymetry maps of the Offshore of Monterey map area, California, were generated from acoustic bathymetry data collected by California State University, Monterey Bay (CSUMB) and by Monterey Bay Aquarium Research Institute (MBARI), as well as from bathymetric lidar data collected by the U.S. Army Corps of Engineers, Joint Airborne Lidar Bathymetry Center of Expertise (JALBTCX). Acoustic mapping was completed between 1998 and 2012 using a combination of 200-kHz/400-kHz Reson 7125, 100-kHz Reson 7111, 240-kHz Reson 8101, and 30-kHz Simrad EM-300 multibeam echosounders, as well as 234-kHz and 468-kHz SWATHplus bathymetric sidescan-sonar systems. Bathymetric lidar mapping was completed between 2009 and 2010 for the California Coastal Mapping Project (CCMP). These mapping missions combined to collect bathymetry data from the shoreline to beyond the limit of California’s State Waters. NOTE: The horizontal datum of this bathymetry data (NAD83) differs from the horizontal datum of other layers in this data release (WGS84).
+    Purpose: These data are intended for science researchers, students, policy makers, and the general public. These data can be used with geographic information systems or other software to identify bathymetric features. These data are not intended to be used for navigation.
+    Supplemental_Information: For additional information CSUMB on bathymetry data online visit http://seafloor.otterlabs.org and for MBARI data see http://www.ngdc.noaa.gov/mgg/bathymetry/relief.html.
+  Time_Period_of_Content:
+    Time_Period_Information:
+      Range_of_Dates/Times:
+        Beginning_Date: 1998
+        Ending_Date: 2012
+    Currentness_Reference: ground condition
+  Status:
+    Progress: Complete
+    Maintenance_and_Update_Frequency: As needed
+  Spatial_Domain:
+    Bounding_Coordinates:
+      West_Bounding_Coordinate: -122.064886
+      East_Bounding_Coordinate: -121.811775
+      North_Bounding_Coordinate: 36.692799
+      South_Bounding_Coordinate: 36.532722
+  Keywords:
+    Theme:
+      Theme_Keyword_Thesaurus: USGS Metadata Identifier
+      Theme_Keyword: USGS:7dbf3d60-c65f-4b76-9518-dac1553f8bd7
+    Theme:
+      Theme_Keyword_Thesaurus: Global Change Master Directory (GCMD)
+      Theme_Keyword: Bathymetry
+      Theme_Keyword: Seafloor Topography
+    Theme:
+      Theme_Keyword_Thesaurus: None
+      Theme_Keyword: Seafloor Character
+      Theme_Keyword: Fisheries
+      Theme_Keyword: Ecosystem
+      Theme_Keyword: Multibeam
+      Theme_Keyword: Geology
+      Theme_Keyword: Bathymetry
+      Theme_Keyword: Backscatter
+      Theme_Keyword: Intensity
+      Theme_Keyword: Ocean Floor Topography
+      Theme_Keyword: U.S. Geological Survey
+      Theme_Keyword: USGS
+      Theme_Keyword: Coastal and Marine Hazards and Resources Program
+      Theme_Keyword: CMHRP
+      Theme_Keyword: Pacific Coastal and Marine Science Center
+      Theme_Keyword: PCMSC
+    Theme:
+      Theme_Keyword_Thesaurus: ISO 19115 Topic Category
+      Theme_Keyword: geoscientificInformation
+      Theme_Keyword: environment
+      Theme_Keyword: oceans
+      Theme_Keyword: imageryBaseMapsEarthCover
+    Theme:
+      Theme_Keyword_Thesaurus: Data Categories for Marine Planning
+      Theme_Keyword: distributions
+      Theme_Keyword: bathymetry and elevation
+    Theme:
+      Theme_Keyword_Thesaurus: USGS Thesaurus
+      Theme_Keyword: sonar methods
+      Theme_Keyword: bathymetry measurement
+      Theme_Keyword: bathymetry
+      Theme_Keyword: marine geophysics
+      Theme_Keyword: geospatial datasets
+    Theme:
+      Theme_Keyword_Thesaurus: Coastal and Marine Ecological Classification Standard (CMECS)
+      Theme_Keyword: Marine Nearshore Subtidal
+      Theme_Keyword: Marine Offshore Subtidal
+      Theme_Keyword: Transform Continental Margin
+      Theme_Keyword: Continental/Island Shelf
+      Theme_Keyword: Rock Substrate
+      Theme_Keyword: Unconsolidated Mineral Substrate
+    Place:
+      Place_Keyword_Thesaurus: Geographic Names Information System (GNIS)
+      Place_Keyword: Pacific Ocean
+      Place_Keyword: State of California
+      Place_Keyword: Monterey
+      Place_Keyword: Monterey County
+      Place_Keyword: Seaside
+      Place_Keyword: Marina
+    Place:
+      Place_Keyword_Thesaurus: Coastal and Marine Ecological Classification Standard (CMECS)
+      Place_Keyword: Northern California Ecoregion
+    Stratum:
+      Stratum_Keyword_Thesaurus: Coastal and Marine Ecological Classification Standard (CMECS)
+      Stratum_Keyword: Substrate
+  Access_Constraints: No access constraints
+  Use_Constraints:
+    USGS-authored or produced data and information are in the public domain. These data are marked with a Creative Commons CC0 1.0 Universal License. Acknowledge the U.S. Geological Survey and California State University, Monterey Bay, Seafloor Mapping Lab in products derived from these data. Share data products developed using these data with the U.S. Geological Survey.
+    This information is not intended for navigational purposes. Read and fully comprehend the metadata prior to data use. Uses of these data should not violate the spatial resolution of the data. Where these data are used in combination with other data of different resolution, the resolution of the combined output will be limited by the lowest resolution of all the data.
+    This database has been approved for release and publication by the Director of the USGS. Although this database has been subjected to rigorous review and is substantially complete, the USGS reserves the right to revise the data pursuant to further analysis and review. Furthermore, it is released on condition that neither the USGS nor the United States Government may be held liable for any damages resulting from its authorized or unauthorized use.
+    Although this Federal Geographic Data Committee-compliant metadata file is intended to document these data in nonproprietary form, as well as in ArcInfo format, this metadata file may include some ArcInfo-specific terminology.
+  Point_of_Contact:
+    Contact_Information:
+      Contact_Organization_Primary:
+        Contact_Organization: U.S. Geological Survey, Pacific Coastal and Marine Science Center
+        Contact_Person: PCMSC Science Data Coordinator
+      Contact_Address:
+        Address_Type: mailing and physical
+        Address: 2885 Mission Street
+        City: Santa Cruz
+        State_or_Province: CA
+        Postal_Code: 95060-5792
+        Country: US
+      Contact_Voice_Telephone: 831-427-4747
+      Contact_Electronic_Mail_Address: pcmsc_data@usgs.gov
+  Browse_Graphic:
+    Browse_Graphic_File_Name: https://cmgds.marine.usgs.gov/data/csmp/OffshoreMonterey/thumbs/Bathymetry_2m_OffshoreMonterey.jpg
+    Browse_Graphic_File_Description: Bathymetry map offshore of Monterey.
+    Browse_Graphic_File_Type: JPEG
+  Native_Data_Set_Environment: Microsoft Windows Server 2008 R2 Version 6.1 (Build 7601) Service Pack 1; ESRI ArcCatalog 10.0
+  Cross_Reference:
+    Citation_Information:
+      Originator: Johnson, S.Y.
+      Originator: Dartnell, P.
+      Originator: Hartwell, S.R.
+      Originator: Cochrane, G.R.
+      Originator: Golden, N.E.
+      Originator: Watt, J.T.
+      Originator: Davenport, C.W.
+      Originator: Kvitek, R.G.
+      Originator: Erdey, M.D.
+      Originator: Krisgman, L.M.
+      Originator: Sliter, R.W.
+      Originator: Maier, K.L.
+      Publication_Date: 2016
+      Title: California State Waters Map Series--Offshore of Monterey, California
+      Series_Information:
+        Series_Name: Open-File Report
+        Issue_Identification: 2016-1110
+      Publication_Information:
+        Publication_Place: Reston, VA
+        Publisher: U.S. Geological Survey
+      Online_Linkage: https://doi.org/10.3133/ofr20161110
+Data_Quality_Information:
+  Attribute_Accuracy:
+    Attribute_Accuracy_Report: Not applicable for raster data.
+  Logical_Consistency_Report: Unspecified
+  Completeness_Report: Complete
+  Positional_Accuracy:
+    Horizontal_Positional_Accuracy:
+      Horizontal_Positional_Accuracy_Report: Estimated to be no less than 2 m, owing to water depth and total propagated uncertainties of the mapping systems, which include sonar system, position and motion compensation system, and navigation, as well as data processing that includes sounding cleaning, gridding, and datum transformations.
+    Vertical_Positional_Accuracy:
+      Vertical_Positional_Accuracy_Report: Estimated to be no less than 20 cm, owing to water depth and total propagated uncertainties of the mapping systems, which include sonar system, position and motion compensation system, and navigation, as well as data processing that includes sounding cleaning, gridding, and datum transformations.
+  Lineage:
+    Process_Step:
+      Process_Description: During the CSUMB mapping missions, an Applanix POS MV (Position and Orientation System for Marine Vessels) was used to accurately position the vessels during data collection, and it also accounted for vessel motion such as heave, pitch, and roll (position accuracy, +/-2 m; pitch, roll, and heading accuracy, +/-0.02 percent; heave accuracy, +/-5 percent, or 5 cm). To account for tidal-cycle fluctuations, KGPS data (GPS data with real-time kinematic corrections) was used; in addition, sound-velocity profiles were collected with an Applied Microsystems (AM) SVPlus sound velocimeter. Soundings were corrected for vessel motion using the Applanix POS MV data, for variations in water-column sound velocity using the AM SVPlus data, and for variations in water height (tides) using vertical-position data from the KGPS receivers. Finally, the soundings were converted into 2-m-resolution bathymetric-surface-model grids.
+      Process_Date: 2006
+      Process_Contact:
+        Contact_Information:
+          Contact_Person_Primary:
+            Contact_Person: Carrie Bretz
+            Contact_Organization: Seafloor Mapping Lab, California State University Monterey Bay
+          Contact_Position: Projects Manager, GIS & Metadata Supervisor
+          Contact_Address:
+            Address_Type: mailing and physical address
+            Address: 100 Campus Center, Bldg 13
+            City: Seaside
+            State_or_Province: CA
+            Postal_Code: 93955
+            Country: USA
+          Contact_Voice_Telephone: 831.582.4197
+          Contact_Electronic_Mail_Address: carrie_bretz@csumb.edu
+    Process_Step:
+      Process_Description: Nearshore acoustic and lidar bathymetric data within California State Waters were merged together by Dewberry as part of the 2013 NOAA Coastal California TopoBathy Merge Project (National Oceanic and Atmospheric Administration, 2013). Merged bathymetry data within the Offshore of Monterey map area were downloaded from this data set and re-sampled to 2-m spatial resolution. The MBARI 5-m bathymetric surface-model-grid was also clipped to the Offshore of Monterey map boundary. The 2-m and 5-m grids were not merged and are provided as separate grids.
+      Process_Date: 2016
+      Process_Contact:
+        Contact_Information:
+          Contact_Person_Primary:
+            Contact_Person: Pete Dartnell
+            Contact_Organization: U.S. Geological Survey, Pacific Coastal and Marine Science Center
+          Contact_Position: Physical Scientist
+          Contact_Address:
+            Address_Type: mailing and physical address
+            Address: 2885 Mission St.
+            City: Santa Cruz
+            State_or_Province: CA
+            Postal_Code: 95060-5792
+            Country: USA
+          Contact_Voice_Telephone: (831) 460-7415
+          Contact_Electronic_Mail_Address: pdartnell@usgs.gov
+    Process_Step:
+      Process_Description: Keywords section of metadata optimized for discovery in USGS Coastal and Marine Geology Data Catalog.
+      Process_Date: 20171005
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: U.S. Geological Survey
+            Contact_Person: Alan O. Allwardt
+          Contact_Position: Contractor -- Information Specialist
+          Contact_Address:
+            Address_Type: mailing and physical address
+            Address: 2885 Mission Street
+            City: Santa Cruz
+            State_or_Province: CA
+            Postal_Code: 95060
+          Contact_Voice_Telephone: 831-460-7551
+          Contact_Facsimile_Telephone: 831-427-4748
+          Contact_Electronic_Mail_Address: aallwardt@usgs.gov
+    Process_Step:
+      Process_Description: Added keywords from Coastal and Marine Ecological Classification Standard (CMECS) to metadata.
+      Process_Date: 20180426
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: U.S. Geological Survey
+            Contact_Person: Alan O. Allwardt
+          Contact_Position: Contractor -- Information Specialist
+          Contact_Address:
+            Address_Type: mailing and physical address
+            Address: 2885 Mission Street
+            City: Santa Cruz
+            State_or_Province: CA
+            Postal_Code: 95060
+          Contact_Voice_Telephone: 831-460-7551
+          Contact_Facsimile_Telephone: 831-427-4748
+          Contact_Electronic_Mail_Address: aallwardt@usgs.gov
+    Process_Step:
+      Process_Description: Edited metadata to add keywords section with USGS persistent identifier as theme keyword. No data were changed.
+      Process_Date: 20201019
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: U.S. Geological Survey
+            Contact_Person: VeeAnn A. Cross
+          Contact_Position: Marine Geologist
+          Contact_Address:
+            Address_Type: Mailing and Physical
+            Address: 384 Woods Hole Road
+            City: Woods Hole
+            State_or_Province: MA
+            Postal_Code: 02543-1598
+          Contact_Voice_Telephone: 508-548-8700 x2251
+          Contact_Facsimile_Telephone: 508-457-2310
+          Contact_Electronic_Mail_Address: vatnipp@usgs.gov
+    Process_Step:
+      Process_Description: Performed minor edits to the metadata to correct typos. No data were changed
+      Process_Date: 20211014
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: U.S. Geological Survey
+            Contact_Person: Susan A. Cochran
+          Contact_Position: Geologist
+          Contact_Address:
+            Address_Type: Mailing and Physical
+            Address: 2885 Mission Street
+            City: Santa Cruz
+            State_or_Province: CA
+            Postal_Code: 95060
+          Contact_Voice_Telephone: 831-460-7545
+          Contact_Electronic_Mail_Address: scochran@usgs.gov
+    Process_Step:
+      Process_Description: Edits were made to bring the metadata up to current PCMSC standards including standardizing authors' names, adding a doi# link, correcting typos, refining keywords, and using current access and distribution liability statements. Point of Contact and Metadata Contact information sections were changed to static PCMSC contact information. No data were changed. The metadata available from a harvester may supersede metadata bundled within a download file. Users are advised to compare the metadata date of this file to any similar file to ensure they are using the most recent version.
+      Process_Date: 20220520
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: U.S. Geological Survey
+            Contact_Person: Susan A. Cochran
+          Contact_Position: Geologist
+          Contact_Address:
+            Address_Type: Mailing and Physical
+            Address: 2885 Mission Street
+            City: Santa Cruz
+            State_or_Province: CA
+            Postal_Code: 95060
+          Contact_Voice_Telephone: 831-460-7545
+          Contact_Electronic_Mail_Address: scochran@usgs.gov
+    Process_Step:
+      Process_Description: Due to new system requirements from the ScienceBase data release modernization project, these data were migrated from ScienceBase to the Coastal and Marine Geoscience Data System (CMGDS). Online links and distributor contacts were updated accordingly. Other minor edits were made to meet current metadata best practices. The metadata available from a harvester may supersede metadata bundled within a download file. Users are advised to compare the metadata dates to determine which metadata file is most recent. No data were changed.
+      Process_Date: 20260507
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: U.S. Geological Survey
+            Contact_Person: Manda Au
+          Contact_Position: Data Management Specialist
+          Contact_Address:
+            Address_Type: Mailing and Physical
+            Address: 2885 Mission Street
+            City: Santa Cruz
+            State_or_Province: CA
+            Postal_Code: 95060
+          Contact_Voice_Telephone: 831-460-7575
+          Contact_Electronic_Mail_Address: mau@usgs.gov
+Spatial_Data_Organization_Information:
+  Direct_Spatial_Reference_Method: Raster
+  Raster_Object_Information:
+    Raster_Object_Type: Grid Cell
+    Row_Count: 11222
+    Column_Count: 8816
+    Vertical_Count: 1
+Spatial_Reference_Information:
+  Horizontal_Coordinate_System_Definition:
+    Planar:
+      Grid_Coordinate_System:
+        Grid_Coordinate_System_Name: Universal Transverse Mercator
+        Universal_Transverse_Mercator:
+          UTM_Zone_Number: 10
+          Transverse_Mercator:
+            Scale_Factor_at_Central_Meridian: 0.9996
+            Longitude_of_Central_Meridian: -123.00000
+            Latitude_of_Projection_Origin: 0.00000
+            False_Easting: 500000.0
+            False_Northing: 0.00
+      Planar_Coordinate_Information:
+        Planar_Coordinate_Encoding_Method: coordinate pair
+        Coordinate_Representation:
+          Abscissa_Resolution: 2.0
+          Ordinate_Resolution: 2.0
+        Planar_Distance_Units: Meters
+    Geodetic_Model:
+      Horizontal_Datum_Name: NAD83
+      Ellipsoid_Name: GRS80
+      Semi-major_Axis: 6378137.00
+      Denominator_of_Flattening_Ratio: 298.257223563
+  Vertical_Coordinate_System_Definition:
+    Altitude_System_Definition:
+      Altitude_Datum_Name: North American Vertical Datum of 1988
+      Altitude_Resolution: 2.0
+      Altitude_Distance_Units: meters
+      Altitude_Encoding_Method: Attribute values
+Entity_and_Attribute_Information:
+  Detailed_Description:
+    Entity_Type:
+      Entity_Type_Label: Value
+      Entity_Type_Definition: BathymetryA [2m] depth value
+      Entity_Type_Definition_Source: ESRI
+    Attribute:
+      Attribute_Label: VALUE
+      Attribute_Definition: Bathymetry depth value
+      Attribute_Definition_Source: ESRI
+      Attribute_Domain_Values:
+        Range_Domain:
+          Range_Domain_Minimum: -1099.35
+          Range_Domain_Maximum: 10.95
+          Attribute_Units_of_Measure: meters
+  Overview_Description:
+    Entity_and_Attribute_Overview:
+      The complete 2-m resolution bathymetry grid for  Offshore of Monterey, California were originally archived as an ESRI grid with the following attributes. NOTE: the horizontal datum of the bathymetry data (NAD83) differs from the horizontal datum of other layers in this data release (WGS84).
+      >Cell size = 2.0
+      >Number of rows = 11222
+      >Number of columns = 8816
+      >
+      >Data type = floating point
+      >
+      >Boundary
+      >Xmin = 583710
+      >Xmax = 606154
+      >Ymin = 4043571
+      >Ymax = 4061203
+      >
+      >Statistics
+      >Minimum value = -1099.35
+      >Maximum value = 10.95
+      >Mean = -139.42
+      >Standard deviation = 190.83
+      >
+      >Coordinate system description
+      >Projection  UTM
+      >Zone  10
+      >Datum  NAD83
+      >Vertical Datum  NAVD88
+      >Units  meter
+    Entity_and_Attribute_Detail_Citation: none
+Distribution_Information:
+  Distributor:
+    Contact_Information:
+      Contact_Organization_Primary:
+        Contact_Organization: U.S. Geological Survey - CMGDS
+      Contact_Address:
+        Address_Type: mailing and physical
+        Address: 2885 Mission Street
+        City: Santa Cruz
+        State_or_Province: CA
+        Postal_Code: 95060
+        Country: USA
+      Contact_Voice_Telephone: 1-831-427-4747
+      Contact_Electronic_Mail_Address: pcmsc_data@usgs.gov
+  Distribution_Liability:
+    These databases, identified as bathymetry and shaded-relief maps of Offshore of Monterey map area, California have been approved for release and publication by the U.S. Geological Survey (USGS). Although these databases have been subjected to rigorous review and are substantially complete, the USGS reserves the right to revise the data pursuant to further analysis and review. Furthermore, it is released on condition that neither the USGS nor the United States Government may be held liable for any damages resulting from its authorized or unauthorized use.
+    Although these data have been processed successfully on a computer system at the U.S. Geological Survey (USGS), no warranty expressed or implied is made regarding the display or utility of the data on any other system or for general or scientific purposes, nor shall the act of distribution constitute any such warranty. The USGS or the U.S. Government shall not be held liable for improper or incorrect use of the data described and/or contained herein.
+    Reference herein to any specific commercial product, process, or service by trade name, trademark, manufacturer, or otherwise does not constitute or imply its endorsement, recommendation, or favoring by the United States Government or any agency thereof.
+    These data are not intended for navigational use.
+  Standard_Order_Process:
+    Digital_Form:
+      Digital_Transfer_Information:
+        Format_Name: TIFF
+        Format_Version_Number: ArcMap (version 10.0, ESRI , 2011)
+        Format_Specification: Raster data layer is registered TIFF image in the UTM Zone 10 coordinate system with datum NAD83.
+        Format_Information_Content: The .zip file for the TIFF image includes the image (.tif), the world registration file (.tfw), and FGDC-compliant metadata for the Bathymetry [2m] data layer of Offshore Monterey, California.
+        File_Decompression_Technique: WinZip
+        Transfer_Size: 213.1
+      Digital_Transfer_Option:
+        Online_Option:
+          Computer_Contact_Information:
+            Network_Address:
+              Network_Resource_Name: https://doi.org/10.5066/F70Z71C8
+              Network_Resource_Name: https://pubs.usgs.gov/ds/781/
+          Access_Instructions: Data can be downloaded using the Network Resource links. The first link is a landing page on which all of the downloadable data for a particular region are listed. The second link is a landing page for the entire data catalog.
+    Fees: none
+  Technical_Prerequisites: The downloadable data file has been compressed with the "zip" command and can be unzipped with Winzip (or other tool) on Windows systems. To utilize these data, the user must have software capable of uncompressing the WinZip file and importing and viewing an Esri ArcMap TIFF. Users should download the ArcGIS Project File, OffshoreMontereyGIS.mxd.zip, a compressed (with the "zip" command) version of the ArcMap document (.mxd) that has all the data layers loaded in the table of contents for "Offshore of Monterey map area" and has all the data symbolized as on the data release map sheets. Download and save this ArcGIS project file, including all data layers, to the directory the user has created for this GIS.
+Metadata_Reference_Information:
+  Metadata_Date: 20260507
+  Metadata_Contact:
+    Contact_Information:
+      Contact_Organization_Primary:
+        Contact_Organization: U.S. Geological Survey, Pacific Coastal and Marine Science Center
+        Contact_Person: PCMSC Science Data Coordinator
+      Contact_Address:
+        Address_Type: mailing and physical
+        Address: 2885 Mission Street
+        City: Santa Cruz
+        State_or_Province: CA
+        Postal_Code: 95060-5792
+        Country: US
+      Contact_Voice_Telephone: 831-427-4747
+      Contact_Electronic_Mail_Address: pcmsc_data@usgs.gov
+  Metadata_Standard_Name: Content Standard for Digital Geospatial Metadata
+  Metadata_Standard_Version: FGDC-STD-001-1998
+  Metadata_Time_Convention: local time

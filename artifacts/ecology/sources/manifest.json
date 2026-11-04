@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "url": "https://coastwatch.pfeg.noaa.gov/erddap/info/FED_Rockfish_Catch/index.csv",
+    "retrievedAt": "2026-11-02T18:25:48.251133+00:00",
+    "sha256": "ded167e882acc1d3849724d3a07e8bdc92311008539e39b0893cc5e5a8607bee",
+    "bytes": 13247
+  },
+  "hauls": {
+    "url": "https://coastwatch.pfeg.noaa.gov/erddap/tabledap/FED_Rockfish_Catch.csv?time,latitude,longitude,cruise,haul_no&latitude%3E=36.55&latitude%3C=37.03&longitude%3E=-122.12&longitude%3C=-121.7&time%3E=2015-01-01T00:00:00Z&time%3C=2025-12-31T23:59:59Z&distinct()",
+    "retrievedAt": "2026-11-02T18:25:57.823685+00:00",
+    "sha256": "e2ecbf7a6bafd4f0ad079b8c8eee0f5efc59e6dd3542353f7d5291684739fb88",
+    "bytes": 6360
+  },
+  "catches": {
+    "url": "https://coastwatch.pfeg.noaa.gov/erddap/tabledap/FED_Rockfish_Catch.csv?time,latitude,longitude,cruise,haul_no,station,catch,species_code,common_name,sci_name,maturity&latitude%3E=36.55&latitude%3C=37.03&longitude%3E=-122.12&longitude%3C=-121.7&time%3E=2015-01-01T00:00:00Z&time%3C=2025-12-31T23:59:59Z&sci_name=~%22(Sebastes%20mystinus%7COphiodon%20elongatus%7CSardinops%20sagax)%22",
+    "retrievedAt": "2026-11-02T18:26:52.842994+00:00",
+    "sha256": "09d1ec84545a6425b5557abd8e4dcedf7690b1f034cfd72725420f845e520f26",
+    "bytes": 58255
+  }
+}

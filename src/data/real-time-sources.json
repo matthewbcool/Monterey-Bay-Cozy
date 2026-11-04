@@ -1,0 +1,607 @@
+{
+  "schemaVersion": 1,
+  "researchedOn": "2026-10-20",
+  "status": "map-study-manual-conditions-with-research-catalogue",
+  "enabledInGame": false,
+  "coordinates": "WGS84 [longitude, latitude]; null where source coverage or station location is unresolved.",
+  "relatedCameraDatabase": "src/data/live-feeds.json",
+  "policy": "Proposed polling/cache numbers are design choices, not provider guarantees. No automatic requests are added by this registry.",
+  "sources": [
+    {
+      "id": "local-sky-clock",
+      "name": "Local sun and moon",
+      "provider": "Local astronomical calculation",
+      "dataMode": "computed",
+      "proposedPhase": 1,
+      "enabledInGame": false,
+      "signals": [
+        "sun position",
+        "sunrise/sunset/twilight",
+        "moon position/illumination"
+      ],
+      "spatial": {
+        "kind": "query-anchor",
+        "coordinates": [
+          -121.901918,
+          36.618084
+        ],
+        "basis": "Existing Aquarium campus anchor used as a query point, not a weather measurement station.",
+        "currentMapCoverage": "inside",
+        "relatedFeedLocationIds": [
+          "aquarium"
+        ]
+      },
+      "sources": [
+        "https://github.com/mourner/suncalc"
+      ],
+      "access": {
+        "status": "implementation-candidate",
+        "exampleUrl": null,
+        "requirements": "No recurring network required. Evaluate a pinned local algorithm/library and retain its license; none was installed.",
+        "rights": "SunCalc is a candidate reference with BSD-2-Clause licensing; retain notices if chosen.",
+        "browserTested": false
+      },
+      "refreshProposal": {
+        "proposedPollSeconds": null,
+        "proposal": "Compute on scene/time/location change; recalculate at a low rate while active and interpolate lighting. Display in America/Los_Angeles, store UTC."
+      },
+      "possibleGameUses": [
+        "Shared local day/night, sunset sky colors, sun shadows and moonlit water"
+      ],
+      "limitations": [
+        "Computed ephemeris is not observed cloud cover or fog. Retain an explicit inspection/demo clock override."
+      ],
+      "checkedOn": "2026-10-20",
+      "mapStudy": {
+        "status": "implemented-local-computation",
+        "signals": [
+          "Pacific local date",
+          "approximate sunrise/sunset",
+          "daylight at snapshot time"
+        ],
+        "method": "Independent implementation of NOAA fractional-year equations; computed on snapshot reads, no polling or SunCalc dependency.",
+        "sourceUrls": [
+          "https://gml.noaa.gov/grad/solcalc/solareqns.PDF",
+          "https://gml.noaa.gov/grad/solcalc/calcdetails.html"
+        ],
+        "limitations": [
+          "Approximation excludes cloud, fog and local terrain.",
+          "Moon, twilight and sun-direction integration remain unimplemented."
+        ],
+        "updatedOn": "2026-10-22",
+        "enabledInGame": false
+      }
+    },
+    {
+      "id": "noaa-monterey-water-level",
+      "name": "Monterey observed water level",
+      "provider": "NOAA CO-OPS 9413450",
+      "dataMode": "observation",
+      "proposedPhase": 1,
+      "enabledInGame": false,
+      "signals": [
+        "water level metres relative to MLLW",
+        "quality and preliminary/verified flags",
+        "observation timestamp"
+      ],
+      "spatial": {
+        "kind": "published-station-point",
+        "coordinates": [
+          -121.89139,
+          36.60889
+        ],
+        "basis": "NOAA CO-OPS metadata for station 9413450, checked 2026-10-20. Measurement support is a station, not a bay-wide elevation survey.",
+        "currentMapCoverage": "outside-south",
+        "relatedFeedLocationIds": []
+      },
+      "sources": [
+        "https://tidesandcurrents.noaa.gov/waterlevels.html?id=9413450",
+        "https://api.tidesandcurrents.noaa.gov/api/prod/",
+        "https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations/9413450.json"
+      ],
+      "access": {
+        "status": "browser-json-read-confirmed-adapter-not-built",
+        "exampleUrl": "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?station=9413450&product=water_level&date=latest&datum=MLLW&units=metric&time_zone=gmt&format=json&application=MontereyBayCozyResearch",
+        "requirements": "No key used for probe. Respect rate limits, preserve flags and keep datum/units/time zone explicit.",
+        "rights": "Public NOAA service; retain source attribution and preliminary-data context.",
+        "browserTested": true
+      },
+      "refreshProposal": {
+        "proposedPollSeconds": 360,
+        "proposal": "Six-minute product; share one fetch per active prototype, cache and back off. A proposed 30-minute stale threshold is a game policy, not a provider guarantee."
+      },
+      "possibleGameUses": [
+        "Tide board at waterfront locations",
+        "Calibrated relative waterline and boat/shore relationships"
+      ],
+      "limitations": [
+        "Observed height is relative to a tidal datum, not directly game Y=0. Define an authored reference before moving geometry. Do not drive managed Aquarium tank levels from ocean tides."
+      ],
+      "checkedOn": "2026-10-20",
+      "mapStudy": {
+        "status": "implemented-manual-refresh",
+        "signals": [
+          "observed water level metres MLLW",
+          "UTC source/fetch time",
+          "NOAA sigma and f/q quality flags"
+        ],
+        "cacheSeconds": 360,
+        "maximumProviderExtendedCacheSeconds": 1800,
+        "staleAfterSeconds": 1800,
+        "endpoint": "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?station=9413450&product=water_level&date=latest&datum=MLLW&units=metric&time_zone=gmt&format=json&application=MontereyBayCozyMapStudy",
+        "updatedOn": "2026-10-22",
+        "enabledInGame": false
+      }
+    },
+    {
+      "id": "noaa-monterey-tide-predictions",
+      "name": "Monterey tide predictions",
+      "provider": "NOAA CO-OPS 9413450",
+      "dataMode": "prediction",
+      "proposedPhase": 1,
+      "enabledInGame": false,
+      "signals": [
+        "predicted water level",
+        "future high/low timing from chosen prediction product",
+        "validity range"
+      ],
+      "spatial": {
+        "kind": "published-station-point",
+        "coordinates": [
+          -121.89139,
+          36.60889
+        ],
+        "basis": "NOAA CO-OPS metadata for station 9413450, checked 2026-10-20. Measurement support is a station, not a bay-wide elevation survey.",
+        "currentMapCoverage": "outside-south",
+        "relatedFeedLocationIds": []
+      },
+      "sources": [
+        "https://api.tidesandcurrents.noaa.gov/api/prod/",
+        "https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=9413450"
+      ],
+      "access": {
+        "status": "browser-json-read-confirmed-adapter-not-built",
+        "exampleUrl": "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?station=9413450&product=predictions&date=today&interval=6&datum=MLLW&units=metric&time_zone=gmt&format=json&application=MontereyBayCozyResearch",
+        "requirements": "No key used. Example returns sampled predictions; request interval=hilo separately if using provider high/low events.",
+        "rights": "Public NOAA service; attribute and label predictions separately from measurements.",
+        "browserTested": true
+      },
+      "refreshProposal": {
+        "proposedPollSeconds": 21600,
+        "proposal": "Cache an appropriate future interval, refresh when coverage or issue time needs it. Suggested six-hour refresh is a prototype choice, not observation cadence."
+      },
+      "possibleGameUses": [
+        "Preview the next tide cycle",
+        "Keep a clearly labeled predicted tide when observations are stale"
+      ],
+      "limitations": [
+        "Predictions do not include every weather-driven water-level anomaly. A prediction fallback must never be labeled a fresh observation."
+      ],
+      "checkedOn": "2026-10-20",
+      "mapStudy": {
+        "status": "implemented-manual-refresh",
+        "signals": [
+          "next future high/low events",
+          "predicted metres MLLW",
+          "UTC event/fetch times"
+        ],
+        "cacheSeconds": 21600,
+        "maximumProviderExtendedCacheSeconds": 86400,
+        "staleAfterSeconds": 86400,
+        "product": "NOAA predictions; interval=hilo; UTC begin date plus 72 hours; MLLW; metric.",
+        "limitations": [
+          "Provider issue time is not supplied; age is since fetch.",
+          "Missing future high/low coverage is stale."
+        ],
+        "updatedOn": "2026-10-22",
+        "enabledInGame": false
+      }
+    },
+    {
+      "id": "nws-monterey-weather",
+      "name": "Monterey weather forecast",
+      "provider": "National Weather Service",
+      "dataMode": "forecast",
+      "proposedPhase": 2,
+      "enabledInGame": false,
+      "signals": [
+        "wind speed/direction",
+        "air temperature",
+        "precipitation probability",
+        "forecast validity periods"
+      ],
+      "spatial": {
+        "kind": "query-anchor",
+        "coordinates": [
+          -121.901918,
+          36.618084
+        ],
+        "basis": "Existing Aquarium campus anchor used as a query point, not a weather measurement station.",
+        "currentMapCoverage": "inside",
+        "relatedFeedLocationIds": [
+          "aquarium"
+        ]
+      },
+      "sources": [
+        "https://www.weather.gov/documentation/services-web-api",
+        "https://api.weather.gov/points/36.6181,-121.9019"
+      ],
+      "access": {
+        "status": "browser-json-read-confirmed-adapter-not-built",
+        "exampleUrl": "https://api.weather.gov/gridpoints/MTR/92,51/forecast/hourly",
+        "discoveryUrl": "https://api.weather.gov/points/36.6181,-121.9019",
+        "requirements": "Resolve grid URLs through /points rather than permanently hardcoding MTR/92,51. Follow cache headers and documented application-identification requirements.",
+        "rights": "NWS documentation describes API data as open and free for any purpose; preserve attribution.",
+        "browserTested": true
+      },
+      "refreshProposal": {
+        "proposedPollSeconds": 900,
+        "proposal": "Conditional/cache-aware fetches on a roughly 15-minute prototype schedule; hourly validity periods are not 15-minute measurements."
+      },
+      "possibleGameUses": [
+        "Wind direction for surface ripples and future kelp/flag motion",
+        "Rain/cloud mood using available forecast fields",
+        "Conditions panel beside camera locations"
+      ],
+      "limitations": [
+        "Forecast grid support is broader than a precise camera view. Fog requires visibility/ceiling evidence or explicit artistic approximation; a weather icon or humidity alone is insufficient."
+      ],
+      "checkedOn": "2026-10-20",
+      "mapStudy": {
+        "status": "implemented-manual-refresh",
+        "signals": [
+          "current valid hourly forecast",
+          "temperature Celsius",
+          "wind range metres per second and direction from",
+          "precipitation probability"
+        ],
+        "cacheSeconds": 900,
+        "maximumProviderExtendedCacheSeconds": 3600,
+        "staleAfterIssueSeconds": 21600,
+        "discoveryCacheSeconds": 86400,
+        "discoveryUrl": "https://api.weather.gov/points/36.6181,-121.9019",
+        "limitations": [
+          "No current valid forecast period is stale.",
+          "Browser may strip the application User-Agent override; server integration must set identification reliably."
+        ],
+        "updatedOn": "2026-10-22",
+        "enabledInGame": false
+      }
+    },
+    {
+      "id": "nws-local-alerts",
+      "name": "Official local weather/marine alerts",
+      "provider": "National Weather Service",
+      "dataMode": "alert",
+      "proposedPhase": 3,
+      "enabledInGame": false,
+      "signals": [
+        "alert geometry/zone",
+        "effective and expiry times",
+        "severity and source link"
+      ],
+      "spatial": {
+        "kind": "query-anchor",
+        "coordinates": [
+          -121.901918,
+          36.618084
+        ],
+        "basis": "Existing Aquarium campus anchor used as a query point, not a weather measurement station.",
+        "currentMapCoverage": "inside",
+        "relatedFeedLocationIds": [
+          "aquarium"
+        ]
+      },
+      "sources": [
+        "https://www.weather.gov/documentation/services-web-api",
+        "https://www.weather.gov/documentation/services-web-alerts"
+      ],
+      "access": {
+        "status": "browser-json-read-confirmed-adapter-not-built",
+        "exampleUrl": "https://api.weather.gov/alerts/active?point=36.6181,-121.9019",
+        "requirements": "Apply point/zone/geometry and timestamp checks. A local land-point query is not proof that every relevant marine zone is covered.",
+        "rights": "NWS open service; retain issuer, timestamps, attribution and official link.",
+        "browserTested": true
+      },
+      "refreshProposal": {
+        "proposedPollSeconds": 300,
+        "proposal": "Proposed five-minute conditional refresh; respect cache/rate-limit responses and expiry/cancellation."
+      },
+      "possibleGameUses": [
+        "Optional clearly sourced information at harbor noticeboards"
+      ],
+      "limitations": [
+        "Keep official alerts distinct from fictional game events. Empty, failed or stale responses do not prove real-world conditions are safe."
+      ],
+      "checkedOn": "2026-10-20",
+      "mapStudy": {
+        "status": "research-only",
+        "automaticRequests": false,
+        "liveValuesAvailable": false,
+        "updatedOn": "2026-10-22",
+        "enabledInGame": false
+      }
+    },
+    {
+      "id": "ndbc-46042-waves",
+      "name": "Offshore Monterey buoy conditions",
+      "provider": "NOAA National Data Buoy Center 46042",
+      "dataMode": "observation",
+      "proposedPhase": 2,
+      "enabledInGame": false,
+      "signals": [
+        "significant wave height metres",
+        "dominant wave period seconds",
+        "wave direction",
+        "wind metres per second",
+        "water temperature Celsius"
+      ],
+      "spatial": {
+        "kind": "published-station-point",
+        "coordinates": [
+          -122.408,
+          36.787
+        ],
+        "basis": "Position published by the current station realtime page; historical deployments used different positions.",
+        "currentMapCoverage": "outside-offshore",
+        "relatedFeedLocationIds": []
+      },
+      "sources": [
+        "https://www.ndbc.noaa.gov/station_realtime.php?station=46042",
+        "https://www.ndbc.noaa.gov/faq/measdes.shtml"
+      ],
+      "access": {
+        "status": "server-http-confirmed-browser-path-unresolved",
+        "exampleUrl": "https://www.ndbc.noaa.gov/data/realtime2/46042.txt",
+        "requirements": "Probe returned about 612 KB of history and no Access-Control-Allow-Origin header. Do not poll this full file per player; choose a permitted cached/latest-record delivery path when implementing.",
+        "rights": "Retain NOAA attribution and real-time quality context; inspect selected product metadata.",
+        "browserTested": false
+      },
+      "refreshProposal": {
+        "proposedPollSeconds": 1200,
+        "proposal": "Proposed 20-minute shared refresh; use actual per-variable timestamps. Reporting cadence and missing wave/met fields vary."
+      },
+      "possibleGameUses": [
+        "Regional swell mood and calibrated exposed-water animation",
+        "Buoy information board; water-temperature context"
+      ],
+      "limitations": [
+        "Offshore buoy is not a dock/harbor measurement. Significant wave height is not a single shader-wave amplitude. Parse MM and missing values as null, not zero; units differ across source columns."
+      ],
+      "checkedOn": "2026-10-20",
+      "mapStudy": {
+        "status": "research-only",
+        "automaticRequests": false,
+        "liveValuesAvailable": false,
+        "updatedOn": "2026-10-22",
+        "enabledInGame": false
+      }
+    },
+    {
+      "id": "cencoos-aquarium-intake",
+      "name": "Aquarium intake / nearby shore-station water properties",
+      "provider": "CeNCOOS and station operators",
+      "dataMode": "observation",
+      "proposedPhase": 3,
+      "enabledInGame": false,
+      "signals": [
+        "water temperature",
+        "salinity where measured",
+        "chlorophyll proxy where measured",
+        "oxygen/pH where measured"
+      ],
+      "spatial": {
+        "kind": "station-catalogue-unresolved",
+        "coordinates": null,
+        "basis": "CeNCOOS names an Aquarium intake station and nearby Monterey Wharf II station. Exact selected station location, variables and dataset are not resolved.",
+        "currentMapCoverage": "unresolved",
+        "relatedFeedLocationIds": [
+          "aquarium"
+        ]
+      },
+      "sources": [
+        "https://www.cencoos.org/data-by-location/monterey-bay/",
+        "https://www.cencoos.org/data-services/"
+      ],
+      "access": {
+        "status": "catalogue-confirmed-dataset-unresolved",
+        "exampleUrl": null,
+        "requirements": "Select a current ERDDAP/THREDDS dataset; check variable units, depth, QA, station coordinates and CORS. No endpoint ID was invented.",
+        "rights": "Dataset-specific attribution and reuse terms must be checked.",
+        "browserTested": false
+      },
+      "refreshProposal": {
+        "proposedPollSeconds": 3600,
+        "proposal": "One-hour initial cache proposal; selected dataset publication interval and sensor availability must govern the final policy."
+      },
+      "possibleGameUses": [
+        "Real-world ecology/conditions cards near the Aquarium",
+        "Carefully labeled artistic water-color or seasonal habitat cues"
+      ],
+      "limitations": [
+        "A coastal intake is not the same as conditions throughout the game area. Chlorophyll is not a direct underwater visibility measurement; water quality does not prove fish presence or catch odds."
+      ],
+      "checkedOn": "2026-10-20",
+      "mapStudy": {
+        "status": "research-only",
+        "automaticRequests": false,
+        "liveValuesAvailable": false,
+        "updatedOn": "2026-10-22",
+        "enabledInGame": false
+      }
+    },
+    {
+      "id": "cencoos-surface-currents",
+      "name": "Regional surface-current grid",
+      "provider": "CeNCOOS / IOOS HF radar providers",
+      "dataMode": "derived-observation",
+      "proposedPhase": 3,
+      "enabledInGame": false,
+      "signals": [
+        "east/north surface velocity",
+        "grid resolution",
+        "coverage mask",
+        "observation/processing time"
+      ],
+      "spatial": {
+        "kind": "regional-grid",
+        "coordinates": null,
+        "basis": "California-coast radar products must be subset to valid cells around the map; no harbor-resolution coverage is assumed.",
+        "currentMapCoverage": "requires-grid-mask-check",
+        "relatedFeedLocationIds": []
+      },
+      "sources": [
+        "https://www.cencoos.org/hf-radar-data-access/",
+        "https://www.cencoos.org/data-services/"
+      ],
+      "access": {
+        "status": "catalogue-confirmed-dataset-unresolved",
+        "exampleUrl": null,
+        "requirements": "Choose a current grid/product, subset server-side if permitted, then verify nearshore coverage and CORS.",
+        "rights": "Check chosen dataset license, provider attribution and QA conventions.",
+        "browserTested": false
+      },
+      "refreshProposal": {
+        "proposedPollSeconds": 3600,
+        "proposal": "Hourly products are listed; cache and update on publication rather than at the render rate."
+      },
+      "possibleGameUses": [
+        "Current arrows on the water map",
+        "Future slow drift of floating props, with deliberate game scaling"
+      ],
+      "limitations": [
+        "The listed 500 m product is for San Francisco Bay, not an assumed Monterey service. Grid gaps and kilometre-scale cells cannot resolve small harbors or imply subsurface flow."
+      ],
+      "checkedOn": "2026-10-20",
+      "mapStudy": {
+        "status": "research-only",
+        "automaticRequests": false,
+        "liveValuesAvailable": false,
+        "updatedOn": "2026-10-22",
+        "enabledInGame": false
+      }
+    },
+    {
+      "id": "inaturalist-local-observations",
+      "name": "Recent local wildlife observations",
+      "provider": "iNaturalist contributors",
+      "dataMode": "delayed-report",
+      "proposedPhase": 3,
+      "enabledInGame": false,
+      "signals": [
+        "taxon and identification quality",
+        "observed date versus report date",
+        "public location accuracy",
+        "observation/media licenses"
+      ],
+      "spatial": {
+        "kind": "bounded-observation-query",
+        "coordinates": null,
+        "basis": "Use the existing map bounds for public observation queries; respect original uncertainty and obscuration.",
+        "currentMapCoverage": "query-bounds-dependent",
+        "relatedFeedLocationIds": []
+      },
+      "sources": [
+        "https://api.inaturalist.org/v1/docs/",
+        "https://www.inaturalist.org/api",
+        "https://help.inaturalist.org/en/support/solutions/articles/151000169938-what-is-geoprivacy-what-does-it-mean-for-an-observation-to-be-obscured-"
+      ],
+      "access": {
+        "status": "documentation-reviewed-query-not-tested",
+        "exampleUrl": "https://api.inaturalist.org/v1/observations?swlat={south}&swlng={west}&nelat={north}&nelng={east}&d1={since}&per_page=30",
+        "requirements": "Use bounded, cached metadata queries. Check each record/media license and attribution before redistribution.",
+        "rights": "Observation and media rights can differ per record; no blanket reuse assumption.",
+        "browserTested": false
+      },
+      "refreshProposal": {
+        "proposedPollSeconds": 86400,
+        "proposal": "Daily/manual refresh for a rolling recent-observation board; no need for continuous polling."
+      },
+      "possibleGameUses": [
+        "Discovery journal and seasonal habitat information",
+        "A source-linked account of what people have reported nearby"
+      ],
+      "limitations": [
+        "Reports are delayed and sometimes historical uploads, not tracking of live animals. Do not infer precise locations from obscured records or treat a sighting as guaranteed game spawns."
+      ],
+      "checkedOn": "2026-10-20",
+      "mapStudy": {
+        "status": "research-only",
+        "automaticRequests": false,
+        "liveValuesAvailable": false,
+        "updatedOn": "2026-10-22",
+        "enabledInGame": false
+      }
+    },
+    {
+      "id": "ais-regional-vessels",
+      "name": "Vessel traffic in a bounded bay area",
+      "provider": "AIS Stream or another licensed AIS provider",
+      "dataMode": "event-stream",
+      "proposedPhase": 3,
+      "enabledInGame": false,
+      "signals": [
+        "reported vessel position",
+        "speed/course",
+        "message/source timestamps"
+      ],
+      "spatial": {
+        "kind": "moving-points-in-bounds",
+        "coordinates": null,
+        "basis": "Provider region subscription; transform published WGS84 positions only after validating message age/accuracy.",
+        "currentMapCoverage": "subscription-dependent",
+        "relatedFeedLocationIds": []
+      },
+      "sources": [
+        "https://aisstream.io/documentation"
+      ],
+      "access": {
+        "status": "backend-and-provider-terms-required",
+        "exampleUrl": "wss://stream.aisstream.io/v0/stream",
+        "requirements": "Provider forbids direct browser connections. Account key belongs on a server; confirm redistribution terms before implementation. No credentials or connection were requested.",
+        "rights": "Provider terms and downstream display rights require review.",
+        "browserTested": false
+      },
+      "refreshProposal": {
+        "proposedPollSeconds": null,
+        "proposal": "One bounded server subscription only when the game needs it; reduce to small timestamped client updates and handle gaps/backoff."
+      },
+      "possibleGameUses": [
+        "Optional geographic boat silhouettes or a harbor traffic display"
+      ],
+      "limitations": [
+        "Not every vessel transmits AIS; coverage, latency and reported positions vary. Do not make missing reports disappear instantly or treat the layer as a complete collision map."
+      ],
+      "checkedOn": "2026-10-20",
+      "mapStudy": {
+        "status": "research-only",
+        "automaticRequests": false,
+        "liveValuesAvailable": false,
+        "updatedOn": "2026-10-22",
+        "enabledInGame": false
+      }
+    }
+  ],
+  "mapStudy": {
+    "integratedOn": "2026-10-22",
+    "timeZone": "America/Los_Angeles",
+    "adapter": "src/data/worldConditions.ts",
+    "mode": "manual-refresh-display-only",
+    "enabledInGame": false,
+    "automaticRequests": false,
+    "minimumRefreshSeconds": 60,
+    "requestTimeoutSeconds": 12,
+    "providerRetryAfterHonored": true,
+    "researchFieldsNotice": "Original access, refreshProposal, sources and checkedOn fields preserve the October 20 research snapshot. Per-source mapStudy metadata describes the October 22 implementation; researched signals are not all implemented.",
+    "browserVerification": {
+      "verifiedAt": "2026-10-23T04:26:06Z",
+      "scope": "Chrome/Vite cross-origin NOAA observed and predicted tides and discovered NWS hourly forecast; one dated successful check, not guaranteed availability.",
+      "evidence": "artifacts/map-world/live-access.json"
+    },
+    "limitations": [
+      "No game waterline, lighting or fish behavior changes.",
+      "No moon, alerts, buoy, intake, currents, wildlife or AIS integration.",
+      "NWS application User-Agent override is best-effort in browsers; a future shared server must reliably send it."
+    ]
+  }
+}

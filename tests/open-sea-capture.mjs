@@ -1,0 +1,3 @@
+import {chromium} from 'playwright';
+const browser=await chromium.launch({channel:'chrome',headless:true});
+try { for(const animal of ['urchin','jelly']) {const p=await browser.newPage({viewport:{width:1000,height:800}});await p.goto(`http://127.0.0.1:5191/tests/open-sea-review.html?animal=${animal}`);await p.evaluate(async()=>await window.faunaReview);await p.screenshot({path:`artifacts/open-sea/${animal}-${process.env.PASS??'blockout'}.png`});await p.close();}const p=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'});await p.goto('http://127.0.0.1:5191/');await p.waitForTimeout(2000);await p.screenshot({path:`artifacts/open-sea/exhibit-${process.env.PASS??'blockout'}.png`});await p.close();}finally{await browser.close();}

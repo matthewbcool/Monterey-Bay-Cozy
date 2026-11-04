@@ -1,0 +1,437 @@
+{
+  "source": "OpenStreetMap contributors",
+  "downloaded": "2026-10-24",
+  "license": "ODbL 1.0",
+  "sourceFile": "artifacts/pacific-grove-waterfront/waterfront.osm",
+  "origin": [
+    -121.91685,
+    36.6256
+  ],
+  "items": [
+    {
+      "id": "node/8934536947",
+      "kind": "bench",
+      "position": [
+        277.366,
+        691.845
+      ],
+      "lonLat": [
+        -121.9137419,
+        36.6193781
+      ],
+      "tags": {
+        "amenity": "bench",
+        "backrest": "yes"
+      }
+    },
+    {
+      "id": "node/8934536966",
+      "kind": "bench",
+      "position": [
+        327.626,
+        697.315
+      ],
+      "lonLat": [
+        -121.9131787,
+        36.6193289
+      ],
+      "tags": {
+        "amenity": "bench"
+      }
+    },
+    {
+      "id": "node/8934644471",
+      "kind": "bench",
+      "position": [
+        436.382,
+        712.683
+      ],
+      "lonLat": [
+        -121.91196,
+        36.6191907
+      ],
+      "tags": {
+        "amenity": "bench"
+      }
+    },
+    {
+      "id": "node/9892264342",
+      "kind": "waste_basket",
+      "position": [
+        1302.329,
+        881.777
+      ],
+      "lonLat": [
+        -121.9022564,
+        36.61767
+      ],
+      "tags": {
+        "amenity": "waste_basket"
+      }
+    },
+    {
+      "id": "node/9892264353",
+      "kind": "bench",
+      "position": [
+        1302.034,
+        879.631
+      ],
+      "lonLat": [
+        -121.9022597,
+        36.6176893
+      ],
+      "tags": {
+        "amenity": "bench",
+        "backrest": "no",
+        "material": "concrete"
+      }
+    },
+    {
+      "id": "node/9892264354",
+      "kind": "bench",
+      "position": [
+        1300.642,
+        877.162
+      ],
+      "lonLat": [
+        -121.9022753,
+        36.6177115
+      ],
+      "tags": {
+        "amenity": "bench",
+        "backrest": "no",
+        "material": "concrete"
+      }
+    },
+    {
+      "id": "node/9892264355",
+      "kind": "bench",
+      "position": [
+        1297.947,
+        875.795
+      ],
+      "lonLat": [
+        -121.9023055,
+        36.6177238
+      ],
+      "tags": {
+        "amenity": "bench",
+        "backrest": "no",
+        "material": "concrete"
+      }
+    },
+    {
+      "id": "node/9892264357",
+      "kind": "waste_basket",
+      "position": [
+        1286.667,
+        863.908
+      ],
+      "lonLat": [
+        -121.9024319,
+        36.6178307
+      ],
+      "tags": {
+        "amenity": "waste_basket"
+      }
+    },
+    {
+      "id": "node/9892264358",
+      "kind": "bicycle_parking",
+      "position": [
+        1313.6,
+        866.554
+      ],
+      "lonLat": [
+        -121.9021301,
+        36.6178069
+      ],
+      "tags": {
+        "access": "yes",
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "10",
+        "covered": "no",
+        "fee": "no"
+      }
+    },
+    {
+      "id": "node/9916087867",
+      "kind": "bench",
+      "position": [
+        574.347,
+        417.893
+      ],
+      "lonLat": [
+        -121.910414,
+        36.6218418
+      ],
+      "tags": {
+        "amenity": "bench"
+      }
+    },
+    {
+      "id": "node/9916124596",
+      "kind": "bench",
+      "position": [
+        569.305,
+        407.063
+      ],
+      "lonLat": [
+        -121.9104705,
+        36.6219392
+      ],
+      "tags": {
+        "amenity": "bench"
+      }
+    },
+    {
+      "id": "node/11626328920",
+      "kind": "bench",
+      "position": [
+        1368.152,
+        766.423
+      ],
+      "lonLat": [
+        -121.9015188,
+        36.6187074
+      ],
+      "tags": {
+        "amenity": "bench"
+      }
+    },
+    {
+      "id": "node/11626328921",
+      "kind": "bench",
+      "position": [
+        1368.723,
+        763.521
+      ],
+      "lonLat": [
+        -121.9015124,
+        36.6187335
+      ],
+      "tags": {
+        "amenity": "bench"
+      }
+    },
+    {
+      "id": "node/11626328922",
+      "kind": "bench",
+      "position": [
+        1365.698,
+        762.709
+      ],
+      "lonLat": [
+        -121.9015463,
+        36.6187408
+      ],
+      "tags": {
+        "amenity": "bench"
+      }
+    },
+    {
+      "id": "node/11626328923",
+      "kind": "bench",
+      "position": [
+        1363.663,
+        765.022
+      ],
+      "lonLat": [
+        -121.9015691,
+        36.61872
+      ],
+      "tags": {
+        "amenity": "bench"
+      }
+    },
+    {
+      "id": "node/11994737399",
+      "kind": "bench",
+      "position": [
+        -8.79,
+        367.222
+      ],
+      "lonLat": [
+        -121.9169485,
+        36.6222975
+      ],
+      "tags": {
+        "amenity": "bench",
+        "backrest": "yes",
+        "material": "wood"
+      }
+    },
+    {
+      "id": "node/12626478695",
+      "kind": "waste_basket",
+      "position": [
+        1325.165,
+        847.429
+      ],
+      "lonLat": [
+        -121.9020005,
+        36.6179789
+      ],
+      "tags": {
+        "amenity": "waste_basket"
+      }
+    },
+    {
+      "id": "node/12626498504",
+      "kind": "information",
+      "position": [
+        1286.292,
+        861.484
+      ],
+      "lonLat": [
+        -121.9024361,
+        36.6178525
+      ],
+      "tags": {
+        "information": "board",
+        "tourism": "information"
+      }
+    },
+    {
+      "id": "node/12626498512",
+      "kind": "waste_basket",
+      "position": [
+        1265.928,
+        874.883
+      ],
+      "lonLat": [
+        -121.9026643,
+        36.617732
+      ],
+      "tags": {
+        "amenity": "waste_basket"
+      }
+    },
+    {
+      "id": "node/12626498521",
+      "kind": "bench",
+      "position": [
+        1252.453,
+        868.656
+      ],
+      "lonLat": [
+        -121.9028153,
+        36.617788
+      ],
+      "tags": {
+        "amenity": "bench",
+        "backrest": "no"
+      }
+    },
+    {
+      "id": "node/12626498522",
+      "kind": "bench",
+      "position": [
+        1250.472,
+        867.344
+      ],
+      "lonLat": [
+        -121.9028375,
+        36.6177998
+      ],
+      "tags": {
+        "amenity": "bench",
+        "backrest": "yes"
+      }
+    },
+    {
+      "id": "node/12626498524",
+      "kind": "bicycle_parking",
+      "position": [
+        1304.221,
+        878.519
+      ],
+      "lonLat": [
+        -121.9022352,
+        36.6176993
+      ],
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "rack",
+        "covered": "no",
+        "description": "This bike rack is shaped like a shark."
+      }
+    },
+    {
+      "id": "node/12626498530",
+      "kind": "waste_basket",
+      "position": [
+        1354.454,
+        878.541
+      ],
+      "lonLat": [
+        -121.9016723,
+        36.6176991
+      ],
+      "tags": {
+        "amenity": "waste_basket"
+      }
+    },
+    {
+      "id": "node/12626498535",
+      "kind": "bench",
+      "position": [
+        1365.189,
+        885.235
+      ],
+      "lonLat": [
+        -121.901552,
+        36.6176389
+      ],
+      "tags": {
+        "amenity": "bench"
+      }
+    },
+    {
+      "id": "node/12626498536",
+      "kind": "bench",
+      "position": [
+        1366.18,
+        886.481
+      ],
+      "lonLat": [
+        -121.9015409,
+        36.6176277
+      ],
+      "tags": {
+        "amenity": "bench"
+      }
+    },
+    {
+      "id": "node/12626498537",
+      "kind": "bench",
+      "position": [
+        1366.867,
+        887.27
+      ],
+      "lonLat": [
+        -121.9015332,
+        36.6176206
+      ],
+      "tags": {
+        "amenity": "bench"
+      }
+    },
+    {
+      "id": "node/12626498544",
+      "kind": "waste_basket",
+      "position": [
+        1348.046,
+        886.636
+      ],
+      "lonLat": [
+        -121.9017441,
+        36.6176263
+      ],
+      "tags": {
+        "amenity": "waste_basket"
+      }
+    }
+  ]
+}
