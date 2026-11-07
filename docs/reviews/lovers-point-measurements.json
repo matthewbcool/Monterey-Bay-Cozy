@@ -1,0 +1,736 @@
+{
+  "webgpu": [
+    {
+      "name": "surrey-front",
+      "surreyScreenBounds": {
+        "width": 739.1766313054352,
+        "height": 758.5274554223043
+      },
+      "backend": "WebGPU",
+      "lod": {
+        "near": {
+          "triangles": 1668,
+          "draws": 6
+        },
+        "mid": {
+          "triangles": 1532,
+          "draws": 6
+        },
+        "far": {
+          "triangles": 720,
+          "draws": 6
+        },
+        "bytes": 338232,
+        "meshes": 6,
+        "ready": true
+      },
+      "viewport": [
+        1364,
+        798
+      ],
+      "camera": [
+        6.89,
+        13.1,
+        96.73
+      ],
+      "target": [
+        3.1178,
+        12.6,
+        94.8854
+      ],
+      "fov": 49,
+      "render": {
+        "calls": 385,
+        "frameCalls": 5,
+        "drawCalls": 65,
+        "triangles": 251967,
+        "points": 0,
+        "lines": 0,
+        "timestamp": 0
+      }
+    },
+    {
+      "name": "lodge",
+      "surreyScreenBounds": {
+        "width": 118.60052675831162,
+        "height": 38.92582039113432
+      },
+      "backend": "WebGPU",
+      "lod": {
+        "near": {
+          "triangles": 1668,
+          "draws": 6
+        },
+        "mid": {
+          "triangles": 1532,
+          "draws": 6
+        },
+        "far": {
+          "triangles": 720,
+          "draws": 6
+        },
+        "bytes": 338232,
+        "meshes": 6,
+        "ready": true
+      },
+      "viewport": [
+        1364,
+        798
+      ],
+      "camera": [
+        -35,
+        23,
+        -55
+      ],
+      "target": [
+        -75,
+        19,
+        -24
+      ],
+      "fov": 49,
+      "render": {
+        "calls": 403,
+        "frameCalls": 5,
+        "drawCalls": 61,
+        "triangles": 328964,
+        "points": 0,
+        "lines": 0,
+        "timestamp": 0
+      }
+    },
+    {
+      "name": "pier",
+      "surreyScreenBounds": {
+        "width": 60.74452456809644,
+        "height": 38.498898420712976
+      },
+      "backend": "WebGPU",
+      "lod": {
+        "near": {
+          "triangles": 1668,
+          "draws": 6
+        },
+        "mid": {
+          "triangles": 1532,
+          "draws": 6
+        },
+        "far": {
+          "triangles": 720,
+          "draws": 6
+        },
+        "bytes": 338232,
+        "meshes": 6,
+        "ready": true
+      },
+      "viewport": [
+        1364,
+        798
+      ],
+      "camera": [
+        32,
+        10,
+        48
+      ],
+      "target": [
+        65,
+        3.5,
+        13
+      ],
+      "fov": 49,
+      "render": {
+        "calls": 421,
+        "frameCalls": 5,
+        "drawCalls": 104,
+        "triangles": 286650,
+        "points": 0,
+        "lines": 0,
+        "timestamp": 0
+      }
+    },
+    {
+      "name": "promenade",
+      "surreyScreenBounds": {
+        "width": 73.86695262538376,
+        "height": 49.69752738736594
+      },
+      "backend": "WebGPU",
+      "lod": {
+        "near": {
+          "triangles": 1668,
+          "draws": 6
+        },
+        "mid": {
+          "triangles": 1532,
+          "draws": 6
+        },
+        "far": {
+          "triangles": 720,
+          "draws": 6
+        },
+        "bytes": 338232,
+        "meshes": 6,
+        "ready": true
+      },
+      "viewport": [
+        1364,
+        798
+      ],
+      "camera": [
+        -32,
+        14.5,
+        73
+      ],
+      "target": [
+        5,
+        12,
+        97
+      ],
+      "fov": 49,
+      "render": {
+        "calls": 439,
+        "frameCalls": 5,
+        "drawCalls": 144,
+        "triangles": 429669,
+        "points": 0,
+        "lines": 0,
+        "timestamp": 0
+      }
+    },
+    {
+      "name": "surrey",
+      "surreyScreenBounds": {
+        "width": 574.8199879392876,
+        "height": 480.5855676880252
+      },
+      "backend": "WebGPU",
+      "lod": {
+        "near": {
+          "triangles": 1668,
+          "draws": 6
+        },
+        "mid": {
+          "triangles": 1532,
+          "draws": 6
+        },
+        "far": {
+          "triangles": 720,
+          "draws": 6
+        },
+        "bytes": 338232,
+        "meshes": 6,
+        "ready": true
+      },
+      "viewport": [
+        1364,
+        798
+      ],
+      "camera": [
+        7,
+        14,
+        99
+      ],
+      "target": [
+        3.1178,
+        12.5,
+        94.8854
+      ],
+      "fov": 49,
+      "render": {
+        "calls": 457,
+        "frameCalls": 5,
+        "drawCalls": 66,
+        "triangles": 209301,
+        "points": 0,
+        "lines": 0,
+        "timestamp": 0
+      }
+    },
+    {
+      "name": "surrey-mid",
+      "surreyScreenBounds": {
+        "width": 574.8199879392876,
+        "height": 480.5855676880252
+      },
+      "backend": "WebGPU",
+      "lod": {
+        "near": {
+          "triangles": 1668,
+          "draws": 6
+        },
+        "mid": {
+          "triangles": 1532,
+          "draws": 6
+        },
+        "far": {
+          "triangles": 720,
+          "draws": 6
+        },
+        "bytes": 342744,
+        "meshes": 6,
+        "ready": true
+      },
+      "viewport": [
+        1364,
+        798
+      ],
+      "camera": [
+        7,
+        14,
+        99
+      ],
+      "target": [
+        3.1178,
+        12.5,
+        94.8854
+      ],
+      "fov": 49,
+      "render": {
+        "calls": 475,
+        "frameCalls": 5,
+        "drawCalls": 66,
+        "triangles": 170408,
+        "points": 0,
+        "lines": 0,
+        "timestamp": 0
+      }
+    },
+    {
+      "name": "surrey-far",
+      "surreyScreenBounds": {
+        "width": 574.8199879392876,
+        "height": 480.5855676880252
+      },
+      "backend": "WebGPU",
+      "lod": {
+        "near": {
+          "triangles": 1668,
+          "draws": 6
+        },
+        "mid": {
+          "triangles": 1532,
+          "draws": 6
+        },
+        "far": {
+          "triangles": 720,
+          "draws": 6
+        },
+        "bytes": 345192,
+        "meshes": 6,
+        "ready": true
+      },
+      "viewport": [
+        1364,
+        798
+      ],
+      "camera": [
+        7,
+        14,
+        99
+      ],
+      "target": [
+        3.1178,
+        12.5,
+        94.8854
+      ],
+      "fov": 49,
+      "render": {
+        "calls": 493,
+        "frameCalls": 5,
+        "drawCalls": 66,
+        "triangles": 152731,
+        "points": 0,
+        "lines": 0,
+        "timestamp": 0
+      }
+    }
+  ],
+  "webgl": [
+    {
+      "name": "surrey-front",
+      "surreyScreenBounds": {
+        "width": 739.1766313054352,
+        "height": 758.5274554223043
+      },
+      "backend": "WebGL 2",
+      "lod": {
+        "near": {
+          "triangles": 1668,
+          "draws": 6
+        },
+        "mid": {
+          "triangles": 1532,
+          "draws": 6
+        },
+        "far": {
+          "triangles": 720,
+          "draws": 6
+        },
+        "bytes": 338232,
+        "meshes": 6,
+        "ready": true
+      },
+      "viewport": [
+        1364,
+        798
+      ],
+      "camera": [
+        6.89,
+        13.1,
+        96.73
+      ],
+      "target": [
+        3.1178,
+        12.6,
+        94.8854
+      ],
+      "fov": 49,
+      "render": {
+        "calls": 385,
+        "frameCalls": 5,
+        "drawCalls": 65,
+        "triangles": 251967,
+        "points": 0,
+        "lines": 0,
+        "timestamp": 0
+      }
+    },
+    {
+      "name": "lodge",
+      "surreyScreenBounds": {
+        "width": 118.60052675831162,
+        "height": 38.92582039113432
+      },
+      "backend": "WebGL 2",
+      "lod": {
+        "near": {
+          "triangles": 1668,
+          "draws": 6
+        },
+        "mid": {
+          "triangles": 1532,
+          "draws": 6
+        },
+        "far": {
+          "triangles": 720,
+          "draws": 6
+        },
+        "bytes": 338232,
+        "meshes": 6,
+        "ready": true
+      },
+      "viewport": [
+        1364,
+        798
+      ],
+      "camera": [
+        -35,
+        23,
+        -55
+      ],
+      "target": [
+        -75,
+        19,
+        -24
+      ],
+      "fov": 49,
+      "render": {
+        "calls": 403,
+        "frameCalls": 5,
+        "drawCalls": 61,
+        "triangles": 328964,
+        "points": 0,
+        "lines": 0,
+        "timestamp": 0
+      }
+    },
+    {
+      "name": "pier",
+      "surreyScreenBounds": {
+        "width": 60.74452456809644,
+        "height": 38.498898420712976
+      },
+      "backend": "WebGL 2",
+      "lod": {
+        "near": {
+          "triangles": 1668,
+          "draws": 6
+        },
+        "mid": {
+          "triangles": 1532,
+          "draws": 6
+        },
+        "far": {
+          "triangles": 720,
+          "draws": 6
+        },
+        "bytes": 338232,
+        "meshes": 6,
+        "ready": true
+      },
+      "viewport": [
+        1364,
+        798
+      ],
+      "camera": [
+        32,
+        10,
+        48
+      ],
+      "target": [
+        65,
+        3.5,
+        13
+      ],
+      "fov": 49,
+      "render": {
+        "calls": 421,
+        "frameCalls": 5,
+        "drawCalls": 104,
+        "triangles": 286650,
+        "points": 0,
+        "lines": 0,
+        "timestamp": 0
+      }
+    },
+    {
+      "name": "promenade",
+      "surreyScreenBounds": {
+        "width": 73.86695262538376,
+        "height": 49.69752738736594
+      },
+      "backend": "WebGL 2",
+      "lod": {
+        "near": {
+          "triangles": 1668,
+          "draws": 6
+        },
+        "mid": {
+          "triangles": 1532,
+          "draws": 6
+        },
+        "far": {
+          "triangles": 720,
+          "draws": 6
+        },
+        "bytes": 338232,
+        "meshes": 6,
+        "ready": true
+      },
+      "viewport": [
+        1364,
+        798
+      ],
+      "camera": [
+        -32,
+        14.5,
+        73
+      ],
+      "target": [
+        5,
+        12,
+        97
+      ],
+      "fov": 49,
+      "render": {
+        "calls": 439,
+        "frameCalls": 5,
+        "drawCalls": 144,
+        "triangles": 429669,
+        "points": 0,
+        "lines": 0,
+        "timestamp": 0
+      }
+    },
+    {
+      "name": "surrey",
+      "surreyScreenBounds": {
+        "width": 574.8199879392876,
+        "height": 480.5855676880252
+      },
+      "backend": "WebGL 2",
+      "lod": {
+        "near": {
+          "triangles": 1668,
+          "draws": 6
+        },
+        "mid": {
+          "triangles": 1532,
+          "draws": 6
+        },
+        "far": {
+          "triangles": 720,
+          "draws": 6
+        },
+        "bytes": 338232,
+        "meshes": 6,
+        "ready": true
+      },
+      "viewport": [
+        1364,
+        798
+      ],
+      "camera": [
+        7,
+        14,
+        99
+      ],
+      "target": [
+        3.1178,
+        12.5,
+        94.8854
+      ],
+      "fov": 49,
+      "render": {
+        "calls": 457,
+        "frameCalls": 5,
+        "drawCalls": 66,
+        "triangles": 209301,
+        "points": 0,
+        "lines": 0,
+        "timestamp": 0
+      }
+    },
+    {
+      "name": "surrey-mid",
+      "surreyScreenBounds": {
+        "width": 574.8199879392876,
+        "height": 480.5855676880252
+      },
+      "backend": "WebGL 2",
+      "lod": {
+        "near": {
+          "triangles": 1668,
+          "draws": 6
+        },
+        "mid": {
+          "triangles": 1532,
+          "draws": 6
+        },
+        "far": {
+          "triangles": 720,
+          "draws": 6
+        },
+        "bytes": 338232,
+        "meshes": 6,
+        "ready": true
+      },
+      "viewport": [
+        1364,
+        798
+      ],
+      "camera": [
+        7,
+        14,
+        99
+      ],
+      "target": [
+        3.1178,
+        12.5,
+        94.8854
+      ],
+      "fov": 49,
+      "render": {
+        "calls": 475,
+        "frameCalls": 5,
+        "drawCalls": 66,
+        "triangles": 170408,
+        "points": 0,
+        "lines": 0,
+        "timestamp": 0
+      }
+    },
+    {
+      "name": "surrey-far",
+      "surreyScreenBounds": {
+        "width": 574.8199879392876,
+        "height": 480.5855676880252
+      },
+      "backend": "WebGL 2",
+      "lod": {
+        "near": {
+          "triangles": 1668,
+          "draws": 6
+        },
+        "mid": {
+          "triangles": 1532,
+          "draws": 6
+        },
+        "far": {
+          "triangles": 720,
+          "draws": 6
+        },
+        "bytes": 338232,
+        "meshes": 6,
+        "ready": true
+      },
+      "viewport": [
+        1364,
+        798
+      ],
+      "camera": [
+        7,
+        14,
+        99
+      ],
+      "target": [
+        3.1178,
+        12.5,
+        94.8854
+      ],
+      "fov": 49,
+      "render": {
+        "calls": 493,
+        "frameCalls": 5,
+        "drawCalls": 66,
+        "triangles": 152731,
+        "points": 0,
+        "lines": 0,
+        "timestamp": 0
+      }
+    }
+  ],
+  "map": [
+    {
+      "backend": "webgpu",
+      "photoAssessment": "November 3 contributor photos: two-level pier, red-capped hut, turquoise kiosk, three-storey lodge; dimensions remain estimates.",
+      "lod": {
+        "near": {
+          "triangles": 48575,
+          "draws": 20
+        },
+        "mid": {
+          "triangles": 42980,
+          "draws": 20
+        },
+        "far": {
+          "triangles": 36790,
+          "draws": 20
+        },
+        "bytes": 5286630,
+        "meshes": 20,
+        "ready": true
+      }
+    },
+    {
+      "backend": "webgl2",
+      "photoAssessment": "November 3 contributor photos: two-level pier, red-capped hut, turquoise kiosk, three-storey lodge; dimensions remain estimates.",
+      "lod": {
+        "near": {
+          "triangles": 48575,
+          "draws": 20
+        },
+        "mid": {
+          "triangles": 42980,
+          "draws": 20
+        },
+        "far": {
+          "triangles": 36790,
+          "draws": 20
+        },
+        "bytes": 5216196,
+        "meshes": 20,
+        "ready": true
+      }
+    }
+  ]
+}

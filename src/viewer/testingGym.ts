@@ -1,3 +1,4 @@
+import {addPierApron} from './testingGym/pierApron';
 import { createCaledoniaArea, inCaledonia, caledoniaHeight } from './mapStudy/caledonia';
 import { createGymSeafloor, SEAFLOOR } from './testingGym/seafloor';
 import { GROUND_KIND, pathStyle } from './testingGym/pathStyle';
@@ -89,6 +90,7 @@ export const GYM_GEOGRAPHY = {
   source: '© OpenStreetMap contributors · ODbL',
   mapDate: features.downloaded,
   sourceUrl: 'https://www.openstreetmap.org/copyright',
+  photoAssessment: 'November 3 contributor photos: two-level pier, red-capped hut, turquoise kiosk, three-storey lodge; dimensions remain estimates.',
   photoSource: 'https://files.cityofpacificgrove.org/Document_Center/Departments/Public%20Works/Buildings%20%26%20Grounds/Lovers%20Point%20Park.pdf?t=202510301223500',
   limits: 'Mapped coast, roads, paths, beaches, pool, court and building footprints. USGS DEM land and separate survey-backed bathymetry in NAVD88 metres; shore joins, gaps, walls, stairs, widths, planting, building heights and exercise placements remain approximations.',
   seed: 6256,
@@ -170,6 +172,7 @@ export function createTestingGym(options: { whaleSightingRoll?: number } = {}) {
   interactions.push({id:'pool-gate',label:poolGate.label,description:'Open the gate to explore the pool deck. The basin is a visual study.',position:new Vector3(gateApproach[0],groundHeight(...gateApproach)+.045,gateApproach[1]),radius:4.3,action:'gate',object:poolGate.root});
   addShoreEdges(scenery,colliders);
   addBeachAccess(scenery,colliders);
+  addPierApron(overlays);
 
   addParkBuildings(buildings,colliders,groundHeight);
   const statues = addParkStatues(root, colliders);

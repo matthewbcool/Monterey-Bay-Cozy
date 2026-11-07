@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-26",
+  "date": "2026-11-06",
   "scope": "Semantic asset families in current procedural source. Family records are not counts of mesh parts or placed instances. Catalog-only assets are enumerated by propCollection.",
   "entries": [
     {
@@ -274,7 +274,9 @@
       "status": "scene-only",
       "sources": [
         "src/viewer/testingGym/access.ts",
-        "src/viewer/testingGym/shore.ts"
+        "src/viewer/testingGym/shore.ts",
+        "src/viewer/testingGym/photoPier.ts",
+        "src/viewer/testingGym/pierApron.ts"
       ],
       "libraryIds": [],
       "notes": "Location-scale terrain/access assemblies; maintain geometry/collision agreement when extracting reusable sections."
@@ -323,6 +325,20 @@
       ],
       "libraryIds": [],
       "notes": "Retained source, not imported by the current museum factory. Do not restore exhibits as part of catalog maintenance."
+    },
+    {
+      "id": "pedal-surrey",
+      "category": "Vehicle",
+      "status": "library-shared",
+      "libraryIds": [
+        "pedal-surrey"
+      ],
+      "sources": [
+        "src/models/props/surrey/index.ts",
+        "src/viewer/testingGym/surrey.ts"
+      ],
+      "notes": "Photo-derived green four-wheel surrey. Six animated batches; Gym owns kinematic vehicle control and collision; provisional physical dimensions.",
+      "name": "Pedal surrey"
     }
   ],
   "nonAssetSources": [

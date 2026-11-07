@@ -77,3 +77,7 @@ For a new prop, update the library catalog and dimension/budget/reference tables
 ## Verification
 
 See the audit review (historical authoring evidence omitted from this public snapshot) for browser captures and final checks. Six additions were inspected through Near/Mid/Far on native WebGPU and WebGL 2 in local Chrome, with a café world capture on each backend. Physical mobile devices, Safari and Firefox were not checked in this pass.
+
+## November 6 addition
+
+The pedal surrey is a library-shared vehicle: [model](../src/models/props/surrey/index.ts), [Gym controller](../src/viewer/testingGym/surrey.ts). Six animated batches retain independent distance LOD. The [photo study](lovers-point-surrey.md) documents the shared pier section, concrete apron, lodge and kiosk refinements and their provisional measurements.

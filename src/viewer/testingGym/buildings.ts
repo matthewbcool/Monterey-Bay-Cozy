@@ -126,7 +126,8 @@ export function addParkBuildings(parent: Group, colliders: GymCollider[], ground
   const pick = (id: string) => { let h = 2166136261; for (let i = 0; i < id.length; i++) h = Math.imul(h ^ id.charCodeAt(i), 16777619); return h >>> 0; };
   for (const building of map.buildings) {
     const grill=building.id==='way/224525166',hut=building.id==='way/931232626';
-    const points = points2D(building.points), height = grill?2.45:hut?2.3:building.height, edges = facades(points), beachHouse = building.id === 'way/224525165';
+    const lodge=building.id==='way/558778075';
+    const points = points2D(building.points), height = lodge?8.4:grill?2.45:hut?2.3:building.height, edges = facades(points), beachHouse = building.id === 'way/224525165';
     // Sample every DEM plane under the footprint, including interior highs.
     // The old bath house has a lower waterfront floor opening onto the pool
     // terrace (city facilities photos p53); its rear is embedded in the hillside.
@@ -139,14 +140,36 @@ export function addParkBuildings(parent: Group, colliders: GymCollider[], ground
     const foundation=shell(points,base-bottom);
     foundation.translate(0,bottom-base,0);
     mesh(buildings,`${building.name} · terrain foundation / mapped footprint`,foundation,mat('#898c7c'));
-    const h = pick(building.id), wall = beachHouse ? sage : grill||hut ? cream : walls[h % walls.length], roof = grill ? navy : hut ? cream : roofs[(h >>> 3) % roofs.length];
+    const h = pick(building.id), wall = beachHouse ? sage : lodge ? mat('#828d89') : grill||hut ? cream : walls[h % walls.length], roof = lodge ? charcoal : grill ? navy : hut ? cream : roofs[(h >>> 3) % roofs.length];
     const geometry = shell(points,height);
     mesh(buildings, `${building.name} · mapped footprint / estimated height`, geometry, wall);
     const xs = points.map(p => p[0]), zs = points.map(p => p[1]);
     colliders.push({ kind: 'box', footprint: points, top: base+height+(beachHouse?5.5:grill?.35:hut?.12:.85), minX: Math.min(...xs), maxX: Math.max(...xs), minZ: Math.min(...zs), maxZ: Math.max(...zs) });
     pitchedRoof(buildings, building.name, points, edges, height, beachHouse ? 5.5 : grill ? .35 : hut ? .12 : .85, beachHouse ? charcoal : roof, wall);
+    if(hut){
+      const red=mat('#b94d35');
+      for(const edge of edges){windowBand(buildings,edge,0,1,height-.06,height+.15,.06,red,'Pier utility hut · red parapet cap');windowBand(buildings,edge,.34,.66,.55,1.65,.04,mat('#d9d6c3'),'Pier utility hut · cream shutter');}
+      continue;
+    }
+    if(lodge){
+      // Three storeys, repeated white balcony bays and gray wall planes (photo 6).
+      for(const edge of edges.filter(e=>e.length>15&&e.normal[0]>0)){
+        const bays=Math.max(3,Math.round(edge.length/4.4));
+        for(let floor=0;floor<3;floor++)for(let j=0;j<bays;j++){
+          const a=(j+.12)/bays,b=(j+.88)/bays,y=.4+floor*2.7;
+          windowBand(buildings,edge,a,b,y,y+2.1,.04,cream,'Lodge · white door surround');
+          windowBand(buildings,edge,a+.05/bays,b-.05/bays,y+.1,y+2,.06,navy,'Lodge · recessed glazing');
+          if(floor>0){
+            windowBand(buildings,edge,a,b,y,y+.13,.72,cream,'Lodge · balcony slab edge');
+            windowBand(buildings,edge,a,b,y+.82,y+.89,.72,cream,'Lodge · balcony top rail');
+            for(let k=0;k<=8;k++){const t=a+(b-a)*k/8;windowBand(buildings,edge,t-.018/edge.length,t+.018/edge.length,y+.1,y+.86,.72,cream,'Lodge · balcony picket');}
+          }
+        }
+      }
+      continue;
+    }
     if(grill) {
-      const burgundy=mat('#813f4b');
+      const burgundy=mat('#329b9f');
       // Both the court-facing long facade and approach end carry service hatches.
       for(const edge of edges.filter(e=>e.normal[1]<-.6||e.normal[0]<-.8)) {
         windowBand(buildings,edge,.12,.88,1.04,2.05,.04,navy,'Grill · recessed serving hatch');
@@ -157,14 +180,7 @@ export function addParkBuildings(parent: Group, colliders: GymCollider[], ground
       windowBand(buildings,front,.27,.73,height+.20,height+1.10,.06,burgundy,'Grill · roof sign');
       panel(buildings,'Grill · roof sign back',[onWall(front,.27,height+.20,.04),onWall(front,.73,height+.20,.04),onWall(front,.73,height+1.10,.04),onWall(front,.27,height+1.10,.04)],[-front.normal[0],0,-front.normal[1]],burgundy);
       for(const t of [.30,.70])box(buildings,'Grill · sign support',[.055,.85,.055],cream,onWall(front,t,height+.38,.03) as [number,number,number]);
-      // Stroke lettering is ordinary batched geometry, without a font texture.
-      const glyphs=[[[0,0,0,1],[0,1,1,1],[0,0,1,0],[1,0,1,.5],[.5,.5,1,.5]],[[0,0,0,1],[0,1,1,1],[1,1,1,.5],[0,.5,1,.5],[.4,.5,1,0]],[[.5,0,.5,1],[0,1,1,1],[0,0,1,0]],[[0,1,0,0],[0,0,1,0]],[[0,1,0,0],[0,0,1,0]]];
-      glyphs.forEach((strokes,i)=>strokes.forEach(([ax,ay,bx,by])=>{
-        const u=.315+i*.075,scale=.050,v=height+.39;
-        const dx=(bx-ax)*scale*front.length,dy=(by-ay)*.47,len=Math.hypot(dx,dy),px=-dy/len*.022/front.length,py=dx/len*.022;
-        const coords=[[u+ax*scale+px,v+ay*.47+py],[u+ax*scale-px,v+ay*.47-py],[u+bx*scale-px,v+by*.47-py],[u+bx*scale+px,v+by*.47+py]];
-        panel(buildings,'Grill · cream sign lettering',coords.map(([t,y])=>onWall(front,t,y,.08)),[front.normal[0],0,front.normal[1]],cream);
-      }));
+      // Plain sign color block; no invented lettering from an oblique reference.
       continue;
     }
     if (!beachHouse) {
