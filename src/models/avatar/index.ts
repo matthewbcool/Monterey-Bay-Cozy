@@ -12,7 +12,7 @@ export type AvatarEmote = 'none' | 'wave' | 'cheer' | 'sit' | 'cast';
 /** Everything the rig needs can be read from replicated controller state, so a remote
  * player animates from the same fields as the local one. `landing` is the impact speed
  * (m/s) on the single frame the controller reports touching down. */
-export interface AvatarMotion { speed?: number; emote?: AvatarEmote; reducedMotion?: boolean; carrying?: boolean; swimming?: boolean; airborne?: boolean; verticalVelocity?: number; landing?: number; flying?: boolean; boosting?: boolean; submerged?: boolean }
+export interface AvatarMotion { pedalPhase?: number; speed?: number; emote?: AvatarEmote; reducedMotion?: boolean; carrying?: boolean; swimming?: boolean; airborne?: boolean; verticalVelocity?: number; landing?: number; flying?: boolean; boosting?: boolean; submerged?: boolean }
 export const AVATAR_BUDGET = { triangles: 5000, draws: 1, materials: 1, imageTextures: 0, bones: 17 } as const;
 const EMPTY_MOTION: Readonly<AvatarMotion> = Object.freeze({});
 /** Reference movement values; per-avatar placement uses model.dimensions. */
@@ -167,6 +167,14 @@ export function createAvatarModel(input: AvatarDesign = { ...DEFAULT_AVATAR_DESI
     }
     bones[JOINT.leftHand].rotation.set(0,0,-cheer*.18);
     bones[JOINT.rightHand].rotation.z=wave*waveWiggle+cheer*.18;
+    // Vehicle distance owns the crank phase; remote avatars can replay the same pose.
+    if(Number.isFinite(motion.pedalPhase)){
+      const cycle=Math.sin(motion.pedalPhase!);
+      bones[JOINT.leftLeg].rotation.x=-1.38+.24*cycle;
+      bones[JOINT.rightLeg].rotation.x=-1.38-.24*cycle;
+      bones[JOINT.leftKnee].rotation.x=1.48-.32*cycle;
+      bones[JOINT.rightKnee].rotation.x=1.48+.32*cycle;
+    }
     // Hop: knees tuck and arms lift on the way up, then open for balance on the way down.
     // The controller owns the height; these are pose-only bone changes.
     const airborne=motion.airborne===true&&!swimmingActive;

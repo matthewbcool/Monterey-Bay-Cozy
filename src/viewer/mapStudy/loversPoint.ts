@@ -1,3 +1,4 @@
+import {addPierApron} from '../testingGym/pierApron';
 import { GROUND_KIND, pathStyle } from '../testingGym/pathStyle';
 import { PARK_TREES } from '../testingGym/placement';
 import { composeGroundSurface } from '../testingGym/groundSurface';
@@ -118,6 +119,7 @@ export const LOVERS_POINT_GEOGRAPHY = {
   elevationUrl: elevation.sourceUrl,
   elevationDate: elevation.downloaded,
   verticalDatum: elevation.verticalDatum,
+  photoAssessment: 'November 3 contributor photos: two-level pier, red-capped hut, turquoise kiosk, three-storey lodge; dimensions remain estimates.',
   photoSource: features.references[0].url,
   seed: 6256,
   limits: 'Cached OSM footprints and USGS DEM terrain; not live geography. Widths, planting, walls, access tread profiles and building heights are stylized estimates. No bathymetry or live water-level claim.',
@@ -176,6 +178,7 @@ export function createLoversPointArea(origin: GeoPoint) {
   poolGate.root.position.set(0,0,0);poolGate.root.rotation.set(0,0,0);root.add(poolGate.root);
   addShoreEdges(scenery, colliders);
   addBeachAccess(scenery,colliders);
+  addPierApron(overlays);
   addParkBuildings(buildings, colliders, groundHeight);
   for (const child of scenery.children) {
     if (!(child instanceof Mesh) || child.userData.elevationPlaced) continue;

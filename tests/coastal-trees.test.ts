@@ -4,10 +4,12 @@ import {Box3,Mesh,Vector3,InstancedMesh,Matrix4} from 'three';
 import {TREE_SPECIES,createCoastalTree,type TreeSpecies} from '../src/models/habitat/trees/createCoastalTree';
 import {disposeObject} from '../src/models/props/primitives';
 import {prepareGeometryLods,triangles} from '../src/models/shared/lod/geometry';
-import {PARK_TREES} from '../src/viewer/testingGym/placement';
+import {PARK_TREES,TREE_PLACEMENT_OVERRIDES} from '../src/viewer/testingGym/placement';
 import {createParkNature} from '../src/viewer/testingGym/nature';
 import {mulberry32} from '../src/models/shared/random';
 import {TREE_SCALE_STUDY} from '../src/viewer/testingGym/treeScaleStudy';
+import features from '../src/data/lovers-point-features.json';
+import {pathStyle} from '../src/viewer/testingGym/pathStyle';
 import inventory from '../src/data/lovers-point-trees.json';
 for(const species of Object.keys(TREE_SPECIES) as TreeSpecies[])test(`${species}: 40 reproducible seeds, exact height, low geometry and owned LODs`,async()=>{
  for(let seed=0;seed<40;seed++){
@@ -23,11 +25,26 @@ for(const species of Object.keys(TREE_SPECIES) as TreeSpecies[])test(`${species}
   disposeObject(root);assert([...counts.values()].every(n=>n===1));disposeObject(copy);
  }
 });
-test('park records preserve municipal coordinates and species; native showcase trees are not planted speculatively',()=>{
+test('park records preserve source coordinates and species with explicit trail overrides; native showcase trees are not planted speculatively',()=>{
  assert.equal(PARK_TREES.length,52);assert.equal(new Set(PARK_TREES.map(t=>t.sourceId)).size,52);
  assert.equal(PARK_TREES.filter(t=>t.species==='monterey-cypress').length,43);
  assert(!PARK_TREES.some(t=>t.species==='monterey-pine'||t.species==='coast-live-oak'));
- for(const tree of PARK_TREES){const k=Math.PI/180*6371008.8;assert(Math.abs(tree.x-(tree.longitude-inventory.origin[0])*k*Math.cos(inventory.origin[1]*Math.PI/180))<.00051);assert(Math.abs(tree.z+(tree.latitude-inventory.origin[1])*k)<.00051);}
+ for(const tree of PARK_TREES){const k=Math.PI/180*6371008.8;assert(Math.abs(tree.original[0]-(tree.longitude-inventory.origin[0])*k*Math.cos(inventory.origin[1]*Math.PI/180))<.00051);assert(Math.abs(tree.original[1]+(tree.latitude-inventory.origin[1])*k)<.00051);}
+});
+test('bike path and crossing stay clear of every trunk and its collision radius',()=>{
+ const trails=features.paths.filter(p=>p.highway==='cycleway'||p.tags.name==='Monterey Bay Coastal Trail');
+ assert.equal(trails.length,2);
+ assert.deepEqual(PARK_TREES.filter(t=>t.x!==t.original[0]||t.z!==t.original[1]).map(t=>t.sourceId).sort(),[4869,4870,4871]);
+ for(const tree of PARK_TREES){
+  const source=inventory.trees.find(t=>t.sourceId===tree.sourceId)!;
+  assert.deepEqual(tree.original.slice(0,2),[source.x,source.z]);
+  assert.deepEqual([tree.x,tree.z],TREE_PLACEMENT_OVERRIDES[tree.sourceId]??[source.x,source.z]);
+  for(const path of trails)for(let i=1;i<path.points.length;i++){
+   const a=path.points[i-1],b=path.points[i],dx=b[0]-a[0],dz=b[1]-a[1];
+   const t=Math.max(0,Math.min(1,((tree.x-a[0])*dx+(tree.z-a[1])*dz)/(dx*dx+dz*dz)));
+   assert(Math.hypot(tree.x-a[0]-t*dx,tree.z-a[1]-t*dz)>=pathStyle(path).width/2+tree.trunkRadius+.75,`Tree ${tree.sourceId} blocks ${path.id}`);
+  }
+ }
 });
 test('spatial tree batches preserve exact source positions, scale, IDs and shared geometry',()=>{
  const nature=createParkNature(mulberry32(6256),(x,z)=>x*.01+z*.02);for(const tree of PARK_TREES)nature.tree(tree);const root=nature.finish();

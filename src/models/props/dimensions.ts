@@ -9,6 +9,7 @@ import { GULL } from '../habitat/western-gull/definition';
  * Source builders may use design-space proportions; finishing bakes this conversion.
  */
 export const PROP_SCALE = {
+  'pedal-surrey':[1,1,1],
   'southern-sea-otter': [1,1,1],
   ...FURNITURE_SCALE,
   'aggregating-anemone':[1,1,1],
@@ -42,6 +43,7 @@ export const PROP_SCALE = {
 } as const;
 export const DOCK_DECK_METRES=.73*PROP_SCALE.dock[1];
 export const PROP_BUDGETS = {
+  'pedal-surrey':{triangles:3000,drawCalls:6},
   'southern-sea-otter': {triangles:SEA_OTTER.budget.near,drawCalls:1},
   ...FURNITURE_BUDGETS,
   'aggregating-anemone':ANEMONE_BUDGET,
@@ -75,6 +77,7 @@ export const PROP_BUDGETS = {
 } as const;
 export type PropId=keyof typeof PROP_SCALE;
 export const SIZE_REFERENCES = {
+  'pedal-surrey':{label:'2.26 m long · 1.52 m canopy · provisional',basis:'Estimated from supplied front and oblique photographs, not a manufacturer measurement.',url:null},
   'southern-sea-otter': {label:'1.00–1.50 m adult range · 1.20 m specimen',basis:SEA_OTTER.sizeBasis,url:SEA_OTTER.source},
   ...FURNITURE_REFERENCES,
   'aggregating-anemone':{label:'5 cm disc · 4 cm column (provisional)',basis:ANEMONES.aggregating.sizeBasis,url:ANEMONES.aggregating.source},

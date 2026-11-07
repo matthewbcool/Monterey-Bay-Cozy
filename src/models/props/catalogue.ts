@@ -1,3 +1,4 @@
+import {createSurrey,animateSurrey} from './surrey';
 import { createSeaOtter, updateSeaOtter, setSeaOtterPose } from '../habitat/sea-otter/createSeaOtter';
 import {FURNITURE,furnitureIds,createFurniture} from './furniture';
 import { createDeer, updateDeer, setDeerPose } from '../habitat/deer/createDeer';
@@ -21,7 +22,7 @@ import { createWesternGull, getGullState, setGullPose, updateWesternGull } from 
 import { createGullFlock, getGullFlock } from '../habitat/western-gull/createGullFlock';
 
 export interface PropPose {id:string;label:string;apply:(root:Group)=>void;animated?:boolean;/** Optional finite action; Replay explicitly opts into motion. */finished?:(root:Group)=>boolean;}
-export interface PropEntry {id:PropId;name:string;category:'Furniture'|'Fishing gear'|'Boats'|'Dockside'|'Habitat'|'Landmarks'|'Trees'|'Special objects';description:string;create:()=>Group;/** Each create() is a new random variation (seed in userData.seed). */random?:boolean;animate?:(root:Group,dt:number)=>void;instances?:{counts:readonly number[];sizeLabel?:string;create:(count:number)=>Group;poses?:readonly PropPose[]};poses?:readonly PropPose[];}
+export interface PropEntry {id:PropId;name:string;category:'Vehicles'|'Furniture'|'Fishing gear'|'Boats'|'Dockside'|'Habitat'|'Landmarks'|'Trees'|'Special objects';description:string;create:()=>Group;/** Each create() is a new random variation (seed in userData.seed). */random?:boolean;animate?:(root:Group,dt:number)=>void;instances?:{counts:readonly number[];sizeLabel?:string;create:(count:number)=>Group;poses?:readonly PropPose[]};poses?:readonly PropPose[];}
 export const propCollection:PropEntry[]=[
   {id:'otter-man-suit',name:'Otter Man exploration suit',category:'Special objects',description:'Otter helmet, cream muzzle, copper armor, sea-glass jets and a tail stabilizer. Equip at the Gym station to fly.',create:createOtterManSuit},
   {id:'spinning-rod',name:'Harbor spinning rod',category:'Fishing gear',description:'Cork grip, seafoam reel, brass details and a coral float.',create:()=>createFishingRod()},
@@ -93,3 +94,5 @@ propCollection.push({id:'southern-sea-otter',name:'Southern sea otter',category:
     ]});
 
 export {SIZE_REFERENCES};
+
+propCollection.push({id:'pedal-surrey',name:'Pedal surrey',category:'Vehicles',description:'Photo-informed green pedal surrey with yellow canopy. Provisional 2.26 m length; ride it in the Gym.',create:()=>createSurrey().root,animate:animateSurrey});

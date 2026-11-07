@@ -65,3 +65,5 @@ When changing a feature, update its guide and relevant catalogue/register togeth
 - [Lovers Point recreation area](recreation-area.md): October 25 reference-photo pass, opening pool gate, court, trail, terrain grading and performance.
 
 - [Gym rendering performance](gym-rendering-performance.md): per-pass draw audit, conservative shadow culling and wildlife growth guidance.
+
+- [Lovers Point photo study and rideable surrey](lovers-point-surrey.md): November reference observations, provisional section/scale, controls, LOD and reproducible captures.

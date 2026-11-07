@@ -1,3 +1,4 @@
+import {PHOTO_PIER,PIER_LENGTH,PIER_DIRECTION,pierPoint} from './photoPier';
 import { BufferGeometry, CylinderGeometry, ExtrudeGeometry, Float32BufferAttribute, Group, Path, Shape, Vector2, Vector3 } from 'three';
 import clipping from 'polygon-clipping';
 import features from '../../data/lovers-point-features.json';
@@ -42,7 +43,10 @@ export const ACCESS_SURFACES: Landing[] = features.paths.flatMap(route => {
       surfaces.push({x,z,dx:ux,dz:uz,length,width,startWidth,endWidth,height:Math.max(groundHeight(x,z),...corners)+.035,bottom:pier?.4:Math.min(...corners)-.08,kind:pier?'pier':photoSteps&&i===2?'landing':'step',sourceId:route.id});
     }
   }
-  if(pier)return surfaces;
+  if(pier){
+    for(const s of surfaces)if((s.x-PHOTO_PIER.start[0])*PIER_DIRECTION[0]+(s.z-PHOTO_PIER.start[1])*PIER_DIRECTION[1]>=0)s.height=PHOTO_PIER.upper;
+    return surfaces;
+  }
   // DEM samples describe a bank, not individual treads. Use a monotone 15 cm
   // stair rhythm above that bank, and a level turning/foot landing on the east
   // access. Counts, widths and handrail dimensions remain photo-informed estimates.
@@ -56,6 +60,14 @@ export const ACCESS_SURFACES: Landing[] = features.paths.flatMap(route => {
   flight.forEach((s,i)=>s.height=base+levels[i]*riser);
   return surfaces;
 });
+
+// Lower landing and its stair flight are part of the same physical surface table.
+const landingCentre=pierPoint(PIER_LENGTH/2,2.9);
+ACCESS_SURFACES.push({x:landingCentre[0],z:landingCentre[1],dx:PIER_DIRECTION[0],dz:PIER_DIRECTION[1],length:PIER_LENGTH,width:2.6,startWidth:2.6,endWidth:2.6,height:PHOTO_PIER.lower,bottom:.4,kind:'landing',sourceId:'photo-pier-lower'});
+for(let i=0;i<16;i++){
+ const length=PHOTO_PIER.stairLength/16,[x,z]=pierPoint((i+.5)*length,2.35);
+ ACCESS_SURFACES.push({x,z,dx:PIER_DIRECTION[0],dz:PIER_DIRECTION[1],length,width:1.5,startWidth:1.5,endWidth:1.5,height:PHOTO_PIER.upper-(i+1)*(PHOTO_PIER.upper-PHOTO_PIER.lower)/16,bottom:PHOTO_PIER.lower-.05,kind:'step',sourceId:'photo-pier-stairs'});
+}
 
 export function accessHeight(x:number,z:number):number {
   let height=groundHeight(x,z);
@@ -123,6 +135,8 @@ export function addBeachAccess(scenery:Group,colliders:GymCollider[] = []) {
       const s=pier[i];distance+=s.length;
       if(i!==0&&i!==pier.length-1&&distance<3)continue;
       distance=0;
+      const along=(s.x-PHOTO_PIER.start[0])*PIER_DIRECTION[0]+(s.z-PHOTO_PIER.start[1])*PIER_DIRECTION[1];
+      if(side===1&&along>=-.5&&along<PHOTO_PIER.stairLength){previous=undefined;continue;}
       const x=s.x-s.dz*(s.width/2-.08)*side,z=s.z+s.dx*(s.width/2-.08)*side;
       const base=new Vector3(x,s.height,z),top=base.clone().add(new Vector3(0,1,0));
       bar(base,top,'Concrete pier · dark railing post',darkRail);
@@ -140,7 +154,7 @@ export function addBeachAccess(scenery:Group,colliders:GymCollider[] = []) {
     const delta=b.clone().sub(a),g=new CylinderGeometry(.035,.035,delta.length(),4,1,true),part=mesh(scenery,name,g,material);
     part.position.copy(a).add(b).multiplyScalar(.5);part.quaternion.setFromUnitVectors(new Vector3(0,1,0),delta.normalize());part.userData.elevationPlaced=true;
   }
-  for(const id of ['way/633871947','way/633871934']){
+  for(const id of ['way/633871947','way/633871934','photo-pier-stairs']){
     const route=ACCESS_SURFACES.filter(s=>s.sourceId===id);
     for(const side of [-1,1]){
       let previous:Vector3|undefined,distance=0;

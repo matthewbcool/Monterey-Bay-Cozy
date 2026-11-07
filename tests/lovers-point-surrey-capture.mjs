@@ -1,0 +1,19 @@
+import {chromium} from 'playwright';
+import fs from 'node:fs/promises';
+const out=process.env.ARTIFACT_DIR??'artifacts/lovers-point-surrey';await fs.mkdir(out,{recursive:true});const measurements=[];
+const browser=await chromium.launch({channel:'chrome',headless:true});
+const page=await browser.newPage({viewport:{width:1400,height:900}});page.on('pageerror',e=>console.log('ERROR',e.message));
+await page.goto((process.env.PREVIEW_URL??'http://127.0.0.1:5191/')+'?tab=gym&water=balanced&whales=hide'+(process.env.WEBGL?'&webgl':''));
+await page.evaluate(async()=>{window.v=(await import(document.querySelector('script[type="module"][src*="/src/main.ts"]').src)).viewer;await v.started;});
+await page.waitForFunction(()=>v.avatarWorkbench?.getSnapshot().gymReady,{},{timeout:180000});
+console.log('READY');
+await page.evaluate(()=>{for(const[id,value]of [['gym-weather-mode','clear'],['gym-weather-clock','preview'],['gym-weather-date','2026-11-06T13:00']]){const e=document.getElementById(id);e.value=value;e.dispatchEvent(new Event('change',{bubbles:true}));}});
+await page.waitForTimeout(1200);
+await page.evaluate(async()=>{const w=v.avatarWorkbench;Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});document.dispatchEvent(new Event('visibilitychange'));await w.lod.ready();w.lod.setMode('near');});
+await page.addStyleTag({content:'body *{visibility:hidden!important}canvas{visibility:visible!important} .gym-prompt-area,.gym-toolbar,.gym-hint,.gym-loading,.gym-controls{opacity:0!important} .gym-layout *:not(canvas){background:transparent!important;box-shadow:none!important;border-color:transparent!important}'});
+const views={'surrey-front':{position:[6.89,13.1,96.73],target:[3.1178,12.6,94.8854]},lodge:{position:[-35,23,-55],target:[-75,19,-24]},pier:{position:[32,10,48],target:[65,3.5,13]},promenade:{position:[-32,14.5,73],target:[5,12,97]},surrey:{position:[7,14,99],target:[3.1178,12.5,94.8854]}};
+for(const [name,view]of Object.entries({...views,'surrey-mid':views.surrey,'surrey-far':views.surrey})){
+await page.evaluate(name=>v.avatarWorkbench.lod.setMode(name==='surrey-mid'?'mid':name==='surrey-far'?'far':'near'),name);
+const metrics=await page.evaluate(async(view)=>{const w=v.avatarWorkbench,c=w.camera;c.position.fromArray(view.position);c.lookAt(...view.target);c.updateProjectionMatrix();c.updateMatrixWorld(true);w.weather.update({time:0,dt:60,underwater:false,overview:false,reducedMotion:true,water:w.gym.water});w.lod.update(c,900,0,true);await w.renderer.compileAsync(w.scene,c);for(let i=0;i<3;i++){await new Promise(requestAnimationFrame);w.renderer.info.reset();w.renderer.render(w.scene,c);}if(w.renderer.backend.device)await w.renderer.backend.device.queue.onSubmittedWorkDone();const {Box3,Vector3}=await import('/node_modules/.vite/deps/three.js');const bounds=new Box3().setFromObject(w.surrey.root),pixels=[];for(const x of [bounds.min.x,bounds.max.x])for(const y of [bounds.min.y,bounds.max.y])for(const z of [bounds.min.z,bounds.max.z]){const p=new Vector3(x,y,z).project(c);pixels.push([(p.x+1)*w.renderer.domElement.clientWidth/2,(1-p.y)*w.renderer.domElement.clientHeight/2]);}return{surreyScreenBounds:{width:Math.max(...pixels.map(p=>p[0]))-Math.min(...pixels.map(p=>p[0])),height:Math.max(...pixels.map(p=>p[1]))-Math.min(...pixels.map(p=>p[1]))},backend:w.getSnapshot().backend,lod:w.lod.stats(w.surrey.root),viewport:[w.renderer.domElement.width,w.renderer.domElement.height],camera:c.position.toArray(),target:view.target,fov:c.fov,render:{...w.renderer.info.render}};},view);
+await page.locator('#gym-viewport canvas').screenshot({path:`${out}/${process.env.LABEL||'final'}-${name}.png`});measurements.push({name,...metrics});console.log(name,JSON.stringify(metrics));}
+await fs.writeFile(`${out}/${process.env.LABEL||'final'}-measurements.json`,JSON.stringify(measurements,null,2));await browser.close();

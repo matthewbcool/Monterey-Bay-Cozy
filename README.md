@@ -49,11 +49,13 @@ The current Gym also has a drivable dive boat and a small rocky-reef dive site o
 
 ## Visual previews
 
-Run the local browser workbench to explore the scenes and creatures. Captured media and source photographs are excluded from this public source release. Browser tests can generate fresh local screenshots; see [public release scope](docs/public-release.md).
+Run the local browser workbench to explore the scenes and creatures. Source photographs and historical captures are excluded from this public source release; selected project-rendered PR review screenshots are documented with their reproduction settings. Browser tests can generate fresh local screenshots; see [public release scope](docs/public-release.md).
 
 ## Object catalog coverage
 
-Objects now groups **33 entries by category**, including **Furniture**: the cypress bench, green litter bin, café chair, round table and parasol. The reef’s aggregating anemone and a southern sea otter are also available under Habitat. The otter has Floating, Swimming, Grooming and Diving poses with shared distance LOD, plus a Tank route that spends most of its cycle resting and grooming at the surface. The [asset catalog audit](docs/asset-catalog-audit.md) records remaining scene-only furniture, recreation equipment, building components and retired work so they are not lost.
+The [rideable pedal surrey and Lovers Point photo study](docs/lovers-point-surrey.md) add a Vehicles entry, animated driving in the Gym, and shared pier/building refinements in Map Study. Use **Gym → Menu → Ride a surrey**, then **E** to board.
+
+Objects now groups **34 entries by category**, including **Furniture**: the cypress bench, green litter bin, café chair, round table and parasol. The reef’s aggregating anemone and a southern sea otter are also available under Habitat. The otter has Floating, Swimming, Grooming and Diving poses with shared distance LOD, plus a Tank route that spends most of its cycle resting and grooming at the surface. The [asset catalog audit](docs/asset-catalog-audit.md) records remaining scene-only furniture, recreation equipment, building components and retired work so they are not lost.
 
 ## Current exhibit and creature collection
 
@@ -551,6 +553,7 @@ These dated entries record earlier implementation work. Their test counts, captu
 | --- | --- | --- |
 | Harbor spinning rod | `createFishingRod()` | Cork grip, reel spool and crank, guide rings, line and coral float |
 | Bamboo float rod | `createFishingRod(true)` | Wrapped bamboo nodes, simple line and ochre float |
+| Pedal surrey | `createSurrey()` | Green four-wheel pedal vehicle, yellow canopy, animated wheel/steering/crank groups; [scale, sources, LOD and Gym controls](docs/lovers-point-surrey.md) |
 | Seafoam rowboat | `createRowboat()` | Open double-skin hull, wooden trim, floorboards, benches and wooden oars |
 | Marigold cabin boat | `createCabinBoat()` | Wheelhouse, windows, railings, fenders, life ring and outboard |
 | Timber dock section | `createDock()` | Planks, pilings, rope rails and mooring cleat |

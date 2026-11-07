@@ -10,7 +10,7 @@ Included: procedural TypeScript factories, browser scenes, tests, authoring tool
 
 Excluded: reference photos, third-party game screenshots, reference/model comparison images, historical captures/logs/videos, optional generated GLBs, old review bundles and private machine history. These are not required runtime assets. The tuna reference link now opens a public species source instead of a bundled photograph. Written observations and source-page citations remain, with uncertainty preserved. Omitted historical evidence is identified in the documentation; old validation claims describe earlier work, not tests newly performed on this release.
 
-Generated browser captures and logs are ignored by default. Keep downloaded references outside the public tree unless you have verified redistribution permission. The project uses metres, procedural geometry, the existing shared toon style and WebGPU/WebGL 2 fallback without importing third-party model meshes.
+Generated browser captures and logs are ignored by default. The November Lovers Point PR includes a small set of explicitly requested, project-rendered review screenshots under `docs/reviews/`, with reproducible camera/settings and measurements. These contain no source photographs or third-party comparison imagery. Keep downloaded references outside the public tree unless you have verified redistribution permission. The project uses metres, procedural geometry, the existing shared toon style and WebGPU/WebGL 2 fallback without importing third-party model meshes.
 
 ## Verification
 

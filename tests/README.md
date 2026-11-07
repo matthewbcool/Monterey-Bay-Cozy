@@ -131,3 +131,7 @@ The Map Study browser harness reads its backend and view attributes inside the p
 ## Fish ecology evidence and recipes
 
 `ecology.test.ts` checks exact source hashes, haul joins, explicit zeros versus missing stages/periods, metric grid edges, malformed records, habitat constraints and bounded deterministic recipes. `ecology-browser.mjs` checks Map Study filters, portable recipe downloads, demand rendering, mobile layout, Aquarium visibility and zero added 3D draws on WebGPU and WebGL 2; it accepts `ARTIFACT_DIR`. [Data interpretation](../docs/fish-ecology.md).
+
+## Rideable surrey and November Lovers Point study
+
+`surrey.test.ts` checks scale, LOD, collision, braking/reverse steering, real trail clearance and the new pier section. `surrey-browser.mjs` drives the normal Gym UI on WebGPU and WebGL, including dismount and tab changes. `lovers-point-surrey-capture.mjs` writes fixed-camera screenshots and measured render/model bounds; see [the study](../docs/lovers-point-surrey.md).

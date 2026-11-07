@@ -66,7 +66,7 @@ test('mapped buildings retain footprints and supported foundations with explicit
     for(const [i,building] of parent.children.entries()) {
       const source=map.buildings[i],meta=building.userData.foundation;
       // October 26 photos distinguish the low cafe/hut from generic 3.5 m masses.
-      const wallHeight=source.id==='way/224525166'?2.45:source.id==='way/931232626'?2.3:source.height;
+      const wallHeight=source.id==='way/558778075'?8.4:source.id==='way/224525166'?2.45:source.id==='way/931232626'?2.3:source.height;
       assert.equal(meta.sourceId,source.id);assert.equal(meta.wallHeight,wallHeight);
       if(source.id==='way/224525165'){
         assert(Math.abs(meta.base-8.31)<1e-8,'Old bath house lower doors meet the pool promenade');
@@ -95,11 +95,10 @@ test('bath house waterfront entrances have a continuous lower approach while the
   assert(groundHeight(-15,13)>9,'The western hillside must remain behind the bath house');
 });
 
-test('inventory tree trunks stay outside mapped building footprints without relocation',()=>{
+test('resolved tree trunks stay outside mapped building footprints',()=>{
   assert.equal(PARK_TREES.length,52);
   for(const tree of PARK_TREES)for(const building of map.buildings) {
     const points=building.points.map(([x,z])=>[x,z] as GymPoint);
     assert(!insidePolygon(tree.x,tree.z,points),String(tree.sourceId));
-    assert.equal(tree.x,tree.original[0]);assert.equal(tree.z,tree.original[1]);
   }
 });

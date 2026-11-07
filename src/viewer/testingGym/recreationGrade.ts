@@ -1,3 +1,4 @@
+import {PHOTO_PIER,PIER_LENGTH} from './photoPier';
 import { type GymPoint } from '../avatarController';
 import clipping, { type MultiPolygon } from 'polygon-clipping';
 
@@ -51,6 +52,8 @@ for(let i=1;i<BATH_HOUSE_FRONTAGE.length;i++){
   }
 }
 const masks:Mask[]=[
+  // Cut the coarse DEM below both concrete decks; shared render/footing planes.
+  {points:quad(frame(PHOTO_PIER.start,PHOTO_PIER.end),-.4,PIER_LENGTH+.4,-1.7,4.3),height:()=>PHOTO_PIER.lower-.08},
   {points:lower,height:()=>RECREATION_TERRACE.height},
   ...BATH_HOUSE_APRON_POLYGONS.map(points=>({points,height:()=>RECREATION_TERRACE.height})),
   // Only the inland court edge receives a retaining bank. There is no seaward rim.
