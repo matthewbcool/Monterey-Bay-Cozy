@@ -31,6 +31,14 @@ export function treePlacementIssues(x:number,z:number,height:number):string[] {
   if([[1,0],[-1,0],[0,1],[0,-1]].some(([dx,dz])=>Math.abs(groundHeight(x+dx,z+dz)-y)>.55))issues.push('steep bank');
   return issues;
 }
+/** User-confirmed clear bike path (November photo review). These are authored
+ * planting-strip placements, not corrections to the municipal GIS coordinates.
+ * Only the three conflicting trunks move; crowns may still overhang paving. */
+export const TREE_PLACEMENT_OVERRIDES:Readonly<Record<number,readonly [number,number]>>={
+  4869:[-5.743,85.010],
+  4870:[-14.570,80.679],
+  4871:[-27.454,74.359],
+};
 /** Photo-based site heights override the provisional size classes without editing GIS data.
  * DBH is a relative age/size hint only: its source units are unspecified. */
 export function resolveParkTrees() {
@@ -39,9 +47,11 @@ export function resolveParkTrees() {
     const studyHeight=species==='monterey-cypress'?TREE_SCALE_STUDY.heights[record.sourceId]:undefined;
     const height=studyHeight??(species==='monterey-cypress'?(record.dbhSourceValue>45?9:record.dbhSourceValue>20?7:record.dbhSourceValue>8?5:2.8):TREE_SPECIES[species].height);
     const trunkRadius=height*(species==='monterey-cypress'?.03:.06);
-    return {...record,species,height,trunkRadius,heightBasis:studyHeight===undefined?'authored size class':'photo-based site estimate',
+    const [x,z]=TREE_PLACEMENT_OVERRIDES[record.sourceId]??[record.x,record.z];
+    return {...record,x,z,species,height,trunkRadius,
+      positionBasis:TREE_PLACEMENT_OVERRIDES[record.sourceId]?'authored planting-strip placement; user-confirmed clear bike path':'municipal inventory coordinate', heightBasis:studyHeight===undefined?'authored size class':'photo-based site estimate',
       heightUncertaintyMetres:studyHeight===undefined?undefined:TREE_SCALE_STUDY.heightUncertaintyMetres,
-      original:[record.x,record.z,height] as const,issues:treePlacementIssues(record.x,record.z,height)};
+      original:[record.x,record.z,height] as const,issues:treePlacementIssues(x,z,height)};
   });
 }
 export const PARK_TREES=resolveParkTrees();

@@ -51,3 +51,7 @@ The complete unit run passed 588 tests. After the final authored frame LOD refin
 - Existing terrain/access checks preserve mapped centerline traversal, supported building foundations and single-surface ground coverage across LOD.
 
 Desktop Chrome checks do not establish physical phone, gamepad, Safari or Firefox support. Kinematic collisions are conservative, and the rider pose is stylized rather than a full pedal-contact IK solver.
+
+## Clear bike-path correction
+
+User review confirmed that the paved bike lane has no trees. Three overlapping cypress placements (inventory IDs 4869, 4870, 4871) now sit in the adjacent planting strip. Original GIS coordinates are preserved separately; these render-placement overrides also drive Gym collision and canopy shading and the Map Study. Tree count, geometry and draw costs are unchanged. Updated screenshots were inspected on WebGPU and WebGL; 18 focused tree, terrain and vehicle tests plus the production build passed. A regression checks every trunk against both mapped trail segments and the crossing, including collision clearance.

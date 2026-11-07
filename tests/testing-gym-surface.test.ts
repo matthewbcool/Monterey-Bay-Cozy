@@ -95,11 +95,10 @@ test('bath house waterfront entrances have a continuous lower approach while the
   assert(groundHeight(-15,13)>9,'The western hillside must remain behind the bath house');
 });
 
-test('inventory tree trunks stay outside mapped building footprints without relocation',()=>{
+test('resolved tree trunks stay outside mapped building footprints',()=>{
   assert.equal(PARK_TREES.length,52);
   for(const tree of PARK_TREES)for(const building of map.buildings) {
     const points=building.points.map(([x,z])=>[x,z] as GymPoint);
     assert(!insidePolygon(tree.x,tree.z,points),String(tree.sourceId));
-    assert.equal(tree.x,tree.original[0]);assert.equal(tree.z,tree.original[1]);
   }
 });
