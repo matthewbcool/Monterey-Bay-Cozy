@@ -53,9 +53,11 @@ Run the local browser workbench to explore the scenes and creatures. Source phot
 
 ## Object catalog coverage
 
+[California ground squirrels](docs/ground-squirrel.md), requested by Ramero1993, are available in Objects with Alert, Foraging and Scurrying poses and instanced groups. Eight live beside the Lovers Point rocks; choose **Gym → Menu → Rockside squirrels**.
+
 The [rideable pedal surrey and Lovers Point photo study](docs/lovers-point-surrey.md) add a Vehicles entry, animated driving in the Gym, and shared pier/building refinements in Map Study. Use **Gym → Menu → Ride a surrey**, then **E** to board.
 
-Objects now groups **34 entries by category**, including **Furniture**: the cypress bench, green litter bin, café chair, round table and parasol. The reef’s aggregating anemone and a southern sea otter are also available under Habitat. The otter has Floating, Swimming, Grooming and Diving poses with shared distance LOD, plus a Tank route that spends most of its cycle resting and grooming at the surface. The [asset catalog audit](docs/asset-catalog-audit.md) records remaining scene-only furniture, recreation equipment, building components and retired work so they are not lost.
+Objects now groups **35 entries by category**, including **Furniture**: the cypress bench, green litter bin, café chair, round table and parasol. The reef’s aggregating anemone and a southern sea otter are also available under Habitat. The otter has Floating, Swimming, Grooming and Diving poses with shared distance LOD, plus a Tank route that spends most of its cycle resting and grooming at the surface. The [asset catalog audit](docs/asset-catalog-audit.md) records remaining scene-only furniture, recreation equipment, building components and retired work so they are not lost.
 
 ## Current exhibit and creature collection
 
@@ -553,6 +555,7 @@ These dated entries record earlier implementation work. Their test counts, captu
 | --- | --- | --- |
 | Harbor spinning rod | `createFishingRod()` | Cork grip, reel spool and crank, guide rings, line and coral float |
 | Bamboo float rod | `createFishingRod(true)` | Wrapped bamboo nodes, simple line and ochre float |
+| California ground squirrel | `createGroundSquirrel()` / `createSquirrelBatch()` | 43 cm representative adult, alert/forage/scurry poses; eight rockside Gym placements in one instanced draw. Requested by Ramero1993; [scale, sources and LOD costs](docs/ground-squirrel.md) |
 | Pedal surrey | `createSurrey()` | Green four-wheel pedal vehicle, yellow canopy, animated wheel/steering/crank groups; [scale, sources, LOD and Gym controls](docs/lovers-point-surrey.md) |
 | Seafoam rowboat | `createRowboat()` | Open double-skin hull, wooden trim, floorboards, benches and wooden oars |
 | Marigold cabin boat | `createCabinBoat()` | Wheelhouse, windows, railings, fenders, life ring and outboard |

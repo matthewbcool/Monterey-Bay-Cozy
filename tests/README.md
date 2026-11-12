@@ -135,3 +135,7 @@ The Map Study browser harness reads its backend and view attributes inside the p
 ## Rideable surrey and November Lovers Point study
 
 `surrey.test.ts` checks scale, LOD, collision, braking/reverse steering, real trail clearance and the new pier section. `surrey-browser.mjs` drives the normal Gym UI on WebGPU and WebGL, including dismount and tab changes. `lovers-point-surrey-capture.mjs` writes fixed-camera screenshots and measured render/model bounds; see [the study](../docs/lovers-point-surrey.md).
+
+## Ground squirrels
+
+`ground-squirrel.test.ts` covers the asset, instancing, relative morphs, lifecycle and eight safe rockside placements. `ground-squirrel-browser.mjs` checks all library poses/LODs, one-draw 1/8/32 groups and the Gym shortcut on both backends. See [scale, sources and cost](../docs/ground-squirrel.md).

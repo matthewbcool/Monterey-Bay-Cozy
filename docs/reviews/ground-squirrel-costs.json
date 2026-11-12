@@ -1,0 +1,46 @@
+{
+  "backends": [
+    "webgl",
+    "webgpu"
+  ],
+  "errors": [],
+  "individual": {
+    "grounding": 0.004591814242303371,
+    "backend": "WebGPU",
+    "near": {
+      "triangles": 556,
+      "draws": 1
+    },
+    "mid": {
+      "triangles": 236,
+      "draws": 1
+    },
+    "far": {
+      "triangles": 140,
+      "draws": 1
+    },
+    "bytes": 157656,
+    "meshes": 1,
+    "ready": true
+  },
+  "group": {
+    "grounding": 0.004591814242303371,
+    "backend": "WebGPU",
+    "near": {
+      "triangles": 4448,
+      "draws": 1
+    },
+    "mid": {
+      "triangles": 1888,
+      "draws": 1
+    },
+    "far": {
+      "triangles": 1120,
+      "draws": 1
+    },
+    "bytes": 158496,
+    "meshes": 1,
+    "ready": true
+  },
+  "worldCount": 8
+}

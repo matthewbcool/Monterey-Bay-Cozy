@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-06",
+  "date": "2026-11-11",
   "scope": "Semantic asset families in current procedural source. Family records are not counts of mesh parts or placed instances. Catalog-only assets are enumerated by propCollection.",
   "entries": [
     {
@@ -339,6 +339,22 @@
       ],
       "notes": "Photo-derived green four-wheel surrey. Six animated batches; Gym owns kinematic vehicle control and collision; provisional physical dimensions.",
       "name": "Pedal surrey"
+    },
+    {
+      "id": "california-ground-squirrels",
+      "name": "California ground squirrel and rockside group",
+      "category": "Habitat",
+      "status": "library-shared",
+      "sources": [
+        "src/models/habitat/ground-squirrel/definition.ts",
+        "src/models/habitat/ground-squirrel/geometry.ts",
+        "src/models/habitat/ground-squirrel/createGroundSquirrel.ts",
+        "src/viewer/testingGym/squirrels.ts"
+      ],
+      "libraryIds": [
+        "california-ground-squirrel"
+      ],
+      "notes": "Requested by Ramero1993. Eight authored rockside placements share one morph-animated draw; alert/forage/scurry poses and authored metre-scale LOD, host-owned terrain/avoidance."
     }
   ],
   "nonAssetSources": [
