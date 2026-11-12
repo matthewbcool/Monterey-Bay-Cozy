@@ -69,3 +69,7 @@ The 14 cm oral disk and 5.5 cm column are authored representative dimensions, no
 [`sea-otter/`](sea-otter/README.md) separates sourced identity/dimensions, seeded geometry, local rig animation and the factory. `createSeaOtter()` returns one matte skinned mesh with Floating, Swimming, Grooming and Diving poses. The default adult measures 1.20 m nose to tail; the library also reports the combined-sex 1.00–1.50 m source range. Head, torso, paws, webbed hind feet and tail share one vertex-colored batch. Authored Near/Mid/Far variants retain the rig, physics metadata and host-owned placement. See [reference observations](../../../docs/sea-otter-references.md) and measured review (historical authoring evidence omitted from this public snapshot).
 
 The Tank adapter reuses this same otter at the same scale; `viewer/seaOtterRoute.ts` owns surface rest, dive/swim/ascent travel. Objects retains all four direct pose previews.
+
+## California ground squirrel
+
+[`ground-squirrel/`](ground-squirrel/definition.ts) provides one shared toon morph batch, including 1/8/32-animal inspection and eight rockside Gym residents. Keep authored relative targets and all instance-slot identities through LOD. The [species guide](../../../docs/ground-squirrel.md) records source uncertainty, Ramero1993’s request, performance, behavior and ownership.

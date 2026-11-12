@@ -1,3 +1,4 @@
+import {createGymSquirrels} from './testingGym/squirrels';
 import {addPierApron} from './testingGym/pierApron';
 import { createCaledoniaArea, inCaledonia, caledoniaHeight } from './mapStudy/caledonia';
 import { createGymSeafloor, SEAFLOOR } from './testingGym/seafloor';
@@ -283,6 +284,7 @@ export function createTestingGym(options: { whaleSightingRoll?: number } = {}) {
   const flightFloor=(x:number,z:number)=>inCaledonia(x,z)?caledoniaHeight(x,z):inWaterfront(x,z)?waterfront.floorAt(x,z):insidePolygon(x,z,land)?accessHeight(x,z):Math.max(swim.swimGroundHeight(x,z),reef.rockTop(x,z));
   const flightBounds={minX:-430,maxX:1500,minZ:-230,maxZ:900};
   // Spawn is an invariant; authored object changes must not silently trap a newly loaded avatar.
+  const squirrels=createGymSquirrels(accessHeight,bounds,colliders);
   if (!canStandAt(spawn.x, spawn.z, bounds, colliders)) throw new Error('Testing Gym spawn overlaps a collider');
   // The moored boat shares the water shader's wave function, like the rowboat's visual child.
   /** Move hull circles with their boats: swimmers collide with the dive boat wherever it is driven. */
@@ -306,12 +308,12 @@ export function createTestingGym(options: { whaleSightingRoll?: number } = {}) {
       ladderPoint: (out: Vector3) => { diveBoat.updateMatrixWorld(); return diveBoat.localToWorld(out.set(...DIVE_BOAT.ladder)); },
       entryPoint: (out: Vector3) => { diveBoat.updateMatrixWorld(); return diveBoat.localToWorld(out.set(...DIVE_BOAT.entry)); },
       boarding: new Vector3(boardAt[0], accessHeight(boardAt[0], boardAt[1]) + GYM_GROUND_CLEARANCE, boardAt[1]) }, root, spawn, bounds, colliders, interactions, statues, ...swim, groundHeight: (x:number,z:number)=>museum.floorAt(x,z)??(inCaledonia(x,z)?caledoniaHeight(x,z):inWaterfront(x,z)?waterfront.floorAt(x,z):accessHeight(x,z)), terrainHeight: (x:number,z:number)=>inCaledonia(x,z)?caledoniaHeight(x,z):inWaterfront(x,z)?waterfrontHeight(x,z):groundHeight(x,z), swimGroundHeight: (x: number, z: number) => museum.floorAt(x,z)??(inCaledonia(x,z)?caledoniaHeight(x,z):inWaterfront(x,z)?waterfront.floorAt(x,z):Math.max(swim.swimGroundHeight(x, z), reef.rockTop(x, z))),
-    geography: GYM_GEOGRAPHY, boat, dock, water, vessel, targets: { rod, tackle },
+    squirrels, geography: GYM_GEOGRAPHY, boat, dock, water, vessel, targets: { rod, tackle },
     setRodEquipped(equipped: boolean) { const i = colliders.indexOf(rodCollider); if (equipped && i >= 0) colliders.splice(i, 1); else if (!equipped && i < 0) colliders.push(rodCollider); },
     update(time: number) { if (!disposed && Number.isFinite(time)) { water.update(time); butterflies.update(time); vessel.syncSurface(time); diveVessel.syncSurface(time); syncHulls();
       // The shader draws one wake: give it to whichever boat is moving faster.
       const wake = Math.abs(diveVessel.speed) > Math.abs(vessel.speed) ? diveVessel : vessel;
       water.setWake(wake.root.position.x-water.root.position.x,wake.root.position.z-water.root.position.z,wake.heading,wake.speed); } },
-    dispose() { if (disposed) return; disposed = true; butterflies.dispose(); gulls.dispose(); seafloor.dispose(); reef.dispose(); whalePod.dispose(); coastalLife.dispose(); waterfront.dispose(); caledonia.dispose(); museum.dispose(); water.dispose(); root.traverse(object => { if (object instanceof InstancedMesh) object.dispose(); }); disposeObject(root); },
+    dispose() { if (disposed) return; disposed = true; squirrels.dispose(); butterflies.dispose(); gulls.dispose(); seafloor.dispose(); reef.dispose(); whalePod.dispose(); coastalLife.dispose(); waterfront.dispose(); caledonia.dispose(); museum.dispose(); water.dispose(); root.traverse(object => { if (object instanceof InstancedMesh) object.dispose(); }); disposeObject(root); },
   };
 }

@@ -1,3 +1,4 @@
+import {SQUIRREL} from '../habitat/ground-squirrel/definition';
 import { SEA_OTTER } from '../habitat/sea-otter/definition';
 import {ANEMONES,ANEMONE_BUDGET} from '../habitat/anemone/definition';
 import {FURNITURE_SCALE,FURNITURE_BUDGETS,FURNITURE_REFERENCES} from './furniture';
@@ -9,6 +10,7 @@ import { GULL } from '../habitat/western-gull/definition';
  * Source builders may use design-space proportions; finishing bakes this conversion.
  */
 export const PROP_SCALE = {
+  'california-ground-squirrel':[1,1,1],
   'pedal-surrey':[1,1,1],
   'southern-sea-otter': [1,1,1],
   ...FURNITURE_SCALE,
@@ -43,6 +45,7 @@ export const PROP_SCALE = {
 } as const;
 export const DOCK_DECK_METRES=.73*PROP_SCALE.dock[1];
 export const PROP_BUDGETS = {
+  'california-ground-squirrel':{triangles:SQUIRREL.budget.near,drawCalls:1},
   'pedal-surrey':{triangles:3000,drawCalls:6},
   'southern-sea-otter': {triangles:SEA_OTTER.budget.near,drawCalls:1},
   ...FURNITURE_BUDGETS,
@@ -77,6 +80,7 @@ export const PROP_BUDGETS = {
 } as const;
 export type PropId=keyof typeof PROP_SCALE;
 export const SIZE_REFERENCES = {
+  'california-ground-squirrel':{label:'35.6–50.8 cm total adult length · 43 cm specimen',basis:SQUIRREL.sizeBasis,url:SQUIRREL.source},
   'pedal-surrey':{label:'2.26 m long · 1.52 m canopy · provisional',basis:'Estimated from supplied front and oblique photographs, not a manufacturer measurement.',url:null},
   'southern-sea-otter': {label:'1.00–1.50 m adult range · 1.20 m specimen',basis:SEA_OTTER.sizeBasis,url:SEA_OTTER.source},
   ...FURNITURE_REFERENCES,

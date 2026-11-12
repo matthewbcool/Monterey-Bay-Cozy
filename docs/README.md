@@ -67,3 +67,5 @@ When changing a feature, update its guide and relevant catalogue/register togeth
 - [Gym rendering performance](gym-rendering-performance.md): per-pass draw audit, conservative shadow culling and wildlife growth guidance.
 
 - [Lovers Point photo study and rideable surrey](lovers-point-surrey.md): November reference observations, provisional section/scale, controls, LOD and reproducible captures.
+
+- [California ground squirrel](ground-squirrel.md): Ramero1993’s requested animal, rockside placement, instanced poses, scale and rendering costs.

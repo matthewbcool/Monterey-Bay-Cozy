@@ -1,3 +1,4 @@
+import {createGroundSquirrel,createSquirrelBatch,animateGroundSquirrel,setGroundSquirrelPose} from '../habitat/ground-squirrel/createGroundSquirrel';
 import {createSurrey,animateSurrey} from './surrey';
 import { createSeaOtter, updateSeaOtter, setSeaOtterPose } from '../habitat/sea-otter/createSeaOtter';
 import {FURNITURE,furnitureIds,createFurniture} from './furniture';
@@ -96,3 +97,7 @@ propCollection.push({id:'southern-sea-otter',name:'Southern sea otter',category:
 export {SIZE_REFERENCES};
 
 propCollection.push({id:'pedal-surrey',name:'Pedal surrey',category:'Vehicles',description:'Photo-informed green pedal surrey with yellow canopy. Provisional 2.26 m length; ride it in the Gym.',create:()=>createSurrey().root,animate:animateSurrey});
+
+propCollection.push({id:'california-ground-squirrel',name:'California ground squirrel',category:'Habitat',description:'A gray-brown rockside squirrel with a pale belly, small upright ears and bushy tail. Requested by Ramero1993.',create:()=>createGroundSquirrel().root,random:true,animate:animateGroundSquirrel,
+ instances:{counts:[1,8,32],sizeLabel:'43 cm nose to tail · representative adult',create:count=>createSquirrelBatch({count}).root},
+ poses:([{id:'alert',label:'Alert'},{id:'forage',label:'Foraging'},{id:'scurry',label:'Scurrying'}] as const).map(p=>({...p,animated:true,apply:root=>setGroundSquirrelPose(root,p.id)}))});
